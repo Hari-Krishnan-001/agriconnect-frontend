@@ -1,0 +1,36 @@
+.recent-orders {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.recent-orders h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.recent-orders table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-orders th {
+  text-align: left;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.recent-orders td {
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.recent-orders tr:last-child td {
+  border-bottom: none;
+}
+
+.recent-orders tbody tr:hover {
+  background: #f8faf8;
+}

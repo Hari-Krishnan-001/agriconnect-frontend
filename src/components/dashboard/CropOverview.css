@@ -1,0 +1,32 @@
+.crop-overview {
+  width: 320px;
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.crop-overview h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.crop-overview ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.crop-overview li {
+  padding: 12px 0;
+  font-size: 18px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.crop-overview li:last-child {
+  border-bottom: none;
+}
+
+.crop-overview li:hover {
+  color: #1b8d3f;
+}

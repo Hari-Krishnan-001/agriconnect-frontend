@@ -1,0 +1,45 @@
+.help-banner {
+  margin-top: 30px;
+  background: linear-gradient(90deg, #1b8d3f, #2ea44f);
+  color: white;
+
+  padding: 25px 30px;
+
+  border-radius: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.help-banner h2 {
+  margin: 0 0 8px 0;
+}
+
+.help-banner p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.help-banner button {
+  background: white;
+  color: #1b8d3f;
+
+  border: none;
+
+  padding: 12px 24px;
+
+  border-radius: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.help-banner button:hover {
+  transform: translateY(-2px);
+}
