@@ -1,0 +1,159 @@
+.crop-details-page {
+  min-height: 100vh;
+  background: #f5f7f5;
+  padding: 40px;
+}
+
+.crop-details-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.back-button {
+  border: none;
+  background: transparent;
+  color: #1b8d3f;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.crop-details-card {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.crop-details-image {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf7ee;
+  font-size: 150px;
+}
+
+.crop-details-info {
+  padding: 45px;
+}
+
+.details-badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #15803d;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.crop-details-info h1 {
+  font-size: 40px;
+  margin: 15px 0 10px;
+}
+
+.details-description {
+  color: #69756d;
+  line-height: 1.6;
+}
+
+.details-price {
+  color: #1b8d3f;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 25px 0;
+}
+
+.details-price span {
+  font-size: 16px;
+  font-weight: 400;
+  color: #69756d;
+}
+
+.details-information {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.details-information div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.details-information span {
+  color: #69756d;
+  font-size: 13px;
+}
+
+.details-information strong {
+  color: #17221a;
+}
+
+
+/* Order */
+
+.place-order-card {
+  margin-top: 25px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.place-order-card h2 {
+  margin-top: 0;
+}
+
+.place-order-card p {
+  color: #69756d;
+}
+
+.order-form {
+  width: 320px;
+}
+
+.order-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.order-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #dce3dd;
+  border-radius: 9px;
+  outline: none;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.order-total strong {
+  color: #1b8d3f;
+  font-size: 20px;
+}
+
+.place-order-button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 9px;
+  background: #1b8d3f;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}

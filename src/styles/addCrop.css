@@ -1,0 +1,174 @@
+.add-crop-page {
+  min-height: 100vh;
+  background: #f5f7f5;
+  padding: 32px;
+}
+
+.add-crop-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.back-button {
+  border: none;
+  background: transparent;
+  color: #15803d;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.add-crop-card {
+  background: white;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.add-crop-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-crop-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 15px;
+  border-radius: 14px;
+  background: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+}
+
+.add-crop-header h1 {
+  margin: 0;
+  color: #111827;
+}
+
+.add-crop-header p {
+  color: #6b7280;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #16a34a;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.availability-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  color: #374151;
+}
+
+.availability-option input {
+  width: 17px;
+  height: 17px;
+  accent-color: #16a34a;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-button,
+.save-crop-button {
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-button {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+}
+
+.save-crop-button {
+  border: none;
+  background: #16a34a;
+  color: white;
+}
+
+.save-crop-button:hover {
+  background: #15803d;
+}
+
+.save-crop-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.add-crop-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 13px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 650px) {
+  .add-crop-page {
+    padding: 20px;
+  }
+
+  .add-crop-card {
+    padding: 22px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .cancel-button,
+  .save-crop-button {
+    width: 100%;
+  }
+}
