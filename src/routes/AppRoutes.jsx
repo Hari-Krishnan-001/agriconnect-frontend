@@ -1,73 +1,147 @@
 import { Routes, Route } from "react-router-dom";
 
+// Landing
 import LandingPage from "../pages/LandingPage";
+
+// Dashboards
 import FarmerDashboard from "../pages/FarmerDashboard";
 import StudentDashboard from "../pages/StudentDashboard";
 import BusinessDashboard from "../pages/BusinessDashboard";
 
+// Farmer Crops
 import Crops from "../pages/Crops";
 import AddCrop from "../pages/AddCrop";
+import EditCrop from "../pages/EditCrop";
+import FarmerOrders from "../pages/FarmerOrders";
+
+// Marketplace
 import Marketplace from "../pages/Marketplace";
 import CropDetails from "../pages/CropDetails";
 
+// Business Orders
+import Orders from "../pages/Orders";
+
+// Projects
 import ProjectExplorer from "../pages/ProjectExplorer";
 import ProjectDetails from "../pages/ProjectDetails";
+
+// Knowledge
 import KnowledgeBase from "../pages/KnowledgeBase";
 
-import EditCrop from "../pages/EditCrop";
-
+// Authentication
 import Login from "../pages/Login";
+
 
 function AppRoutes() {
   return (
     <Routes>
 
-      {/* Landing */}
+      {/* =================================
+          LANDING
+      ================================= */}
+
       <Route
         path="/"
         element={<LandingPage />}
       />
 
-      {/* Farmer */}
+
+      {/* =================================
+          AUTHENTICATION
+      ================================= */}
+
+      <Route
+        path="/login"
+        element={<Login />}
+      />
+
+
+      {/* =================================
+          FARMER
+      ================================= */}
+
       <Route
         path="/farmer/dashboard"
         element={<FarmerDashboard />}
       />
+
+      {/* My Crops */}
 
       <Route
         path="/farmer/crops"
         element={<Crops />}
       />
 
+      {/* Add Crop */}
+
       <Route
         path="/farmer/crops/add"
         element={<AddCrop />}
       />
 
-      {/* Student */}
+      {/* Edit Crop */}
+
+      <Route
+        path="/farmer/crops/edit/:id"
+        element={<EditCrop />}
+      />
+
+      {/* Farmer Orders */}
+
+      <Route
+        path="/farmer/orders"
+        element={<FarmerOrders />}
+      />
+
+
+      {/* =================================
+          STUDENT
+      ================================= */}
+
       <Route
         path="/student/dashboard"
         element={<StudentDashboard />}
       />
 
-      {/* Business */}
+
+      {/* =================================
+          BUSINESS
+      ================================= */}
+
       <Route
         path="/business/dashboard"
         element={<BusinessDashboard />}
       />
 
-      {/* Marketplace */}
+      {/* Business Orders */}
+
+      <Route
+        path="/orders"
+        element={<Orders />}
+      />
+
+
+      {/* =================================
+          MARKETPLACE
+      ================================= */}
+
       <Route
         path="/marketplace"
         element={<Marketplace />}
       />
+
+      {/* Crop Details */}
 
       <Route
         path="/crops/:id"
         element={<CropDetails />}
       />
 
-      {/* Projects */}
+
+      {/* =================================
+          PROJECTS
+      ================================= */}
+
       <Route
         path="/projects"
         element={<ProjectExplorer />}
@@ -78,20 +152,14 @@ function AppRoutes() {
         element={<ProjectDetails />}
       />
 
-      {/* Knowledge */}
+
+      {/* =================================
+          KNOWLEDGE BASE
+      ================================= */}
+
       <Route
         path="/knowledge"
         element={<KnowledgeBase />}
-      />
-
-      {/* Login */}
-      <Route
-        path="/login"
-        element={<Login />}
-      />
-      <Route
-        path="/farmer/crops/edit/:id"
-        element={<EditCrop />}
       />
 
     </Routes>

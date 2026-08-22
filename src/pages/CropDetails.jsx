@@ -10,7 +10,9 @@ function CropDetails() {
   const [crop, setCrop] = useState(null);
   const [quantity, setQuantity] = useState("");
   const [loading, setLoading] = useState(true);
+  const [ordering, setOrdering] = useState(false);
   const [error, setError] = useState("");
+  const [orderSuccess, setOrderSuccess] = useState("");
 
   // Get crop from backend
   useEffect(() => {
@@ -30,7 +32,7 @@ function CropDetails() {
 
       setError(
         err.response?.data?.message ||
-        "Failed to load crop details."
+          "Failed to load crop details."
       );
     } finally {
       setLoading(false);
@@ -50,6 +52,7 @@ function CropDetails() {
 
     if (
       numberValue >= 0 &&
+      crop &&
       numberValue <= crop.quantity
     ) {
       setQuantity(value);
@@ -57,24 +60,67 @@ function CropDetails() {
   };
 
   // Calculate total price
-  const totalPrice = quantity
-    ? Number(quantity) * crop.pricePerUnit
-    : 0;
+  const totalPrice =
+    quantity && crop
+      ? Number(quantity) * crop.pricePerUnit
+      : 0;
 
   // Place order
-  const handlePlaceOrder = () => {
+  const handlePlaceOrder = async () => {
+    setError("");
+    setOrderSuccess("");
+
     if (!quantity || Number(quantity) <= 0) {
-      alert("Please enter a valid quantity.");
+      setError("Please enter a valid quantity.");
       return;
     }
 
-    alert(
-      `Order ready!\n\n` +
-      `Crop: ${crop.cropName}\n` +
-      `Quantity: ${quantity} ${crop.unit}\n` +
-      `Price: ₹${crop.pricePerUnit} / ${crop.unit}\n` +
-      `Total Price: ₹${totalPrice}`
-    );
+    if (Number(quantity) > crop.quantity) {
+      setError(
+        `Only ${crop.quantity} ${crop.unit} is available.`
+      );
+      return;
+    }
+
+    try {
+      setOrdering(true);
+
+      const response = await api.post("/api/orders", {
+        cropId: Number(id),
+        quantity: Number(quantity),
+      });
+
+      console.log("Order created:", response.data);
+
+      setOrderSuccess(
+        `Order placed successfully! Order #${response.data.id}`
+      );
+
+      // Update displayed crop quantity
+      const remainingQuantity =
+        crop.quantity - Number(quantity);
+
+      setCrop((prev) => ({
+        ...prev,
+        quantity: remainingQuantity,
+        available:
+          remainingQuantity > 0
+            ? prev.available
+            : false,
+      }));
+
+      setQuantity("");
+
+    } catch (err) {
+      console.error(err);
+
+      setError(
+        err.response?.data?.message ||
+          "Failed to place order. Please try again."
+      );
+    } finally {
+      setOrdering(false);
+    }
   };
 
   // Crop emoji
@@ -107,12 +153,17 @@ function CropDetails() {
         <div className="crop-details-container">
 
           <div className="crop-details-card">
+
             <div className="crop-details-info">
+
               <h1>Loading Crop...</h1>
+
               <p>
                 Please wait while we load the crop details.
               </p>
+
             </div>
+
           </div>
 
         </div>
@@ -122,7 +173,7 @@ function CropDetails() {
   }
 
   // Error
-  if (error || !crop) {
+  if (error && !crop) {
     return (
       <div className="crop-details-page">
 
@@ -142,7 +193,7 @@ function CropDetails() {
               <h1>Something went wrong</h1>
 
               <p className="details-description">
-                {error || "Crop not found."}
+                {error}
               </p>
 
               <button
@@ -198,11 +249,9 @@ function CropDetails() {
                 : "Currently Unavailable"}
             </span>
 
-
             <h1>
               {crop.cropName}
             </h1>
-
 
             <p className="details-description">
               {crop.description ||
@@ -316,7 +365,6 @@ function CropDetails() {
               Quantity ({crop.unit})
             </label>
 
-
             <input
               id="quantity"
               type="number"
@@ -326,8 +374,28 @@ function CropDetails() {
               placeholder="Enter quantity"
               value={quantity}
               onChange={handleQuantityChange}
-              disabled={!crop.available}
+              disabled={
+                !crop.available || ordering
+              }
             />
+
+
+            {/* Error */}
+
+            {error && (
+              <div className="add-crop-error">
+                {error}
+              </div>
+            )}
+
+
+            {/* Success */}
+
+            {orderSuccess && (
+              <div className="order-success">
+                {orderSuccess}
+              </div>
+            )}
 
 
             {/* Total */}
@@ -350,11 +418,16 @@ function CropDetails() {
             <button
               className="place-order-button"
               onClick={handlePlaceOrder}
-              disabled={!crop.available}
+              disabled={
+                !crop.available ||
+                ordering
+              }
             >
-              {crop.available
-                ? "Place Order"
-                : "Crop Unavailable"}
+              {!crop.available
+                ? "Crop Unavailable"
+                : ordering
+                ? "Placing Order..."
+                : "Place Order"}
             </button>
 
           </div>

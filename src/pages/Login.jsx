@@ -22,6 +22,12 @@ function Login() {
     try {
       const user = await loginUser(email, password);
 
+      console.log("Logged in user:", user);
+      console.log(
+        "Stored token:",
+        localStorage.getItem("token")
+      );
+
       if (user.role === "FARMER") {
         navigate("/farmer/dashboard");
       } else if (user.role === "STUDENT") {
@@ -32,11 +38,12 @@ function Login() {
         navigate("/");
       }
     } catch (err) {
-      console.error(err);
+      console.error("Login error:", err);
 
       setError(
         err.response?.data?.message ||
-        "Invalid email or password."
+          err.message ||
+          "Invalid email or password."
       );
     } finally {
       setLoading(false);
@@ -48,26 +55,29 @@ function Login() {
 
       <div className="login-card">
 
+        {/* Logo */}
         <div className="login-logo">
           🌱
         </div>
 
+        {/* Heading */}
         <h1>Welcome Back</h1>
 
         <p className="login-subtitle">
           Login to your AgriConnect account
         </p>
 
-
+        {/* Error */}
         {error && (
           <div className="login-error">
             {error}
           </div>
         )}
 
-
+        {/* Login Form */}
         <form onSubmit={handleLogin}>
 
+          {/* Email */}
           <div className="form-group">
 
             <label htmlFor="email">
@@ -79,13 +89,15 @@ function Login() {
               type="email"
               placeholder="Enter your email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
               required
             />
 
           </div>
 
-
+          {/* Password */}
           <div className="form-group">
 
             <label htmlFor="password">
@@ -97,26 +109,29 @@ function Login() {
               type="password"
               placeholder="Enter your password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
               required
             />
 
           </div>
 
-
+          {/* Login Button */}
           <button
             type="submit"
             className="login-button"
             disabled={loading}
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading
+              ? "Logging in..."
+              : "Login"}
           </button>
 
         </form>
 
-
+        {/* Register */}
         <p className="login-register">
-
           Don't have an account?
 
           <button
@@ -125,7 +140,6 @@ function Login() {
           >
             Register
           </button>
-
         </p>
 
       </div>

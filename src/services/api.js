@@ -7,6 +7,7 @@ const api = axios.create({
   },
 });
 
+// Add JWT token to every request
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -18,6 +19,20 @@ api.interceptors.request.use(
     return config;
   },
   (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// Handle unauthorized requests
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response?.status === 401) {
+      console.error("Unauthorized request - JWT may be missing or invalid.");
+    }
+
     return Promise.reject(error);
   }
 );

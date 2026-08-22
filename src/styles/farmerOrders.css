@@ -1,0 +1,273 @@
+/* ================================
+   FARMER ORDERS PAGE
+================================ */
+
+.farmer-orders-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f7f8f5;
+}
+
+.farmer-orders-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.farmer-orders-header {
+  margin-bottom: 35px;
+}
+
+.farmer-orders-label {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b7280;
+}
+
+.farmer-orders-header h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #17251a;
+}
+
+.farmer-orders-header p {
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+/* ================================
+   ERROR
+================================ */
+
+.farmer-orders-error {
+  padding: 15px 18px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  background: #fff0f0;
+  color: #b42318;
+}
+
+/* ================================
+   EMPTY STATE
+================================ */
+
+.empty-farmer-orders {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.empty-farmer-orders-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.empty-farmer-orders h2 {
+  margin-bottom: 8px;
+  color: #17251a;
+}
+
+.empty-farmer-orders p {
+  color: #6b7280;
+}
+
+/* ================================
+   ORDERS LIST
+================================ */
+
+.farmer-orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ================================
+   ORDER CARD
+================================ */
+
+.farmer-order-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.farmer-order-main {
+  display: flex;
+  gap: 20px;
+}
+
+.farmer-order-icon {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #eef7ef;
+  font-size: 34px;
+}
+
+.farmer-order-content {
+  flex: 1;
+}
+
+/* ================================
+   TITLE
+================================ */
+
+.farmer-order-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.farmer-order-title-row h2 {
+  margin: 0;
+  font-size: 21px;
+  color: #17251a;
+}
+
+.farmer-order-title-row p {
+  margin: 6px 0 20px;
+  color: #8a8f94;
+  font-size: 13px;
+}
+
+/* ================================
+   STATUS
+================================ */
+
+.farmer-order-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.farmer-order-status.pending {
+  background: #fff5d6;
+  color: #9a6700;
+}
+
+.farmer-order-status.approved {
+  background: #e8f7ed;
+  color: #18794e;
+}
+
+.farmer-order-status.rejected {
+  background: #ffe9e9;
+  color: #c62828;
+}
+
+/* ================================
+   ORDER INFORMATION
+================================ */
+
+.farmer-order-info {
+  display: flex;
+  gap: 45px;
+  flex-wrap: wrap;
+}
+
+.farmer-order-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.farmer-order-info span {
+  font-size: 12px;
+  color: #8a8f94;
+}
+
+.farmer-order-info strong {
+  font-size: 15px;
+  color: #26352a;
+}
+
+/* ================================
+   ACTIONS
+================================ */
+
+.farmer-order-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.approve-order-button,
+.reject-order-button {
+  border: none;
+  border-radius: 9px;
+  padding: 11px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.approve-order-button {
+  background: #1f6f43;
+  color: white;
+}
+
+.approve-order-button:hover {
+  opacity: 0.9;
+}
+
+.reject-order-button {
+  background: #ffe9e9;
+  color: #c62828;
+}
+
+.reject-order-button:hover {
+  background: #ffdcdc;
+}
+
+.approve-order-button:disabled,
+.reject-order-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 700px) {
+  .farmer-orders-page {
+    padding: 20px;
+  }
+
+  .farmer-order-main {
+    flex-direction: column;
+  }
+
+  .farmer-order-title-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .farmer-order-info {
+    gap: 20px;
+  }
+
+  .farmer-order-actions {
+    flex-direction: column;
+  }
+
+  .approve-order-button,
+  .reject-order-button {
+    width: 100%;
+  }
+}
