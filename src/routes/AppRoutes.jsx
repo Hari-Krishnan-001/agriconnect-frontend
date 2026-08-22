@@ -14,6 +14,8 @@ import ProjectExplorer from "../pages/ProjectExplorer";
 import ProjectDetails from "../pages/ProjectDetails";
 import KnowledgeBase from "../pages/KnowledgeBase";
 
+import EditCrop from "../pages/EditCrop";
+
 import Login from "../pages/Login";
 
 function AppRoutes() {
@@ -86,6 +88,10 @@ function AppRoutes() {
       <Route
         path="/login"
         element={<Login />}
+      />
+      <Route
+        path="/farmer/crops/edit/:id"
+        element={<EditCrop />}
       />
 
     </Routes>

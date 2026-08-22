@@ -196,3 +196,45 @@
     gap: 20px;
   }
 }
+.crop-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.crop-actions button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-crop-button {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.edit-crop-button:hover {
+  background: #bfdbfe;
+}
+
+.availability-button {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.availability-button:hover {
+  background: #fde68a;
+}
+
+.delete-crop-button {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.delete-crop-button:hover {
+  background: #fecaca;
+}
