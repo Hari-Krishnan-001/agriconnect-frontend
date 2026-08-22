@@ -1,3 +1,7 @@
+/* ========================================
+   STUDENT DASHBOARD
+======================================== */
+
 .student-dashboard {
   display: flex;
   min-height: 100vh;
@@ -6,143 +10,438 @@
 
 .student-content {
   flex: 1;
+  min-height: 100vh;
   padding: 40px;
+  box-sizing: border-box;
 }
+
+
+/* ========================================
+   HEADER
+======================================== */
 
 .student-header {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
   gap: 30px;
+
+  margin-bottom: 35px;
 }
 
 .welcome-label {
-  color: #1b8d3f;
+  margin: 0 0 8px;
+
+  color: #66736a;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 6px;
 }
 
 .student-header h1 {
   margin: 0;
-  font-size: 32px;
-  color: #17221a;
+
+  color: #111827;
+  font-size: 36px;
+  line-height: 1.2;
 }
 
-.student-header p {
+.student-header p:last-child {
+  margin-top: 10px;
+
   color: #66736a;
-  margin-top: 8px;
+  font-size: 16px;
 }
+
+
+/* ========================================
+   BUTTONS
+======================================== */
 
 .create-project-btn {
   border: none;
-  background: #1b8d3f;
+  border-radius: 9px;
+
+  padding: 14px 22px;
+
+  background: #1f9d48;
   color: white;
-  padding: 13px 20px;
-  border-radius: 10px;
-  font-weight: 600;
+
+  font-size: 14px;
+  font-weight: 700;
+
   cursor: pointer;
+
+  white-space: nowrap;
 }
 
 .create-project-btn:hover {
-  background: #147331;
+  background: #18883d;
 }
 
 
-/* Statistics */
+/* ========================================
+   ERROR
+======================================== */
+
+.student-dashboard-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.student-dashboard-error button {
+  border: none;
+  border-radius: 7px;
+
+  padding: 8px 14px;
+
+  background: #b42318;
+  color: white;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   STATISTICS
+======================================== */
 
 .student-stats {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 20px;
-  margin-top: 35px;
+
+  margin-bottom: 32px;
 }
 
 .student-stat-card {
   display: flex;
   align-items: center;
+
   gap: 18px;
 
+  padding: 25px;
+
   background: white;
-  padding: 24px;
 
-  border-radius: 18px;
+  border-radius: 16px;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
 }
 
 .student-stat-card > span {
-  width: 50px;
-  height: 50px;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: 54px;
+  height: 54px;
+
   border-radius: 14px;
 
-  background: #eaf7ed;
+  background: #eaf8ef;
 
-  font-size: 23px;
+  font-size: 26px;
+
+  flex-shrink: 0;
 }
 
 .student-stat-card p {
-  margin: 0;
-  color: #69756d;
+  margin: 0 0 5px;
+
+  color: #66736a;
+
+  font-size: 14px;
 }
 
 .student-stat-card h2 {
-  margin: 5px 0 0;
-  color: #17221a;
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 24px;
 }
 
 
-/* Projects */
+/* ========================================
+   MY PROJECTS SECTION
+======================================== */
 
 .student-projects {
+  padding: 32px;
+
   background: white;
-
-  margin-top: 30px;
-
-  padding: 30px;
 
   border-radius: 18px;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+
+  margin-bottom: 32px;
 }
 
 .section-heading {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
 }
 
 .section-heading h2 {
   margin: 0;
+
+  color: #111827;
+
+  font-size: 26px;
 }
 
 .section-heading p {
-  color: #69756d;
+  margin: 6px 0 0;
+
+  color: #66736a;
 }
 
-.view-all-btn {
-  border: 1px solid #1b8d3f;
-  background: white;
-  color: #1b8d3f;
 
+/* ========================================
+   VIEW ALL
+======================================== */
+
+.view-all-btn {
   padding: 10px 18px;
 
+  border: 1px solid #1f9d48;
+
   border-radius: 9px;
+
+  background: white;
+  color: #1f9d48;
+
+  font-size: 14px;
+  font-weight: 600;
 
   cursor: pointer;
 }
 
+.view-all-btn:hover {
+  background: #eaf8ef;
+}
 
-/* Empty state */
+
+/* ========================================
+   PROJECT LIST
+======================================== */
+
+.student-project-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+/* ========================================
+   PROJECT CARD
+======================================== */
+
+.student-project-card {
+  padding: 24px;
+
+  border: 1px solid #e3e8e4;
+
+  border-radius: 14px;
+
+  background: #fbfcfb;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.student-project-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #c9dfd0;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.07);
+}
+
+
+/* ========================================
+   PROJECT HEADER
+======================================== */
+
+.student-project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 15px;
+}
+
+.student-project-card-header h3 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 21px;
+}
+
+.student-project-card-header p {
+  margin: 5px 0 0;
+
+  color: #7a847d;
+
+  font-size: 13px;
+}
+
+
+/* ========================================
+   PROJECT STATUS
+======================================== */
+
+.student-project-status {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.student-project-status.open {
+  background: #e6f7ec;
+  color: #138a3b;
+}
+
+.student-project-status.closed {
+  background: #f0f1f2;
+  color: #667085;
+}
+
+.student-project-status.funded {
+  background: #fff3d6;
+  color: #a46a00;
+}
+
+
+/* ========================================
+   PROJECT DESCRIPTION
+======================================== */
+
+.student-project-description {
+  margin: 0 0 22px;
+
+  color: #59645d;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  max-width: 850px;
+}
+
+
+/* ========================================
+   PROJECT INFORMATION
+======================================== */
+
+.student-project-info {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  padding: 18px 0;
+
+  border-top: 1px solid #e6eae7;
+  border-bottom: 1px solid #e6eae7;
+}
+
+.student-project-info > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.student-project-info span {
+  color: #7a847d;
+
+  font-size: 12px;
+}
+
+.student-project-info strong {
+  color: #17251a;
+
+  font-size: 14px;
+
+  word-break: break-word;
+}
+
+
+/* ========================================
+   VIEW PROJECT BUTTON
+======================================== */
+
+.student-project-view-btn {
+  margin-top: 18px;
+
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #1f9d48;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.student-project-view-btn:hover {
+  background: #18883d;
+}
+
+
+/* ========================================
+   EMPTY PROJECT
+======================================== */
 
 .empty-project {
+  padding: 50px 30px;
+
   text-align: center;
 
-  padding: 60px 20px;
+  border: 1px dashed #d5ddd7;
+
+  border-radius: 14px;
+
+  background: #fbfcfb;
 }
 
 .empty-icon {
@@ -152,68 +451,183 @@
 }
 
 .empty-project h3 {
-  margin-bottom: 10px;
+  margin: 0;
+
+  font-size: 20px;
+
+  color: #17251a;
 }
 
 .empty-project p {
   max-width: 500px;
 
-  margin: 0 auto 25px;
+  margin: 10px auto 20px;
 
-  color: #69756d;
+  color: #66736a;
 
   line-height: 1.6;
 }
 
 
-/* Explore banner */
+/* ========================================
+   EXPLORE BANNER
+======================================== */
 
 .explore-banner {
-  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  padding: 28px 30px;
+  gap: 30px;
+
+  padding: 30px 32px;
+
+  background: #1f9d48;
 
   border-radius: 18px;
 
-  background: linear-gradient(
-    90deg,
-    #1b8d3f,
-    #2ea44f
-  );
-
   color: white;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
 }
 
 .explore-banner h2 {
   margin: 0 0 8px;
+
+  font-size: 25px;
 }
 
 .explore-banner p {
   margin: 0;
 
-  max-width: 650px;
+  max-width: 750px;
 
-  opacity: 0.9;
+  line-height: 1.5;
+
+  opacity: 0.95;
 }
 
 .explore-banner button {
-  border: none;
-
-  background: white;
-
-  color: #1b8d3f;
-
   padding: 12px 22px;
 
-  border-radius: 10px;
+  border: none;
 
-  font-weight: 600;
+  border-radius: 9px;
+
+  background: white;
+  color: #18883d;
+
+  font-weight: 700;
 
   cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.explore-banner button:hover {
+  background: #f1fff5;
+}
+
+
+/* ========================================
+   LOADING
+======================================== */
+
+.student-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  min-height: 70vh;
+
+  text-align: center;
+}
+
+.student-loading-icon {
+  font-size: 50px;
+
+  margin-bottom: 15px;
+}
+
+.student-loading h2 {
+  margin: 0;
+
+  color: #17251a;
+}
+
+.student-loading p {
+  color: #66736a;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1100px) {
+
+  .student-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .student-project-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 800px) {
+
+  .student-content {
+    padding: 25px;
+  }
+
+  .student-header {
+    flex-direction: column;
+  }
+
+  .student-header h1 {
+    font-size: 30px;
+  }
+
+  .create-project-btn {
+    width: 100%;
+  }
+
+  .explore-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .explore-banner button {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .student-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .student-project-info {
+    grid-template-columns: 1fr;
+  }
+
+  .student-project-card-header {
+    flex-direction: column;
+  }
+
+  .student-projects {
+    padding: 22px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .view-all-btn {
+    width: 100%;
+  }
 }

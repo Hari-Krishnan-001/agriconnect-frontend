@@ -1,0 +1,572 @@
+/* ========================================
+   FARMER PROFILE PAGE
+======================================== */
+
+.farmer-profile-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7f5;
+}
+
+.farmer-profile-page {
+  flex: 1;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.farmer-profile-header {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.profile-label {
+  margin: 0 0 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  color: #6b7280;
+}
+
+.farmer-profile-header h1 {
+  margin: 0;
+
+  font-size: 36px;
+
+  color: #17251a;
+}
+
+.profile-subtitle {
+  margin: 8px 0 0;
+
+  color: #6b7280;
+}
+
+
+/* ========================================
+   EDIT BUTTON
+======================================== */
+
+.profile-edit-button {
+  border: none;
+  border-radius: 9px;
+
+  padding: 12px 22px;
+
+  background: #1f9d48;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.profile-edit-button:hover {
+  background: #18883d;
+}
+
+
+/* ========================================
+   MESSAGES
+======================================== */
+
+.profile-error,
+.profile-success {
+  max-width: 1100px;
+  margin: 0 auto 20px;
+
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+}
+
+.profile-error {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.profile-success {
+  background: #e9f8ee;
+  color: #18794e;
+}
+
+
+/* ========================================
+   PROFILE CARD
+======================================== */
+
+.profile-card {
+  max-width: 1100px;
+
+  margin: 0 auto 25px;
+
+  padding: 28px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  box-sizing: border-box;
+}
+
+.profile-card-header {
+  margin-bottom: 25px;
+}
+
+.profile-card-header h2 {
+  margin: 0;
+
+  font-size: 22px;
+
+  color: #17251a;
+}
+
+.profile-card-header p {
+  margin: 7px 0 0;
+
+  color: #6b7280;
+  font-size: 14px;
+}
+
+
+/* ========================================
+   ACCOUNT
+======================================== */
+
+.profile-account {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e8f7ed;
+  color: #1f8f45;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.profile-account-details h3 {
+  margin: 0 0 5px;
+
+  font-size: 21px;
+
+  color: #17251a;
+}
+
+.profile-account-details p {
+  margin: 0 0 5px;
+
+  color: #4b5563;
+}
+
+.profile-account-details span {
+  font-size: 13px;
+
+  color: #8a8f94;
+}
+
+
+/* ========================================
+   INFORMATION GRID
+======================================== */
+
+.profile-information-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px 45px;
+}
+
+.profile-information-grid > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.profile-information-grid span {
+  font-size: 12px;
+
+  color: #8a8f94;
+}
+
+.profile-information-grid strong {
+  font-size: 15px;
+
+  line-height: 1.5;
+
+  color: #26352a;
+}
+
+.profile-full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* ========================================
+   FORM
+======================================== */
+
+.profile-form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 22px 25px;
+}
+
+.profile-form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.profile-form-group label {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.profile-form-group input,
+.profile-form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d9dedb;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #17251a;
+
+  font-size: 14px;
+
+  font-family: inherit;
+
+  outline: none;
+}
+
+.profile-form-group input:focus,
+.profile-form-group textarea:focus {
+  border-color: #1f9d48;
+
+  box-shadow:
+    0 0 0 3px rgba(31, 157, 72, 0.1);
+}
+
+.profile-form-group textarea {
+  resize: vertical;
+}
+
+
+/* ========================================
+   FORM ACTIONS
+======================================== */
+
+.profile-form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.profile-cancel-button,
+.profile-save-button {
+  border: none;
+
+  border-radius: 9px;
+
+  padding: 11px 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.profile-cancel-button {
+  background: #f0f1f1;
+  color: #374151;
+}
+
+.profile-cancel-button:hover {
+  background: #e5e7e7;
+}
+
+.profile-save-button {
+  background: #1f9d48;
+  color: white;
+}
+
+.profile-save-button:hover {
+  background: #18883d;
+}
+
+.profile-cancel-button:disabled,
+.profile-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* ========================================
+   DANGER ZONE
+======================================== */
+
+.profile-danger-card {
+  max-width: 1100px;
+
+  margin: 0 auto 30px;
+
+  padding: 24px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  background: white;
+
+  border: 1px solid #f1caca;
+
+  border-radius: 16px;
+
+  box-sizing: border-box;
+}
+
+.profile-danger-card h2 {
+  margin: 0 0 7px;
+
+  font-size: 18px;
+
+  color: #b42318;
+}
+
+.profile-danger-card p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.profile-delete-button {
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 9px;
+
+  padding: 11px 18px;
+
+  background: #ffe9e9;
+
+  color: #c62828;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.profile-delete-button:hover {
+  background: #ffdcdc;
+}
+
+
+/* ========================================
+   LOADING
+======================================== */
+
+.farmer-profile-loading {
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.profile-loading-icon {
+  font-size: 50px;
+
+  margin-bottom: 15px;
+}
+
+.farmer-profile-loading h2 {
+  margin: 0 0 8px;
+
+  color: #17251a;
+}
+
+.farmer-profile-loading p {
+  margin: 0;
+
+  color: #6b7280;
+}
+
+
+/* ========================================
+   EMPTY
+======================================== */
+
+.profile-empty {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+}
+
+.profile-empty-icon {
+  font-size: 55px;
+
+  margin-bottom: 15px;
+}
+
+.profile-empty h2 {
+  margin: 0 0 8px;
+
+  color: #17251a;
+}
+
+.profile-empty p {
+  margin: 0 0 25px;
+
+  color: #6b7280;
+}
+
+.profile-back-button {
+  border: none;
+
+  border-radius: 9px;
+
+  padding: 11px 20px;
+
+  background: #1f9d48;
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .farmer-profile-page {
+    padding: 25px;
+  }
+
+  .profile-information-grid,
+  .profile-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-full-width {
+    grid-column: auto;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .farmer-profile-page {
+    padding: 20px;
+  }
+
+  .farmer-profile-header {
+    flex-direction: column;
+  }
+
+  .profile-edit-button {
+    width: 100%;
+  }
+
+  .profile-card {
+    padding: 20px;
+  }
+
+  .profile-account {
+    align-items: flex-start;
+  }
+
+  .profile-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .profile-cancel-button,
+  .profile-save-button {
+    width: 100%;
+  }
+
+  .profile-danger-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-delete-button {
+    width: 100%;
+  }
+
+}

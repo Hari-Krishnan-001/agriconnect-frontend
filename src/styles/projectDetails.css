@@ -1,0 +1,518 @@
+/* ========================================
+   PROJECT DETAILS LAYOUT
+======================================== */
+
+.project-details-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7f5;
+}
+
+.project-details-page {
+  flex: 1;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   TOP NAVIGATION
+======================================== */
+
+.project-details-topbar {
+  max-width: 1100px;
+  margin: 0 auto 20px;
+}
+
+.project-details-back-button {
+  padding: 11px 18px;
+  border: 1px solid #d9dedb;
+  border-radius: 9px;
+  background: white;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.project-details-back-button:hover {
+  background: #eef1ef;
+}
+
+
+/* ========================================
+   PROJECT HEADER
+======================================== */
+
+.project-details-header {
+  max-width: 1100px;
+  margin: 0 auto 25px;
+
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.project-details-header-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-details-icon {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+  background: #eaf8ef;
+
+  font-size: 38px;
+}
+
+.project-details-label {
+  margin: 0 0 7px;
+
+  color: #1f9d48;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-details-header h1 {
+  margin: 0;
+
+  color: #17251a;
+
+  font-size: 34px;
+}
+
+.project-details-id {
+  margin: 7px 0 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* ========================================
+   STATUS
+======================================== */
+
+.project-details-status {
+  padding: 8px 14px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.project-details-status.open {
+  background: #e7f8ed;
+  color: #16843c;
+}
+
+.project-details-status.closed {
+  background: #eeeeee;
+  color: #555555;
+}
+
+.project-details-status.funded {
+  background: #e8f0ff;
+  color: #2457c5;
+}
+
+
+/* ========================================
+   PROJECT INFORMATION GRID
+======================================== */
+
+.project-details-grid {
+  max-width: 1100px;
+  margin: 0 auto 25px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.project-details-card {
+  padding: 25px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.project-details-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.project-details-card h2 {
+  margin: 0 0 12px;
+
+  color: #17251a;
+
+  font-size: 20px;
+}
+
+.project-details-card p {
+  margin: 0;
+
+  color: #5f6b63;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+}
+
+
+/* ========================================
+   PROJECT METADATA
+======================================== */
+
+.project-details-meta {
+  max-width: 1100px;
+  margin: 0 auto 25px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.project-meta-card {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.project-meta-card span {
+  color: #6b7280;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+}
+
+.project-meta-card strong {
+  color: #17251a;
+
+  font-size: 16px;
+}
+
+.project-meta-card small {
+  color: #6b7280;
+
+  font-size: 12px;
+
+  word-break: break-word;
+}
+
+
+/* ========================================
+   ACTIONS
+======================================== */
+
+.project-details-actions {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 12px;
+}
+
+.project-details-secondary-button {
+  padding: 12px 20px;
+
+  border: 1px solid #d9dedb;
+  border-radius: 9px;
+
+  background: white;
+
+  color: #374151;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.project-details-secondary-button:hover {
+  background: #eef1ef;
+}
+
+.project-details-primary-button {
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #1f9d48;
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.project-details-primary-button:hover {
+  background: #18883d;
+}
+
+
+/* ========================================
+   INLINE ERROR
+======================================== */
+
+.project-details-inline-error {
+  max-width: 1100px;
+
+  margin: 0 auto 20px;
+
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  background: #fff0f0;
+
+  color: #b42318;
+
+  font-size: 14px;
+}
+
+
+/* ========================================
+   EDIT BUTTON
+======================================== */
+
+.project-details-edit-button {
+  padding: 12px 20px;
+
+  border: 1px solid #1f9d48;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #1f9d48;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.project-details-edit-button:hover {
+  background: #eaf8ef;
+}
+
+
+/* ========================================
+   DELETE BUTTON
+======================================== */
+
+.project-details-delete-button {
+  padding: 12px 20px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #ffe9e9;
+
+  color: #c62828;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.project-details-delete-button:hover {
+  background: #ffdcdc;
+}
+
+.project-details-delete-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* ========================================
+   LOADING
+======================================== */
+
+.project-details-loading {
+  min-height: 75vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.project-details-loading-icon {
+  margin-bottom: 15px;
+
+  font-size: 50px;
+}
+
+.project-details-loading h2 {
+  margin: 0;
+
+  color: #17251a;
+}
+
+.project-details-loading p {
+  color: #66736a;
+}
+
+
+/* ========================================
+   ERROR PAGE
+======================================== */
+
+.project-details-error-page {
+  min-height: 75vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.project-details-error-icon {
+  margin-bottom: 15px;
+
+  font-size: 50px;
+}
+
+.project-details-error-page h2 {
+  margin: 0;
+
+  color: #17251a;
+}
+
+.project-details-error-page p {
+  max-width: 500px;
+
+  color: #66736a;
+
+  line-height: 1.6;
+}
+
+.project-details-error-page button {
+  margin-top: 15px;
+
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #1f9d48;
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .project-details-page {
+    padding: 25px;
+  }
+
+  .project-details-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .project-details-page {
+    padding: 20px;
+  }
+
+  .project-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-details-header-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-details-card.full-width {
+    grid-column: auto;
+  }
+
+  .project-details-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .project-details-actions {
+    flex-direction: column;
+  }
+
+  .project-details-actions button {
+    width: 100%;
+  }
+}

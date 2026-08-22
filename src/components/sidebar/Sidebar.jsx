@@ -7,120 +7,169 @@ import {
   FaFlask,
   FaComments,
   FaCog,
-  FaSignOutAlt
+  FaSignOutAlt,
 } from "react-icons/fa";
 
-import { useNavigate } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 function Sidebar() {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const role = localStorage.getItem("role");
+  // ========================================
+  // GET LOGGED-IN USER
+  // ========================================
 
-  // Dashboard based on role
-  const handleDashboard = () => {
-    if (role === "FARMER") {
-      navigate("/farmer/dashboard");
-    } else if (role === "BUSINESS") {
-      navigate("/business/dashboard");
-    } else if (role === "STUDENT") {
-      navigate("/student/dashboard");
-    } else {
-      navigate("/");
-    }
-  };
+  const storedUser =
+    localStorage.getItem("user");
 
-  // Crops / Marketplace based on role
-  const handleCrops = () => {
-    if (role === "FARMER") {
-      navigate("/farmer/crops");
-    } else {
-      navigate("/marketplace");
-    }
-  };
+  let user = null;
 
-  // Orders based on role
-  const handleOrders = () => {
-    if (role === "FARMER") {
-      navigate("/farmer/orders");
-    } else if (role === "BUSINESS") {
-      navigate("/orders");
-    }
-  };
+  try {
+    user = storedUser
+      ? JSON.parse(storedUser)
+      : null;
+  } catch (error) {
+    console.error(
+      "Failed to read stored user:",
+      error
+    );
+  }
 
-  // Logout
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
+  const role = user?.role;
 
-    navigate("/login");
-  };
+
+  // ========================================
+  // ROLE-BASED PATHS
+  // ========================================
+
+  const dashboardPath =
+    role === "BUSINESS"
+      ? "/business/dashboard"
+      : role === "STUDENT"
+      ? "/student/dashboard"
+      : "/farmer/dashboard";
+
+
+  const profilePath =
+    role === "BUSINESS"
+      ? "/business/profile"
+      : role === "STUDENT"
+      ? "/student/profile"
+      : "/farmer/profile";
+
+
+  const ordersPath =
+    role === "BUSINESS"
+      ? "/orders"
+      : role === "FARMER"
+      ? "/farmer/orders"
+      : "/orders";
+
+
+  // ========================================
+  // MENU ITEMS
+  // ========================================
 
   const menuItems = [
+
+    // Dashboard
+
     {
       icon: <FaHome />,
       title: "Dashboard",
-      onClick: handleDashboard
+      path: dashboardPath,
     },
+
+
+    // Profile
 
     {
       icon: <FaUser />,
       title: "My Profile",
-      onClick: () => {
-        // Profile page can be added later
-      }
+      path: profilePath,
     },
 
-    {
-      icon: <FaSeedling />,
-      title: "Crops",
-      onClick: handleCrops
-    },
+
+    // Farmer-specific crops
+
+    ...(role === "FARMER"
+      ? [
+          {
+            icon: <FaSeedling />,
+            title: "Crops",
+            path: "/farmer/crops",
+          },
+        ]
+      : []),
+
+
+    // Orders
 
     {
       icon: <FaShoppingCart />,
       title: "Orders",
-      onClick: handleOrders
+      path: ordersPath,
     },
+
+
+    // Farming Knowledge
 
     {
       icon: <FaLeaf />,
       title: "Farming Techniques",
-      onClick: () => {
-        // Can be connected later
-      }
+      path: "/knowledge",
     },
+
+
+    // Pesticides
 
     {
       icon: <FaFlask />,
       title: "Pesticides",
-      onClick: () => {
-        // Can be connected later
-      }
+      path: "/knowledge",
     },
+
+
+    // Messages
 
     {
       icon: <FaComments />,
       title: "Messages",
-      onClick: () => {
-        // Can be connected later
-      }
+      path: "/messages",
     },
+
+
+    // Settings
 
     {
       icon: <FaCog />,
       title: "Settings",
-      onClick: () => {
-        // Can be connected later
-      }
+      path: "/settings",
     },
-
-    {
-      icon: <FaSignOutAlt />,
-      title: "Logout",
-      onClick: handleLogout
-    }
   ];
+
+
+  // ========================================
+  // LOGOUT
+  // ========================================
+
+  const handleLogout = () => {
+
+    localStorage.removeItem("token");
+
+    localStorage.removeItem("user");
+
+    navigate("/login");
+  };
+
+
+  // ========================================
+  // SIDEBAR
+  // ========================================
 
   return (
     <div className="sidebar">
@@ -129,24 +178,55 @@ function Sidebar() {
         AgriConnect
       </h2>
 
-      {menuItems.map((item, index) => (
 
-        <div
-          className="sidebar-item"
-          key={index}
-          onClick={item.onClick}
-          style={{ cursor: "pointer" }}
-        >
+      <div className="sidebar-menu">
 
-          {item.icon}
+        {menuItems.map((item) => {
 
-          <span>
-            {item.title}
-          </span>
+          const isActive =
+            location.pathname === item.path;
 
-        </div>
 
-      ))}
+          return (
+            <div
+              className={`sidebar-item ${
+                isActive
+                  ? "active"
+                  : ""
+              }`}
+              key={item.title}
+              onClick={() =>
+                navigate(item.path)
+              }
+            >
+
+              {item.icon}
+
+              <span>
+                {item.title}
+              </span>
+
+            </div>
+          );
+        })}
+
+      </div>
+
+
+      {/* Logout */}
+
+      <div
+        className="sidebar-item logout-item"
+        onClick={handleLogout}
+      >
+
+        <FaSignOutAlt />
+
+        <span>
+          Logout
+        </span>
+
+      </div>
 
     </div>
   );

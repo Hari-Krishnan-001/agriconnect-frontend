@@ -1,0 +1,482 @@
+/* ========================================
+   BUSINESS PROFILE
+======================================== */
+
+.business-profile-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7f5;
+}
+
+.business-profile-page {
+  flex: 1;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.business-profile-header {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.business-profile-label {
+  margin: 0 0 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  color: #6b7280;
+}
+
+.business-profile-header h1 {
+  margin: 0;
+
+  font-size: 36px;
+  color: #17251a;
+}
+
+.business-profile-header p {
+  margin: 8px 0 0;
+  color: #6b7280;
+}
+
+
+/* ========================================
+   EDIT BUTTON
+======================================== */
+
+.business-profile-edit-button {
+  border: none;
+  border-radius: 9px;
+
+  padding: 12px 22px;
+
+  background: #1f9d48;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.business-profile-edit-button:hover {
+  background: #18883d;
+}
+
+
+/* ========================================
+   MESSAGES
+======================================== */
+
+.business-profile-error,
+.business-profile-success {
+  max-width: 1100px;
+  margin: 0 auto 20px;
+
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+}
+
+.business-profile-error {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.business-profile-success {
+  background: #e9f8ee;
+  color: #18794e;
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.business-profile-card {
+  max-width: 1100px;
+
+  margin: 0 auto 25px;
+
+  padding: 28px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  box-sizing: border-box;
+}
+
+.business-profile-card-header {
+  margin-bottom: 25px;
+}
+
+.business-profile-card-header h2 {
+  margin: 0;
+
+  font-size: 22px;
+  color: #17251a;
+}
+
+.business-profile-card-header p {
+  margin: 7px 0 0;
+
+  font-size: 14px;
+  color: #6b7280;
+}
+
+
+/* ========================================
+   ACCOUNT
+======================================== */
+
+.business-account {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.business-profile-avatar {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e8f7ed;
+  color: #1f8f45;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.business-account h3 {
+  margin: 0 0 5px;
+
+  font-size: 21px;
+  color: #17251a;
+}
+
+.business-account p {
+  margin: 0 0 5px;
+
+  color: #4b5563;
+}
+
+.business-account span {
+  font-size: 13px;
+  color: #8a8f94;
+}
+
+
+/* ========================================
+   INFORMATION
+======================================== */
+
+.business-profile-information-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px 45px;
+}
+
+.business-profile-information-grid > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.business-profile-information-grid span {
+  font-size: 12px;
+  color: #8a8f94;
+}
+
+.business-profile-information-grid strong {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #26352a;
+
+  overflow-wrap: anywhere;
+}
+
+.business-profile-full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* ========================================
+   FORM
+======================================== */
+
+.business-profile-form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 22px 25px;
+}
+
+.business-profile-form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.business-profile-form-group label {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.business-profile-form-group input,
+.business-profile-form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d9dedb;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #17251a;
+
+  font-size: 14px;
+
+  font-family: inherit;
+
+  outline: none;
+}
+
+.business-profile-form-group input:focus,
+.business-profile-form-group textarea:focus {
+  border-color: #1f9d48;
+
+  box-shadow:
+    0 0 0 3px rgba(31, 157, 72, 0.1);
+}
+
+.business-profile-form-group textarea {
+  resize: vertical;
+}
+
+
+/* ========================================
+   FORM ACTIONS
+======================================== */
+
+.business-profile-form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.business-profile-cancel-button,
+.business-profile-save-button {
+  border: none;
+
+  border-radius: 9px;
+
+  padding: 11px 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.business-profile-cancel-button {
+  background: #f0f1f1;
+  color: #374151;
+}
+
+.business-profile-cancel-button:hover {
+  background: #e5e7e7;
+}
+
+.business-profile-save-button {
+  background: #1f9d48;
+  color: white;
+}
+
+.business-profile-save-button:hover {
+  background: #18883d;
+}
+
+.business-profile-cancel-button:disabled,
+.business-profile-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* ========================================
+   LOADING
+======================================== */
+
+.business-profile-loading {
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.business-profile-loading-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.business-profile-loading h2 {
+  margin: 0 0 8px;
+  color: #17251a;
+}
+
+.business-profile-loading p {
+  margin: 0;
+  color: #6b7280;
+}
+
+
+/* ========================================
+   EMPTY
+======================================== */
+
+.business-profile-empty {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+}
+
+.business-profile-empty-icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.business-profile-empty h2 {
+  margin: 0 0 8px;
+  color: #17251a;
+}
+
+.business-profile-empty p {
+  margin: 0 0 25px;
+  color: #6b7280;
+}
+
+.business-profile-empty button {
+  border: none;
+
+  border-radius: 9px;
+
+  padding: 11px 20px;
+
+  background: #1f9d48;
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .business-profile-page {
+    padding: 25px;
+  }
+
+  .business-profile-information-grid,
+  .business-profile-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .business-profile-full-width {
+    grid-column: auto;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .business-profile-page {
+    padding: 20px;
+  }
+
+  .business-profile-header {
+    flex-direction: column;
+  }
+
+  .business-profile-edit-button {
+    width: 100%;
+  }
+
+  .business-profile-card {
+    padding: 20px;
+  }
+
+  .business-profile-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .business-profile-cancel-button,
+  .business-profile-save-button {
+    width: 100%;
+  }
+
+  .business-account {
+    align-items: flex-start;
+  }
+}

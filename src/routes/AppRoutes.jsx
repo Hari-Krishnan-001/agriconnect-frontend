@@ -1,44 +1,81 @@
 import { Routes, Route } from "react-router-dom";
 
-// Landing
+// ========================================
+// LANDING
+// ========================================
+
 import LandingPage from "../pages/LandingPage";
 
-// Dashboards
+
+// ========================================
+// DASHBOARDS
+// ========================================
+
 import FarmerDashboard from "../pages/FarmerDashboard";
 import StudentDashboard from "../pages/StudentDashboard";
 import BusinessDashboard from "../pages/BusinessDashboard";
 
-// Farmer Crops
+
+// ========================================
+// FARMER
+// ========================================
+
+import FarmerProfile from "../pages/FarmerProfile";
 import Crops from "../pages/Crops";
 import AddCrop from "../pages/AddCrop";
 import EditCrop from "../pages/EditCrop";
 import FarmerOrders from "../pages/FarmerOrders";
 
-// Marketplace
+
+// ========================================
+// BUSINESS
+// ========================================
+
+import BusinessProfile from "../pages/BusinessProfile";
+import Orders from "../pages/Orders";
+
+
+// ========================================
+// MARKETPLACE
+// ========================================
+
 import Marketplace from "../pages/Marketplace";
 import CropDetails from "../pages/CropDetails";
 
-// Business Orders
-import Orders from "../pages/Orders";
 
-// Projects
+// ========================================
+// PROJECTS
+// ========================================
+
 import ProjectExplorer from "../pages/ProjectExplorer";
 import ProjectDetails from "../pages/ProjectDetails";
+import CreateProject from "../pages/CreateProject";
+import EditProject from "../pages/EditProject";
 
-// Knowledge
+
+// ========================================
+// KNOWLEDGE
+// ========================================
+
 import KnowledgeBase from "../pages/KnowledgeBase";
 
-// Authentication
+
+// ========================================
+// AUTHENTICATION
+// ========================================
+
 import Login from "../pages/Login";
+import StudentProfile from "../pages/StudentProfile";
+import Register from "../pages/Register";
 
 
 function AppRoutes() {
   return (
     <Routes>
 
-      {/* =================================
+      {/* ========================================
           LANDING
-      ================================= */}
+      ======================================== */}
 
       <Route
         path="/"
@@ -46,9 +83,9 @@ function AppRoutes() {
       />
 
 
-      {/* =================================
+      {/* ========================================
           AUTHENTICATION
-      ================================= */}
+      ======================================== */}
 
       <Route
         path="/login"
@@ -56,37 +93,34 @@ function AppRoutes() {
       />
 
 
-      {/* =================================
+      {/* ========================================
           FARMER
-      ================================= */}
+      ======================================== */}
 
       <Route
         path="/farmer/dashboard"
         element={<FarmerDashboard />}
       />
 
-      {/* My Crops */}
+      <Route
+        path="/farmer/profile"
+        element={<FarmerProfile />}
+      />
 
       <Route
         path="/farmer/crops"
         element={<Crops />}
       />
 
-      {/* Add Crop */}
-
       <Route
         path="/farmer/crops/add"
         element={<AddCrop />}
       />
 
-      {/* Edit Crop */}
-
       <Route
         path="/farmer/crops/edit/:id"
         element={<EditCrop />}
       />
-
-      {/* Farmer Orders */}
 
       <Route
         path="/farmer/orders"
@@ -94,9 +128,9 @@ function AppRoutes() {
       />
 
 
-      {/* =================================
+      {/* ========================================
           STUDENT
-      ================================= */}
+      ======================================== */}
 
       <Route
         path="/student/dashboard"
@@ -104,16 +138,19 @@ function AppRoutes() {
       />
 
 
-      {/* =================================
+      {/* ========================================
           BUSINESS
-      ================================= */}
+      ======================================== */}
 
       <Route
         path="/business/dashboard"
         element={<BusinessDashboard />}
       />
 
-      {/* Business Orders */}
+      <Route
+        path="/business/profile"
+        element={<BusinessProfile />}
+      />
 
       <Route
         path="/orders"
@@ -121,16 +158,14 @@ function AppRoutes() {
       />
 
 
-      {/* =================================
+      {/* ========================================
           MARKETPLACE
-      ================================= */}
+      ======================================== */}
 
       <Route
         path="/marketplace"
         element={<Marketplace />}
       />
-
-      {/* Crop Details */}
 
       <Route
         path="/crops/:id"
@@ -138,14 +173,32 @@ function AppRoutes() {
       />
 
 
-      {/* =================================
+      {/* ========================================
           PROJECTS
-      ================================= */}
+      ======================================== */}
+
+      {/* Project Explorer */}
 
       <Route
         path="/projects"
         element={<ProjectExplorer />}
       />
+
+      {/* Create Project */}
+
+      <Route
+        path="/projects/create"
+        element={<CreateProject />}
+      />
+
+      {/* Edit Project */}
+
+      <Route
+        path="/projects/edit/:id"
+        element={<EditProject />}
+      />
+
+      {/* Project Details */}
 
       <Route
         path="/projects/:id"
@@ -153,13 +206,23 @@ function AppRoutes() {
       />
 
 
-      {/* =================================
+      {/* ========================================
           KNOWLEDGE BASE
-      ================================= */}
+      ======================================== */}
 
       <Route
         path="/knowledge"
         element={<KnowledgeBase />}
+      />
+
+      <Route
+        path="/student/profile"
+        element={<StudentProfile />}
+      />
+
+      <Route
+        path="/register"
+        element={<Register />}
       />
 
     </Routes>

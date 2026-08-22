@@ -1,0 +1,403 @@
+/* ========================================
+   EDIT PROJECT
+======================================== */
+
+.edit-project-layout {
+  display: flex;
+  min-height: 100vh;
+
+  background: #f5f7f5;
+}
+
+.edit-project-page {
+  flex: 1;
+
+  min-height: 100vh;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.edit-project-header {
+  max-width: 1000px;
+
+  margin: 0 auto 30px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.edit-project-label {
+  margin: 0 0 8px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.edit-project-header h1 {
+  margin: 0;
+
+  color: #17251a;
+
+  font-size: 36px;
+}
+
+.edit-project-header p:last-child {
+  margin-top: 8px;
+
+  color: #6b7280;
+}
+
+
+/* ========================================
+   BACK BUTTON
+======================================== */
+
+.edit-project-back-button {
+  padding: 11px 18px;
+
+  border: 1px solid #d9dedb;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #374151;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.edit-project-back-button:hover {
+  background: #eef1ef;
+}
+
+
+/* ========================================
+   ERROR
+======================================== */
+
+.edit-project-error {
+  max-width: 1000px;
+
+  margin: 0 auto 20px;
+
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  background: #fff0f0;
+
+  color: #b42318;
+
+  font-size: 14px;
+}
+
+
+/* ========================================
+   FORM CARD
+======================================== */
+
+.edit-project-card {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.edit-project-card-header {
+  margin-bottom: 28px;
+}
+
+.edit-project-card-header h2 {
+  margin: 0;
+
+  color: #17251a;
+
+  font-size: 22px;
+}
+
+.edit-project-card-header p {
+  margin: 7px 0 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* ========================================
+   FORM
+======================================== */
+
+.edit-project-form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 22px;
+}
+
+.edit-project-form-group label {
+  color: #374151;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.edit-project-form-group input,
+.edit-project-form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  border: 1px solid #d9dedb;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #17251a;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.edit-project-form-group input:focus,
+.edit-project-form-group textarea:focus {
+  border-color: #1f9d48;
+
+  box-shadow:
+    0 0 0 3px rgba(31, 157, 72, 0.1);
+}
+
+.edit-project-form-group textarea {
+  resize: vertical;
+
+  min-height: 120px;
+}
+
+
+/* ========================================
+   ACTIONS
+======================================== */
+
+.edit-project-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.edit-project-cancel-button,
+.edit-project-submit-button {
+  padding: 12px 22px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.edit-project-cancel-button {
+  border: none;
+
+  background: #eef0ef;
+
+  color: #374151;
+}
+
+.edit-project-cancel-button:hover {
+  background: #e3e6e4;
+}
+
+.edit-project-submit-button {
+  border: none;
+
+  background: #1f9d48;
+
+  color: white;
+}
+
+.edit-project-submit-button:hover {
+  background: #18883d;
+}
+
+.edit-project-cancel-button:disabled,
+.edit-project-submit-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* ========================================
+   LOADING
+======================================== */
+
+.edit-project-loading {
+  min-height: 75vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+.edit-project-loading-icon {
+  margin-bottom: 15px;
+
+  font-size: 50px;
+}
+
+.edit-project-loading h2 {
+  margin: 0;
+
+  color: #17251a;
+}
+
+.edit-project-loading p {
+  color: #66736a;
+}
+
+
+/* ========================================
+   ERROR PAGE
+======================================== */
+
+.edit-project-error-page {
+  min-height: 75vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+.edit-project-error-page > div {
+  margin-bottom: 15px;
+
+  font-size: 50px;
+}
+
+.edit-project-error-page h2 {
+  margin: 0;
+
+  color: #17251a;
+}
+
+.edit-project-error-page p {
+  max-width: 500px;
+
+  color: #66736a;
+
+  line-height: 1.6;
+}
+
+.edit-project-error-page button {
+  margin-top: 15px;
+
+  padding: 11px 18px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #1f9d48;
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .edit-project-page {
+    padding: 20px;
+  }
+
+  .edit-project-header {
+    flex-direction: column;
+  }
+
+  .edit-project-back-button {
+    width: 100%;
+  }
+
+  .edit-project-card {
+    padding: 20px;
+  }
+
+  .edit-project-actions {
+    flex-direction: column-reverse;
+  }
+
+  .edit-project-cancel-button,
+  .edit-project-submit-button {
+    width: 100%;
+  }
+}
