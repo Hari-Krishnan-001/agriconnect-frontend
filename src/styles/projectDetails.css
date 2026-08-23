@@ -516,3 +516,250 @@
     width: 100%;
   }
 }
+/* ========================================
+   PROJECT STATISTICS
+======================================== */
+
+.project-details-statistics {
+
+  max-width: 1100px;
+
+  margin: 0 auto 25px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    auto;
+
+  gap: 15px;
+
+  align-items: stretch;
+}
+
+
+/* ========================================
+   STAT CARD
+======================================== */
+
+.project-stat-card {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px 20px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.03);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.project-stat-card:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+
+/* ========================================
+   STAT ICON
+======================================== */
+
+.project-stat-icon {
+
+  width: 48px;
+
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #eaf8ef;
+
+  font-size: 22px;
+}
+
+
+/* ========================================
+   STAT CONTENT
+======================================== */
+
+.project-stat-card div:last-child {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.project-stat-card span {
+
+  color: #6b7280;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3px;
+}
+
+
+.project-stat-card strong {
+
+  color: #17251a;
+
+  font-size: 22px;
+
+  line-height: 1;
+}
+
+
+/* ========================================
+   LIKE BUTTON
+======================================== */
+
+.project-like-button {
+
+  min-width: 190px;
+
+  padding: 12px 22px;
+
+  border: 1px solid #1f9d48;
+
+  border-radius: 12px;
+
+  background: white;
+
+  color: #1f9d48;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.project-like-button:hover {
+
+  background: #eaf8ef;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 16px rgba(31, 157, 72, 0.12);
+}
+
+
+/* ========================================
+   LIKED STATE
+======================================== */
+
+.project-like-button.liked {
+
+  background: #1f9d48;
+
+  color: white;
+
+  border-color: #1f9d48;
+}
+
+
+.project-like-button.liked:hover {
+
+  background: #18883d;
+
+}
+
+
+/* ========================================
+   LIKE BUTTON DISABLED
+======================================== */
+
+.project-like-button:disabled {
+
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* ========================================
+   STATISTICS RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .project-details-statistics {
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+  }
+
+  .project-like-button {
+
+    width: 100%;
+
+    grid-column: 1 / -1;
+
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .project-details-statistics {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .project-like-button {
+
+    grid-column: auto;
+
+    width: 100%;
+
+  }
+
+}

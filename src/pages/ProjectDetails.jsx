@@ -11,13 +11,28 @@ function ProjectDetails() {
   const navigate = useNavigate();
 
   const [project, setProject] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
   const [deleting, setDeleting] = useState(false);
+
+  // ========================================
+  // LIKE STATE
+  // ========================================
+
+  const [liked, setLiked] = useState(false);
+  const [liking, setLiking] = useState(false);
+
+
+  // ========================================
+  // LOAD PROJECT
+  // ========================================
 
   useEffect(() => {
     fetchProject();
   }, [id]);
+
 
   // ========================================
   // FETCH PROJECT
@@ -28,11 +43,61 @@ function ProjectDetails() {
       setLoading(true);
       setError("");
 
+      // ------------------------------------
+      // GET PROJECT
+      // ------------------------------------
+
       const response = await api.get(
         `/api/projects/${id}`
       );
 
       setProject(response.data);
+
+
+      // ------------------------------------
+      // ADD VIEW
+      // ------------------------------------
+
+      try {
+        const viewResponse = await api.post(
+          `/api/projects/${id}/view`
+        );
+
+        if (viewResponse.data) {
+          setProject(viewResponse.data);
+        }
+      } catch (viewError) {
+        console.error(
+          "Failed to record project view:",
+          viewError
+        );
+
+        // View failure should NOT prevent
+        // the project from being displayed.
+      }
+
+
+      // ------------------------------------
+      // CHECK LIKE STATUS
+      // ------------------------------------
+
+      try {
+        const likedResponse = await api.get(
+          `/api/projects/${id}/liked`
+        );
+
+        setLiked(
+          Boolean(likedResponse.data)
+        );
+      } catch (likeStatusError) {
+        console.error(
+          "Failed to check like status:",
+          likeStatusError
+        );
+
+        setLiked(false);
+      }
+
     } catch (err) {
       console.error(
         "Failed to load project:",
@@ -47,6 +112,50 @@ function ProjectDetails() {
       setLoading(false);
     }
   };
+
+
+  // ========================================
+  // LIKE / UNLIKE PROJECT
+  // ========================================
+
+  const handleLike = async () => {
+    if (liking) {
+      return;
+    }
+
+    try {
+      setLiking(true);
+      setError("");
+
+      const response = await api.post(
+        `/api/projects/${id}/like`
+      );
+
+      // Backend returns updated project
+      if (response.data) {
+        setProject(response.data);
+      }
+
+      // Toggle local state
+      setLiked((previousLiked) =>
+        !previousLiked
+      );
+
+    } catch (err) {
+      console.error(
+        "Failed to like project:",
+        err
+      );
+
+      setError(
+        err.response?.data?.message ||
+          "Failed to update project like."
+      );
+    } finally {
+      setLiking(false);
+    }
+  };
+
 
   // ========================================
   // DELETE PROJECT
@@ -69,9 +178,12 @@ function ProjectDetails() {
         `/api/projects/${id}`
       );
 
-      alert("Project deleted successfully.");
+      alert(
+        "Project deleted successfully."
+      );
 
       navigate("/projects");
+
     } catch (err) {
       console.error(
         "Failed to delete project:",
@@ -87,15 +199,17 @@ function ProjectDetails() {
     }
   };
 
+
   // ========================================
   // FORMAT MONEY
   // ========================================
 
   const formatMoney = (amount) => {
-    return Number(amount || 0).toLocaleString(
-      "en-IN"
-    );
+    return Number(
+      amount || 0
+    ).toLocaleString("en-IN");
   };
+
 
   // ========================================
   // STATUS CLASS
@@ -103,6 +217,7 @@ function ProjectDetails() {
 
   const getStatusClass = (status) => {
     switch (status) {
+
       case "OPEN":
         return "project-details-status open";
 
@@ -116,6 +231,7 @@ function ProjectDetails() {
         return "project-details-status open";
     }
   };
+
 
   // ========================================
   // LOADING
@@ -150,6 +266,7 @@ function ProjectDetails() {
       </div>
     );
   }
+
 
   // ========================================
   // ERROR
@@ -193,12 +310,18 @@ function ProjectDetails() {
     );
   }
 
+
+  // ========================================
+  // PROJECT PAGE
+  // ========================================
+
   return (
     <div className="project-details-layout">
 
       <Sidebar />
 
       <main className="project-details-page">
+
 
         {/* =================================
             TOP NAVIGATION
@@ -219,7 +342,7 @@ function ProjectDetails() {
 
 
         {/* =================================
-            ERROR
+            INLINE ERROR
         ================================= */}
 
         {error && (
@@ -272,10 +395,88 @@ function ProjectDetails() {
 
 
         {/* =================================
+            PROJECT STATISTICS
+        ================================= */}
+
+        <section className="project-details-statistics">
+
+          {/* Views */}
+
+          <div className="project-stat-card">
+
+            <div className="project-stat-icon">
+              👁️
+            </div>
+
+            <div>
+
+              <span>
+                Views
+              </span>
+
+              <strong>
+                {project.views ?? 0}
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          {/* Likes */}
+
+          <div className="project-stat-card">
+
+            <div className="project-stat-icon">
+              ❤️
+            </div>
+
+            <div>
+
+              <span>
+                Likes
+              </span>
+
+              <strong>
+                {project.likes ?? 0}
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          {/* Like Button */}
+
+          <button
+            className={
+              liked
+                ? "project-like-button liked"
+                : "project-like-button"
+            }
+            onClick={handleLike}
+            disabled={liking}
+          >
+
+            {liking
+              ? "Updating..."
+              : liked
+              ? "❤️ Liked"
+              : "🤍 Like Project"}
+
+          </button>
+
+        </section>
+
+
+        {/* =================================
             PROJECT INFORMATION
         ================================= */}
 
         <section className="project-details-grid">
+
+
+          {/* Problem */}
 
           <div className="project-details-card">
 
@@ -291,6 +492,8 @@ function ProjectDetails() {
           </div>
 
 
+          {/* Solution */}
+
           <div className="project-details-card">
 
             <h2>
@@ -304,6 +507,8 @@ function ProjectDetails() {
 
           </div>
 
+
+          {/* Description */}
 
           <div className="project-details-card full-width">
 
@@ -327,6 +532,9 @@ function ProjectDetails() {
 
         <section className="project-details-meta">
 
+
+          {/* Created By */}
+
           <div className="project-meta-card">
 
             <span>
@@ -347,6 +555,8 @@ function ProjectDetails() {
           </div>
 
 
+          {/* Technology */}
+
           <div className="project-meta-card">
 
             <span>
@@ -360,6 +570,8 @@ function ProjectDetails() {
 
           </div>
 
+
+          {/* Funding */}
 
           <div className="project-meta-card">
 
@@ -376,6 +588,8 @@ function ProjectDetails() {
 
           </div>
 
+
+          {/* Created */}
 
           <div className="project-meta-card">
 
@@ -404,6 +618,9 @@ function ProjectDetails() {
 
         <div className="project-details-actions">
 
+
+          {/* Explore */}
+
           <button
             className="project-details-secondary-button"
             onClick={() =>
@@ -413,6 +630,8 @@ function ProjectDetails() {
             Explore More Projects
           </button>
 
+
+          {/* Edit */}
 
           <button
             className="project-details-edit-button"
@@ -426,6 +645,8 @@ function ProjectDetails() {
           </button>
 
 
+          {/* Delete */}
+
           <button
             className="project-details-delete-button"
             onClick={handleDelete}
@@ -437,10 +658,14 @@ function ProjectDetails() {
           </button>
 
 
+          {/* Dashboard */}
+
           <button
             className="project-details-primary-button"
             onClick={() =>
-              navigate("/student/dashboard")
+              navigate(
+                "/student/dashboard"
+              )
             }
           >
             Go to Dashboard

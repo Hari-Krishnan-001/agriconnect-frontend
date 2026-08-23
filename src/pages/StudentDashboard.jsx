@@ -14,13 +14,13 @@ function StudentDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    fetchDashboardData();
-  }, []);
-
   // ========================================
   // FETCH DASHBOARD DATA
   // ========================================
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
 
   const fetchDashboardData = async () => {
     try {
@@ -65,6 +65,20 @@ function StudentDashboard() {
     0
   );
 
+  const totalViews = projects.reduce(
+    (total, project) =>
+      total +
+      Number(project.views || 0),
+    0
+  );
+
+  const totalLikes = projects.reduce(
+    (total, project) =>
+      total +
+      Number(project.likes || 0),
+    0
+  );
+
 
   // ========================================
   // FORMAT MONEY
@@ -83,6 +97,7 @@ function StudentDashboard() {
 
   const getStatusClass = (status) => {
     switch (status) {
+
       case "OPEN":
         return "student-project-status open";
 
@@ -144,6 +159,7 @@ function StudentDashboard() {
 
       <main className="student-content">
 
+
         {/* =================================
             HEADER
         ================================= */}
@@ -168,6 +184,7 @@ function StudentDashboard() {
             </p>
 
           </div>
+
 
           <button
             className="create-project-btn"
@@ -208,6 +225,7 @@ function StudentDashboard() {
 
         <section className="student-stats">
 
+
           {/* My Projects */}
 
           <div className="student-stat-card">
@@ -246,7 +264,7 @@ function StudentDashboard() {
               </p>
 
               <h2>
-                0
+                {totalViews}
               </h2>
 
             </div>
@@ -269,7 +287,7 @@ function StudentDashboard() {
               </p>
 
               <h2>
-                0
+                {totalLikes}
               </h2>
 
             </div>
@@ -311,6 +329,7 @@ function StudentDashboard() {
 
         <section className="student-projects">
 
+
           <div className="section-heading">
 
             <div>
@@ -326,7 +345,9 @@ function StudentDashboard() {
 
             </div>
 
+
             {projects.length > 0 && (
+
               <button
                 className="view-all-btn"
                 onClick={() =>
@@ -335,12 +356,15 @@ function StudentDashboard() {
               >
                 View All
               </button>
+
             )}
 
           </div>
 
 
-          {/* Empty */}
+          {/* =================================
+              EMPTY PROJECTS
+          ================================= */}
 
           {projects.length === 0 && !error && (
 
@@ -374,19 +398,25 @@ function StudentDashboard() {
           )}
 
 
-          {/* Projects */}
+          {/* =================================
+              PROJECT LIST
+          ================================= */}
 
           {projects.length > 0 && (
 
             <div className="student-project-list">
 
-              {projects.slice(0, 3).map(
-                (project) => (
+              {projects
+                .slice(0, 3)
+                .map((project) => (
 
                   <div
                     className="student-project-card"
                     key={project.id}
                   >
+
+
+                    {/* Project Header */}
 
                     <div className="student-project-card-header">
 
@@ -402,6 +432,7 @@ function StudentDashboard() {
 
                       </div>
 
+
                       <span
                         className={getStatusClass(
                           project.status
@@ -414,6 +445,8 @@ function StudentDashboard() {
                     </div>
 
 
+                    {/* Description */}
+
                     <p className="student-project-description">
 
                       {project.description ||
@@ -423,7 +456,12 @@ function StudentDashboard() {
                     </p>
 
 
+                    {/* Project Information */}
+
                     <div className="student-project-info">
+
+
+                      {/* Technology */}
 
                       <div>
 
@@ -438,6 +476,8 @@ function StudentDashboard() {
 
                       </div>
 
+
+                      {/* Funding */}
 
                       <div>
 
@@ -454,6 +494,8 @@ function StudentDashboard() {
 
                       </div>
 
+
+                      {/* Created */}
 
                       <div>
 
@@ -473,8 +515,42 @@ function StudentDashboard() {
 
                       </div>
 
+
+                      {/* Views */}
+
+                      <div>
+
+                        <span>
+                          Views
+                        </span>
+
+                        <strong>
+                          👁️{" "}
+                          {project.views ?? 0}
+                        </strong>
+
+                      </div>
+
+
+                      {/* Likes */}
+
+                      <div>
+
+                        <span>
+                          Likes
+                        </span>
+
+                        <strong>
+                          ❤️{" "}
+                          {project.likes ?? 0}
+                        </strong>
+
+                      </div>
+
                     </div>
 
+
+                    {/* View Project */}
 
                     <button
                       className="student-project-view-btn"
@@ -489,8 +565,7 @@ function StudentDashboard() {
 
                   </div>
 
-                )
-              )}
+                ))}
 
             </div>
 
@@ -518,6 +593,7 @@ function StudentDashboard() {
             </p>
 
           </div>
+
 
           <button
             onClick={() =>
