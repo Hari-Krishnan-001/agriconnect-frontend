@@ -1,11 +1,12 @@
-/* ================================
+/* ========================================
    FARMER ORDERS PAGE
-================================ */
+======================================== */
 
 .farmer-orders-page {
   min-height: 100vh;
   padding: 40px;
   background: #f7f8f5;
+  box-sizing: border-box;
 }
 
 .farmer-orders-container {
@@ -13,9 +14,10 @@
   margin: 0 auto;
 }
 
-/* ================================
+
+/* ========================================
    HEADER
-================================ */
+======================================== */
 
 .farmer-orders-header {
   margin-bottom: 35px;
@@ -37,13 +39,14 @@
 }
 
 .farmer-orders-header p {
-  margin-top: 8px;
+  margin: 8px 0 0;
   color: #6b7280;
 }
 
-/* ================================
+
+/* ========================================
    ERROR
-================================ */
+======================================== */
 
 .farmer-orders-error {
   padding: 15px 18px;
@@ -51,11 +54,14 @@
   border-radius: 10px;
   background: #fff0f0;
   color: #b42318;
+  font-size: 14px;
+  border: 1px solid #ffd6d6;
 }
 
-/* ================================
+
+/* ========================================
    EMPTY STATE
-================================ */
+======================================== */
 
 .empty-farmer-orders {
   text-align: center;
@@ -71,17 +77,19 @@
 }
 
 .empty-farmer-orders h2 {
-  margin-bottom: 8px;
+  margin: 0 0 8px;
   color: #17251a;
 }
 
 .empty-farmer-orders p {
+  margin: 0;
   color: #6b7280;
 }
 
-/* ================================
+
+/* ========================================
    ORDERS LIST
-================================ */
+======================================== */
 
 .farmer-orders-list {
   display: flex;
@@ -89,15 +97,25 @@
   gap: 18px;
 }
 
-/* ================================
+
+/* ========================================
    ORDER CARD
-================================ */
+======================================== */
 
 .farmer-order-card {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 24px;
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.farmer-order-card:hover {
+  box-shadow: 0 8px 25px rgba(23, 37, 26, 0.07);
+  transform: translateY(-1px);
 }
 
 .farmer-order-main {
@@ -109,21 +127,26 @@
   width: 70px;
   height: 70px;
   flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 14px;
   background: #eef7ef;
+
   font-size: 34px;
 }
 
 .farmer-order-content {
   flex: 1;
+  min-width: 0;
 }
 
-/* ================================
+
+/* ========================================
    TITLE
-================================ */
+======================================== */
 
 .farmer-order-title-row {
   display: flex;
@@ -144,15 +167,21 @@
   font-size: 13px;
 }
 
-/* ================================
+
+/* ========================================
    STATUS
-================================ */
+======================================== */
 
 .farmer-order-status {
+  flex-shrink: 0;
+
   padding: 6px 12px;
+
   border-radius: 20px;
+
   font-size: 11px;
   font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .farmer-order-status.pending {
@@ -170,9 +199,10 @@
   color: #c62828;
 }
 
-/* ================================
+
+/* ========================================
    ORDER INFORMATION
-================================ */
+======================================== */
 
 .farmer-order-info {
   display: flex;
@@ -196,56 +226,174 @@
   color: #26352a;
 }
 
-/* ================================
+
+/* ========================================
    ACTIONS
-================================ */
+======================================== */
 
 .farmer-order-actions {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 24px;
 }
 
-.approve-order-button,
-.reject-order-button {
-  border: none;
-  border-radius: 9px;
-  padding: 11px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-}
+
+/* ========================================
+   APPROVE BUTTON
+======================================== */
 
 .approve-order-button {
+  border: none;
+  border-radius: 9px;
+
+  padding: 11px 18px;
+
   background: #1f6f43;
   color: white;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .approve-order-button:hover {
-  opacity: 0.9;
+  background: #185c37;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(31, 111, 67, 0.18);
 }
 
+
+/* ========================================
+   REJECT BUTTON
+======================================== */
+
 .reject-order-button {
+  border: none;
+  border-radius: 9px;
+
+  padding: 11px 18px;
+
   background: #ffe9e9;
   color: #c62828;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .reject-order-button:hover {
   background: #ffdcdc;
+  transform: translateY(-1px);
 }
+
+
+/* ========================================
+   CHAT BUTTON
+======================================== */
+
+.farmer-order-actions .chat-order-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-width: 110px;
+
+  padding: 11px 18px;
+
+  border: 1px solid #1f9d48;
+  border-radius: 9px;
+
+  background: #e8f7ed;
+  color: #18883d;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.farmer-order-actions .chat-order-button:hover {
+  background: #1f9d48;
+  color: white;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 4px 10px rgba(31, 157, 72, 0.18);
+}
+
+.farmer-order-actions .chat-order-button:active {
+  transform: translateY(0);
+}
+
+.farmer-order-actions .chat-order-button:focus-visible {
+  outline: 3px solid rgba(31, 157, 72, 0.2);
+  outline-offset: 2px;
+}
+
+
+/* ========================================
+   DISABLED BUTTONS
+======================================== */
 
 .approve-order-button:disabled,
-.reject-order-button:disabled {
+.reject-order-button:disabled,
+.chat-order-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-/* ================================
+
+/* ========================================
    RESPONSIVE
-================================ */
+======================================== */
+
+@media (max-width: 900px) {
+
+  .farmer-orders-page {
+    padding: 30px;
+  }
+
+  .farmer-order-info {
+    gap: 25px;
+  }
+}
+
 
 @media (max-width: 700px) {
+
   .farmer-orders-page {
+    padding: 20px;
+  }
+
+  .farmer-orders-header h1 {
+    font-size: 30px;
+  }
+
+  .farmer-order-card {
     padding: 20px;
   }
 
@@ -258,6 +406,14 @@
     gap: 10px;
   }
 
+  .farmer-order-title-row p {
+    margin-bottom: 15px;
+  }
+
+  .farmer-order-status {
+    align-self: flex-start;
+  }
+
   .farmer-order-info {
     gap: 20px;
   }
@@ -267,7 +423,45 @@
   }
 
   .approve-order-button,
-  .reject-order-button {
+  .reject-order-button,
+  .farmer-order-actions .chat-order-button {
     width: 100%;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 450px) {
+
+  .farmer-orders-page {
+    padding: 15px;
+  }
+
+  .farmer-orders-header h1 {
+    font-size: 27px;
+  }
+
+  .farmer-order-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .farmer-order-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+
+  .farmer-order-title-row h2 {
+    font-size: 19px;
+  }
+
+  .farmer-order-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 }

@@ -26,6 +26,13 @@ function ProjectDetails() {
 
 
   // ========================================
+  // PROJECT CHAT STATE
+  // ========================================
+
+  const [openingChat, setOpeningChat] = useState(false);
+
+
+  // ========================================
   // LOAD PROJECT
   // ========================================
 
@@ -201,6 +208,56 @@ function ProjectDetails() {
 
 
   // ========================================
+  // OPEN PROJECT CHAT
+  // ========================================
+
+  const handleOpenProjectChat = async () => {
+    if (openingChat) {
+      return;
+    }
+
+    try {
+      setOpeningChat(true);
+      setError("");
+
+      /*
+       * The backend will:
+       *
+       * Business:
+       *   Create the chat if it does not exist.
+       *
+       * Student owner:
+       *   Open an existing business chat.
+       *
+       * Authorization is enforced by the backend.
+       */
+
+      await api.get(
+        `/api/project-chats/project/${id}`
+      );
+
+      navigate(
+        `/project-chat/${id}`
+      );
+
+    } catch (err) {
+      console.error(
+        "Failed to open project chat:",
+        err
+      );
+
+      setError(
+        err.response?.data?.message ||
+          "Unable to open project chat."
+      );
+
+    } finally {
+      setOpeningChat(false);
+    }
+  };
+
+
+  // ========================================
   // FORMAT MONEY
   // ========================================
 
@@ -295,6 +352,7 @@ function ProjectDetails() {
             </p>
 
             <button
+              type="button"
               onClick={() =>
                 navigate("/projects")
               }
@@ -330,6 +388,7 @@ function ProjectDetails() {
         <div className="project-details-topbar">
 
           <button
+            type="button"
             className="project-details-back-button"
             onClick={() =>
               navigate("/projects")
@@ -449,6 +508,7 @@ function ProjectDetails() {
           {/* Like Button */}
 
           <button
+            type="button"
             className={
               liked
                 ? "project-like-button liked"
@@ -457,13 +517,11 @@ function ProjectDetails() {
             onClick={handleLike}
             disabled={liking}
           >
-
             {liking
               ? "Updating..."
               : liked
               ? "❤️ Liked"
               : "🤍 Like Project"}
-
           </button>
 
         </section>
@@ -474,7 +532,6 @@ function ProjectDetails() {
         ================================= */}
 
         <section className="project-details-grid">
-
 
           {/* Problem */}
 
@@ -531,7 +588,6 @@ function ProjectDetails() {
         ================================= */}
 
         <section className="project-details-meta">
-
 
           {/* Created By */}
 
@@ -622,6 +678,7 @@ function ProjectDetails() {
           {/* Explore */}
 
           <button
+            type="button"
             className="project-details-secondary-button"
             onClick={() =>
               navigate("/projects")
@@ -631,36 +688,65 @@ function ProjectDetails() {
           </button>
 
 
-          {/* Edit */}
+          {/* =================================
+              PROJECT CHAT
+          ================================= */}
 
-          <button
-            className="project-details-edit-button"
-            onClick={() =>
-              navigate(
-                `/projects/edit/${project.id}`
-              )
-            }
-          >
-            ✏️ Edit Project
-          </button>
+          {!project.owner && (
+            <button
+              type="button"
+              className="project-details-chat-button"
+              onClick={handleOpenProjectChat}
+              disabled={openingChat}
+            >
+              {openingChat
+                ? "Opening Chat..."
+                : "💬 Contact Student"}
+            </button>
+          )}
 
 
-          {/* Delete */}
+          {/* =================================
+              EDIT - OWNER ONLY
+          ================================= */}
 
-          <button
-            className="project-details-delete-button"
-            onClick={handleDelete}
-            disabled={deleting}
-          >
-            {deleting
-              ? "Deleting..."
-              : "🗑️ Delete Project"}
-          </button>
+          {project.owner && (
+            <button
+              type="button"
+              className="project-details-edit-button"
+              onClick={() =>
+                navigate(
+                  `/projects/edit/${project.id}`
+                )
+              }
+            >
+              ✏️ Edit Project
+            </button>
+          )}
+
+
+          {/* =================================
+              DELETE - OWNER ONLY
+          ================================= */}
+
+          {project.owner && (
+            <button
+              type="button"
+              className="project-details-delete-button"
+              onClick={handleDelete}
+              disabled={deleting}
+            >
+              {deleting
+                ? "Deleting..."
+                : "🗑️ Delete Project"}
+            </button>
+          )}
 
 
           {/* Dashboard */}
 
           <button
+            type="button"
             className="project-details-primary-button"
             onClick={() =>
               navigate(

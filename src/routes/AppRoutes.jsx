@@ -65,8 +65,16 @@ import KnowledgeBase from "../pages/KnowledgeBase";
 // ========================================
 
 import Login from "../pages/Login";
-import StudentProfile from "../pages/StudentProfile";
 import Register from "../pages/Register";
+import StudentProfile from "../pages/StudentProfile";
+
+
+// ========================================
+// CHAT
+// ========================================
+
+import Chat from "../pages/Chat";
+import ProjectChat from "../pages/ProjectChat";
 
 
 function AppRoutes() {
@@ -90,6 +98,11 @@ function AppRoutes() {
       <Route
         path="/login"
         element={<Login />}
+      />
+
+      <Route
+        path="/register"
+        element={<Register />}
       />
 
 
@@ -137,6 +150,11 @@ function AppRoutes() {
         element={<StudentDashboard />}
       />
 
+      <Route
+        path="/student/profile"
+        element={<StudentProfile />}
+      />
+
 
       {/* ========================================
           BUSINESS
@@ -177,28 +195,20 @@ function AppRoutes() {
           PROJECTS
       ======================================== */}
 
-      {/* Project Explorer */}
-
       <Route
         path="/projects"
         element={<ProjectExplorer />}
       />
-
-      {/* Create Project */}
 
       <Route
         path="/projects/create"
         element={<CreateProject />}
       />
 
-      {/* Edit Project */}
-
       <Route
         path="/projects/edit/:id"
         element={<EditProject />}
       />
-
-      {/* Project Details */}
 
       <Route
         path="/projects/:id"
@@ -215,14 +225,26 @@ function AppRoutes() {
         element={<KnowledgeBase />}
       />
 
-      <Route
-        path="/student/profile"
-        element={<StudentProfile />}
-      />
+
+      {/* ========================================
+          ORDER CHAT
+          FARMER ↔ BUSINESS
+      ======================================== */}
 
       <Route
-        path="/register"
-        element={<Register />}
+        path="/chat/:orderId"
+        element={<Chat />}
+      />
+
+
+      {/* ========================================
+          PROJECT CHAT
+          STUDENT ↔ BUSINESS
+      ======================================== */}
+
+      <Route
+        path="/project-chat/:projectId"
+        element={<ProjectChat />}
       />
 
     </Routes>

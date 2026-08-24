@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import "../styles/farmerOrders.css";
 
 function FarmerOrders() {
+  const navigate = useNavigate();
+
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -99,6 +102,13 @@ function FarmerOrders() {
     } finally {
       setProcessingId(null);
     }
+  };
+
+  // ================================
+  // OPEN CHAT
+  // ================================
+  const handleOpenChat = (orderId) => {
+    navigate(`/chat/${orderId}`);
   };
 
   // ================================
@@ -299,40 +309,57 @@ function FarmerOrders() {
 
                     {/* Actions */}
 
-                    {order.status === "PENDING" && (
-                      <div className="farmer-order-actions">
+                    <div className="farmer-order-actions">
 
-                        <button
-                          type="button"
-                          className="approve-order-button"
-                          disabled={
-                            processingId === order.id
-                          }
-                          onClick={() =>
-                            handleApprove(order.id)
-                          }
-                        >
-                          {processingId === order.id
-                            ? "Processing..."
-                            : "Approve Order"}
-                        </button>
+                      {/* Pending Actions */}
+
+                      {order.status === "PENDING" && (
+                        <>
+                          <button
+                            type="button"
+                            className="approve-order-button"
+                            disabled={
+                              processingId === order.id
+                            }
+                            onClick={() =>
+                              handleApprove(order.id)
+                            }
+                          >
+                            {processingId === order.id
+                              ? "Processing..."
+                              : "Approve Order"}
+                          </button>
 
 
-                        <button
-                          type="button"
-                          className="reject-order-button"
-                          disabled={
-                            processingId === order.id
-                          }
-                          onClick={() =>
-                            handleReject(order.id)
-                          }
-                        >
-                          Reject Order
-                        </button>
+                          <button
+                            type="button"
+                            className="reject-order-button"
+                            disabled={
+                              processingId === order.id
+                            }
+                            onClick={() =>
+                              handleReject(order.id)
+                            }
+                          >
+                            Reject Order
+                          </button>
+                        </>
+                      )}
 
-                      </div>
-                    )}
+
+                      {/* Chat */}
+
+                      <button
+                        type="button"
+                        className="chat-order-button"
+                        onClick={() =>
+                          handleOpenChat(order.id)
+                        }
+                      >
+                        💬 Chat
+                      </button>
+
+                    </div>
 
                   </div>
 

@@ -24,12 +24,22 @@ function BusinessProfile() {
   const [saving, setSaving] = useState(false);
 
   const [editing, setEditing] = useState(false);
+  const [creating, setCreating] = useState(false);
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  // ========================================
+  // LOAD PROFILE
+  // ========================================
 
   useEffect(() => {
     fetchProfile();
   }, []);
+
+  // ========================================
+  // SET PROFILE DATA
+  // ========================================
 
   const setProfileData = (data) => {
     setProfile(data);
@@ -44,6 +54,10 @@ function BusinessProfile() {
     });
   };
 
+  // ========================================
+  // GET PROFILE
+  // ========================================
+
   const fetchProfile = async () => {
     try {
       setLoading(true);
@@ -53,16 +67,29 @@ function BusinessProfile() {
 
       setProfileData(response.data);
     } catch (err) {
-      console.error("Failed to load business profile:", err);
-
-      setError(
-        err.response?.data?.message ||
-          "Failed to load business profile."
+      console.error(
+        "Failed to load business profile:",
+        err
       );
+
+      // Profile does not exist yet
+      if (err.response?.status === 500) {
+        setProfile(null);
+        setError("");
+      } else {
+        setError(
+          err.response?.data?.message ||
+            "Failed to load business profile."
+        );
+      }
     } finally {
       setLoading(false);
     }
   };
+
+  // ========================================
+  // HANDLE INPUT
+  // ========================================
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -73,11 +100,48 @@ function BusinessProfile() {
     }));
   };
 
+  // ========================================
+  // START CREATE
+  // ========================================
+
+  const handleCreate = () => {
+    setError("");
+    setSuccess("");
+    setCreating(true);
+  };
+
+  // ========================================
+  // CANCEL CREATE
+  // ========================================
+
+  const handleCancelCreate = () => {
+    setFormData({
+      companyName: "",
+      industry: "",
+      website: "",
+      phone: "",
+      location: "",
+      description: "",
+    });
+
+    setError("");
+    setSuccess("");
+    setCreating(false);
+  };
+
+  // ========================================
+  // EDIT PROFILE
+  // ========================================
+
   const handleEdit = () => {
     setError("");
     setSuccess("");
     setEditing(true);
   };
+
+  // ========================================
+  // CANCEL EDIT
+  // ========================================
 
   const handleCancel = () => {
     if (profile) {
@@ -89,7 +153,11 @@ function BusinessProfile() {
     setEditing(false);
   };
 
-  const handleSave = async (e) => {
+  // ========================================
+  // CREATE / UPDATE PROFILE
+  // ========================================
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -97,33 +165,66 @@ function BusinessProfile() {
       setError("");
       setSuccess("");
 
-      const response = await api.put(
-        "/api/business/profile",
-        {
-          companyName: formData.companyName,
-          industry: formData.industry,
-          website: formData.website,
-          phone: formData.phone,
-          location: formData.location,
-          description: formData.description,
-        }
-      );
+      const requestData = {
+        companyName: formData.companyName,
+        industry: formData.industry,
+        website: formData.website,
+        phone: formData.phone,
+        location: formData.location,
+        description: formData.description,
+      };
 
-      setProfileData(response.data);
+      let response;
 
-      setEditing(false);
-      setSuccess("Business profile updated successfully.");
+      // CREATE
+      if (creating) {
+        response = await api.post(
+          "/api/business",
+          requestData
+        );
+
+        setProfileData(response.data);
+
+        setCreating(false);
+
+        setSuccess(
+          "Business profile created successfully."
+        );
+      }
+
+      // UPDATE
+      else {
+        response = await api.put(
+          "/api/business/profile",
+          requestData
+        );
+
+        setProfileData(response.data);
+
+        setEditing(false);
+
+        setSuccess(
+          "Business profile updated successfully."
+        );
+      }
     } catch (err) {
-      console.error("Failed to update business profile:", err);
+      console.error(
+        "Failed to save business profile:",
+        err
+      );
 
       setError(
         err.response?.data?.message ||
-          "Failed to update business profile."
+          "Failed to save business profile."
       );
     } finally {
       setSaving(false);
     }
   };
+
+  // ========================================
+  // LOADING
+  // ========================================
 
   if (loading) {
     return (
@@ -131,41 +232,64 @@ function BusinessProfile() {
         <Sidebar />
 
         <main className="business-profile-page">
+
           <div className="business-profile-loading">
+
             <div className="business-profile-loading-icon">
               🏢
             </div>
 
-            <h2>Loading Profile...</h2>
+            <h2>
+              Loading Profile...
+            </h2>
 
             <p>
               Please wait while we load your business profile.
             </p>
+
           </div>
+
         </main>
       </div>
     );
   }
 
+  // ========================================
+  // CREATE PROFILE
+  // ========================================
+
   if (!profile) {
     return (
       <div className="business-profile-layout">
+
         <Sidebar />
 
         <main className="business-profile-page">
+
+          {/* Header */}
+
           <div className="business-profile-header">
+
             <div>
+
               <p className="business-profile-label">
                 Business Account
               </p>
 
-              <h1>Business Profile</h1>
+              <h1>
+                Business Profile
+              </h1>
 
               <p>
-                Manage your company information.
+                Create your company profile to start using AgriConnect.
               </p>
+
             </div>
+
           </div>
+
+
+          {/* Error */}
 
           {error && (
             <div className="business-profile-error">
@@ -173,34 +297,230 @@ function BusinessProfile() {
             </div>
           )}
 
-          <div className="business-profile-empty">
-            <div className="business-profile-empty-icon">
-              🏢
+
+          {!creating ? (
+
+            /* ========================================
+               PROFILE NOT FOUND
+            ======================================== */
+
+            <div className="business-profile-empty">
+
+              <div className="business-profile-empty-icon">
+                🏢
+              </div>
+
+              <h2>
+                Create Your Business Profile
+              </h2>
+
+              <p>
+                Your business profile hasn't been created yet.
+                Create one to purchase crops and manage your orders.
+              </p>
+
+              <button
+                onClick={handleCreate}
+                className="business-profile-create-button"
+              >
+                Create Business Profile
+              </button>
+
             </div>
 
-            <h2>
-              Business Profile Not Found
-            </h2>
+          ) : (
 
-            <p>
-              Your business profile has not been created yet.
-            </p>
+            /* ========================================
+               CREATE FORM
+            ======================================== */
 
-            <button
-              onClick={() =>
-                navigate("/business/dashboard")
-              }
-            >
-              Back to Dashboard
-            </button>
-          </div>
+            <section className="business-profile-card">
+
+              <div className="business-profile-card-header">
+
+                <h2>
+                  Create Business Profile
+                </h2>
+
+                <p>
+                  Enter your company information below.
+                </p>
+
+              </div>
+
+
+              <form onSubmit={handleSubmit}>
+
+                <div className="business-profile-form-grid">
+
+                  {/* Company Name */}
+
+                  <div className="business-profile-form-group">
+
+                    <label htmlFor="companyName">
+                      Company Name
+                    </label>
+
+                    <input
+                      id="companyName"
+                      name="companyName"
+                      type="text"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      placeholder="Enter company name"
+                      required
+                    />
+
+                  </div>
+
+
+                  {/* Industry */}
+
+                  <div className="business-profile-form-group">
+
+                    <label htmlFor="industry">
+                      Industry
+                    </label>
+
+                    <input
+                      id="industry"
+                      name="industry"
+                      type="text"
+                      value={formData.industry}
+                      onChange={handleChange}
+                      placeholder="e.g. Agriculture"
+                      required
+                    />
+
+                  </div>
+
+
+                  {/* Website */}
+
+                  <div className="business-profile-form-group">
+
+                    <label htmlFor="website">
+                      Website
+                    </label>
+
+                    <input
+                      id="website"
+                      name="website"
+                      type="url"
+                      value={formData.website}
+                      onChange={handleChange}
+                      placeholder="https://example.com"
+                    />
+
+                  </div>
+
+
+                  {/* Phone */}
+
+                  <div className="business-profile-form-group">
+
+                    <label htmlFor="phone">
+                      Phone
+                    </label>
+
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Enter phone number"
+                    />
+
+                  </div>
+
+
+                  {/* Location */}
+
+                  <div className="business-profile-form-group business-profile-full-width">
+
+                    <label htmlFor="location">
+                      Location
+                    </label>
+
+                    <input
+                      id="location"
+                      name="location"
+                      type="text"
+                      value={formData.location}
+                      onChange={handleChange}
+                      placeholder="Enter business location"
+                    />
+
+                  </div>
+
+
+                  {/* Description */}
+
+                  <div className="business-profile-form-group business-profile-full-width">
+
+                    <label htmlFor="description">
+                      Description
+                    </label>
+
+                    <textarea
+                      id="description"
+                      name="description"
+                      rows="5"
+                      value={formData.description}
+                      onChange={handleChange}
+                      placeholder="Describe your business"
+                    />
+
+                  </div>
+
+                </div>
+
+
+                {/* Actions */}
+
+                <div className="business-profile-form-actions">
+
+                  <button
+                    type="button"
+                    className="business-profile-cancel-button"
+                    onClick={handleCancelCreate}
+                    disabled={saving}
+                  >
+                    Cancel
+                  </button>
+
+                  <button
+                    type="submit"
+                    className="business-profile-save-button"
+                    disabled={saving}
+                  >
+                    {saving
+                      ? "Creating..."
+                      : "Create Profile"}
+                  </button>
+
+                </div>
+
+              </form>
+
+            </section>
+
+          )}
+
         </main>
+
       </div>
     );
   }
 
+  // ========================================
+  // NORMAL PROFILE
+  // ========================================
+
   return (
     <div className="business-profile-layout">
+
       <Sidebar />
 
       <main className="business-profile-page">
@@ -208,7 +528,9 @@ function BusinessProfile() {
         {/* Header */}
 
         <div className="business-profile-header">
+
           <div>
+
             <p className="business-profile-label">
               Business Account
             </p>
@@ -220,6 +542,7 @@ function BusinessProfile() {
             <p>
               Manage your company and contact information.
             </p>
+
           </div>
 
           {!editing && (
@@ -230,7 +553,9 @@ function BusinessProfile() {
               Edit Profile
             </button>
           )}
+
         </div>
+
 
         {/* Messages */}
 
@@ -246,11 +571,13 @@ function BusinessProfile() {
           </div>
         )}
 
+
         {/* Account Information */}
 
         <section className="business-profile-card">
 
           <div className="business-profile-card-header">
+
             <h2>
               Account Information
             </h2>
@@ -258,7 +585,9 @@ function BusinessProfile() {
             <p>
               Your registered AgriConnect account details.
             </p>
+
           </div>
+
 
           <div className="business-account">
 
@@ -269,6 +598,7 @@ function BusinessProfile() {
             </div>
 
             <div>
+
               <h3>
                 {profile.fullName || "Business User"}
               </h3>
@@ -280,17 +610,20 @@ function BusinessProfile() {
               <span>
                 Account holder
               </span>
+
             </div>
 
           </div>
 
         </section>
 
+
         {/* Company Information */}
 
         <section className="business-profile-card">
 
           <div className="business-profile-card-header">
+
             <h2>
               Company Information
             </h2>
@@ -298,14 +631,18 @@ function BusinessProfile() {
             <p>
               Details about your business firm.
             </p>
+
           </div>
 
+
           {editing ? (
-            <form onSubmit={handleSave}>
+
+            <form onSubmit={handleSubmit}>
 
               <div className="business-profile-form-grid">
 
                 <div className="business-profile-form-group">
+
                   <label htmlFor="companyName">
                     Company Name
                   </label>
@@ -319,9 +656,12 @@ function BusinessProfile() {
                     placeholder="Enter company name"
                     required
                   />
+
                 </div>
 
+
                 <div className="business-profile-form-group">
+
                   <label htmlFor="industry">
                     Industry
                   </label>
@@ -334,9 +674,12 @@ function BusinessProfile() {
                     onChange={handleChange}
                     placeholder="Enter industry"
                   />
+
                 </div>
 
+
                 <div className="business-profile-form-group">
+
                   <label htmlFor="website">
                     Website
                   </label>
@@ -349,9 +692,12 @@ function BusinessProfile() {
                     onChange={handleChange}
                     placeholder="https://example.com"
                   />
+
                 </div>
 
+
                 <div className="business-profile-form-group">
+
                   <label htmlFor="phone">
                     Phone
                   </label>
@@ -364,9 +710,12 @@ function BusinessProfile() {
                     onChange={handleChange}
                     placeholder="Enter phone number"
                   />
+
                 </div>
 
+
                 <div className="business-profile-form-group business-profile-full-width">
+
                   <label htmlFor="location">
                     Location
                   </label>
@@ -379,9 +728,12 @@ function BusinessProfile() {
                     onChange={handleChange}
                     placeholder="Enter business location"
                   />
+
                 </div>
 
+
                 <div className="business-profile-form-group business-profile-full-width">
+
                   <label htmlFor="description">
                     Description
                   </label>
@@ -394,9 +746,11 @@ function BusinessProfile() {
                     onChange={handleChange}
                     placeholder="Describe your business"
                   />
+
                 </div>
 
               </div>
+
 
               <div className="business-profile-form-actions">
 
@@ -422,7 +776,9 @@ function BusinessProfile() {
               </div>
 
             </form>
+
           ) : (
+
             <div className="business-profile-information-grid">
 
               <div>
@@ -468,11 +824,13 @@ function BusinessProfile() {
               </div>
 
             </div>
+
           )}
 
         </section>
 
       </main>
+
     </div>
   );
 }

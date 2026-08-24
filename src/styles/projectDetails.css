@@ -763,3 +763,32 @@
   }
 
 }
+/* ========================================
+   PROJECT CHAT BUTTON
+======================================== */
+
+.project-details-chat-button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+
+  background: #e8f7ed;
+  color: #18883d;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.project-details-chat-button:hover:not(:disabled) {
+  background: #d8f1df;
+  transform: translateY(-1px);
+}
+
+.project-details-chat-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

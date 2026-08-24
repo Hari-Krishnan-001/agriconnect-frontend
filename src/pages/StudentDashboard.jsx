@@ -10,9 +10,12 @@ function StudentDashboard() {
 
   const [profile, setProfile] = useState(null);
   const [projects, setProjects] = useState([]);
+  const [projectChats, setProjectChats] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [chatError, setChatError] = useState("");
+
 
   // ========================================
   // FETCH DASHBOARD DATA
@@ -22,19 +25,32 @@ function StudentDashboard() {
     fetchDashboardData();
   }, []);
 
+
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
       setError("");
+      setChatError("");
 
-      const [profileResponse, projectsResponse] =
-        await Promise.all([
-          api.get("/api/student/profile"),
-          api.get("/api/projects/my-projects"),
-        ]);
+      const [
+        profileResponse,
+        projectsResponse,
+        chatsResponse,
+      ] = await Promise.all([
+        api.get("/api/student/profile"),
+        api.get("/api/projects/my-projects"),
+        api.get("/api/project-chats/student"),
+      ]);
 
       setProfile(profileResponse.data);
-      setProjects(projectsResponse.data || []);
+
+      setProjects(
+        projectsResponse.data || []
+      );
+
+      setProjectChats(
+        chatsResponse.data || []
+      );
 
     } catch (err) {
       console.error(
@@ -42,10 +58,27 @@ function StudentDashboard() {
         err
       );
 
-      setError(
-        err.response?.data?.message ||
-          "Failed to load dashboard."
-      );
+      /*
+       * The dashboard itself should still load
+       * even if the chat endpoint fails.
+       */
+
+      if (
+        err.config?.url?.includes(
+          "/api/project-chats/student"
+        )
+      ) {
+        setChatError(
+          err.response?.data?.message ||
+            "Unable to load project chats."
+        );
+      } else {
+        setError(
+          err.response?.data?.message ||
+            "Failed to load dashboard."
+        );
+      }
+
     } finally {
       setLoading(false);
     }
@@ -56,28 +89,41 @@ function StudentDashboard() {
   // STATISTICS
   // ========================================
 
-  const totalProjects = projects.length;
+  const totalProjects =
+    projects.length;
 
-  const totalFundingRequired = projects.reduce(
-    (total, project) =>
-      total +
-      Number(project.fundingRequired || 0),
-    0
-  );
 
-  const totalViews = projects.reduce(
-    (total, project) =>
-      total +
-      Number(project.views || 0),
-    0
-  );
+  const totalFundingRequired =
+    projects.reduce(
+      (total, project) =>
+        total +
+        Number(
+          project.fundingRequired || 0
+        ),
+      0
+    );
 
-  const totalLikes = projects.reduce(
-    (total, project) =>
-      total +
-      Number(project.likes || 0),
-    0
-  );
+
+  const totalViews =
+    projects.reduce(
+      (total, project) =>
+        total +
+        Number(
+          project.views || 0
+        ),
+      0
+    );
+
+
+  const totalLikes =
+    projects.reduce(
+      (total, project) =>
+        total +
+        Number(
+          project.likes || 0
+        ),
+      0
+    );
 
 
   // ========================================
@@ -85,9 +131,9 @@ function StudentDashboard() {
   // ========================================
 
   const formatMoney = (amount) => {
-    return Number(amount || 0).toLocaleString(
-      "en-IN"
-    );
+    return Number(
+      amount || 0
+    ).toLocaleString("en-IN");
   };
 
 
@@ -110,6 +156,34 @@ function StudentDashboard() {
       default:
         return "student-project-status open";
     }
+  };
+
+
+  // ========================================
+  // CHAT DATE
+  // ========================================
+
+  const formatChatDate = (date) => {
+    if (!date) {
+      return "N/A";
+    }
+
+    return new Date(
+      date
+    ).toLocaleDateString(
+      "en-IN"
+    );
+  };
+
+
+  // ========================================
+  // OPEN CHAT
+  // ========================================
+
+  const openProjectChat = (projectId) => {
+    navigate(
+      `/project-chat/${projectId}`
+    );
   };
 
 
@@ -174,7 +248,8 @@ function StudentDashboard() {
 
             <h1>
               Welcome back,{" "}
-              {profile?.fullName || "Student"}!
+              {profile?.fullName ||
+                "Student"}!
             </h1>
 
             <p>
@@ -189,7 +264,9 @@ function StudentDashboard() {
           <button
             className="create-project-btn"
             onClick={() =>
-              navigate("/projects/create")
+              navigate(
+                "/projects/create"
+              )
             }
           >
             + Create Project
@@ -210,7 +287,9 @@ function StudentDashboard() {
             </span>
 
             <button
-              onClick={fetchDashboardData}
+              onClick={
+                fetchDashboardData
+              }
             >
               Try Again
             </button>
@@ -324,6 +403,189 @@ function StudentDashboard() {
 
 
         {/* =================================
+            PROJECT CHATS
+        ================================= */}
+
+        <section className="student-project-chats">
+
+          <div className="section-heading">
+
+            <div>
+
+              <h2>
+                💬 Project Chats
+              </h2>
+
+              <p>
+                Communicate with businesses
+                interested in your projects.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* CHAT ERROR */}
+
+          {chatError && (
+            <div className="student-dashboard-error">
+
+              <span>
+                {chatError}
+              </span>
+
+              <button
+                onClick={
+                  fetchDashboardData
+                }
+              >
+                Try Again
+              </button>
+
+            </div>
+          )}
+
+
+          {/* EMPTY CHATS */}
+
+          {!chatError &&
+            projectChats.length === 0 && (
+              <div className="empty-project-chats">
+
+                <div className="empty-chat-icon">
+                  💬
+                </div>
+
+                <h3>
+                  No Project Chats Yet
+                </h3>
+
+                <p>
+                  When a business contacts you
+                  about one of your projects,
+                  the conversation will appear here.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    navigate(
+                      "/projects"
+                    )
+                  }
+                >
+                  Explore Projects
+                </button>
+
+              </div>
+            )}
+
+
+          {/* CHAT LIST */}
+
+          {!chatError &&
+            projectChats.length > 0 && (
+
+              <div className="student-project-chat-list">
+
+                {projectChats.map(
+                  (chat) => (
+
+                    <div
+                      className="student-project-chat-card"
+                      key={chat.id}
+                    >
+
+                      {/* ICON */}
+
+                      <div className="student-project-chat-icon">
+                        💬
+                      </div>
+
+
+                      {/* CONTENT */}
+
+                      <div className="student-project-chat-content">
+
+                        <div className="student-project-chat-header">
+
+                          <div>
+
+                            <h3>
+                              {chat.projectTitle ||
+                                "Untitled Project"}
+                            </h3>
+
+                            <p>
+                              Project #
+                              {chat.projectId}
+                            </p>
+
+                          </div>
+
+                        </div>
+
+
+                        <div className="student-project-chat-info">
+
+                          <div>
+
+                            <span>
+                              Business
+                            </span>
+
+                            <strong>
+                              {chat.businessName ||
+                                "Unknown Business"}
+                            </strong>
+
+                          </div>
+
+
+                          <div>
+
+                            <span>
+                              Started
+                            </span>
+
+                            <strong>
+                              {formatChatDate(
+                                chat.createdAt
+                              )}
+                            </strong>
+
+                          </div>
+
+                        </div>
+
+
+                        <button
+                          type="button"
+                          className="student-project-chat-button"
+                          onClick={() =>
+                            openProjectChat(
+                              chat.projectId
+                            )
+                          }
+                        >
+                          Open Chat →
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  )
+                )}
+
+              </div>
+            )}
+
+        </section>
+
+
+        {/* =================================
             MY PROJECTS
         ================================= */}
 
@@ -351,7 +613,9 @@ function StudentDashboard() {
               <button
                 className="view-all-btn"
                 onClick={() =>
-                  navigate("/projects")
+                  navigate(
+                    "/projects"
+                  )
                 }
               >
                 View All
@@ -366,36 +630,39 @@ function StudentDashboard() {
               EMPTY PROJECTS
           ================================= */}
 
-          {projects.length === 0 && !error && (
+          {projects.length === 0 &&
+            !error && (
 
-            <div className="empty-project">
+              <div className="empty-project">
 
-              <div className="empty-icon">
-                📁
+                <div className="empty-icon">
+                  📁
+                </div>
+
+                <h3>
+                  No projects yet
+                </h3>
+
+                <p>
+                  Start your first agricultural
+                  project and share your innovative
+                  idea with the community.
+                </p>
+
+                <button
+                  className="create-project-btn"
+                  onClick={() =>
+                    navigate(
+                      "/projects/create"
+                    )
+                  }
+                >
+                  Create Your First Project
+                </button>
+
               </div>
 
-              <h3>
-                No projects yet
-              </h3>
-
-              <p>
-                Start your first agricultural
-                project and share your innovative
-                idea with the community.
-              </p>
-
-              <button
-                className="create-project-btn"
-                onClick={() =>
-                  navigate("/projects/create")
-                }
-              >
-                Create Your First Project
-              </button>
-
-            </div>
-
-          )}
+            )}
 
 
           {/* =================================
@@ -408,164 +675,169 @@ function StudentDashboard() {
 
               {projects
                 .slice(0, 3)
-                .map((project) => (
+                .map(
+                  (project) => (
 
-                  <div
-                    className="student-project-card"
-                    key={project.id}
-                  >
-
-
-                    {/* Project Header */}
-
-                    <div className="student-project-card-header">
-
-                      <div>
-
-                        <h3>
-                          {project.title}
-                        </h3>
-
-                        <p>
-                          Project #{project.id}
-                        </p>
-
-                      </div>
-
-
-                      <span
-                        className={getStatusClass(
-                          project.status
-                        )}
-                      >
-                        {project.status ||
-                          "OPEN"}
-                      </span>
-
-                    </div>
-
-
-                    {/* Description */}
-
-                    <p className="student-project-description">
-
-                      {project.description ||
-                        project.solution ||
-                        "No project description available."}
-
-                    </p>
-
-
-                    {/* Project Information */}
-
-                    <div className="student-project-info">
-
-
-                      {/* Technology */}
-
-                      <div>
-
-                        <span>
-                          Technology
-                        </span>
-
-                        <strong>
-                          {project.technology ||
-                            "Not specified"}
-                        </strong>
-
-                      </div>
-
-
-                      {/* Funding */}
-
-                      <div>
-
-                        <span>
-                          Funding Required
-                        </span>
-
-                        <strong>
-                          ₹
-                          {formatMoney(
-                            project.fundingRequired
-                          )}
-                        </strong>
-
-                      </div>
-
-
-                      {/* Created */}
-
-                      <div>
-
-                        <span>
-                          Created
-                        </span>
-
-                        <strong>
-                          {project.createdAt
-                            ? new Date(
-                                project.createdAt
-                              ).toLocaleDateString(
-                                "en-IN"
-                              )
-                            : "N/A"}
-                        </strong>
-
-                      </div>
-
-
-                      {/* Views */}
-
-                      <div>
-
-                        <span>
-                          Views
-                        </span>
-
-                        <strong>
-                          👁️{" "}
-                          {project.views ?? 0}
-                        </strong>
-
-                      </div>
-
-
-                      {/* Likes */}
-
-                      <div>
-
-                        <span>
-                          Likes
-                        </span>
-
-                        <strong>
-                          ❤️{" "}
-                          {project.likes ?? 0}
-                        </strong>
-
-                      </div>
-
-                    </div>
-
-
-                    {/* View Project */}
-
-                    <button
-                      className="student-project-view-btn"
-                      onClick={() =>
-                        navigate(
-                          `/projects/${project.id}`
-                        )
-                      }
+                    <div
+                      className="student-project-card"
+                      key={project.id}
                     >
-                      View Project
-                    </button>
 
-                  </div>
 
-                ))}
+                      {/* Project Header */}
+
+                      <div className="student-project-card-header">
+
+                        <div>
+
+                          <h3>
+                            {project.title}
+                          </h3>
+
+                          <p>
+                            Project #
+                            {project.id}
+                          </p>
+
+                        </div>
+
+
+                        <span
+                          className={getStatusClass(
+                            project.status
+                          )}
+                        >
+                          {project.status ||
+                            "OPEN"}
+                        </span>
+
+                      </div>
+
+
+                      {/* Description */}
+
+                      <p className="student-project-description">
+
+                        {project.description ||
+                          project.solution ||
+                          "No project description available."}
+
+                      </p>
+
+
+                      {/* Project Information */}
+
+                      <div className="student-project-info">
+
+
+                        {/* Technology */}
+
+                        <div>
+
+                          <span>
+                            Technology
+                          </span>
+
+                          <strong>
+                            {project.technology ||
+                              "Not specified"}
+                          </strong>
+
+                        </div>
+
+
+                        {/* Funding */}
+
+                        <div>
+
+                          <span>
+                            Funding Required
+                          </span>
+
+                          <strong>
+                            ₹
+                            {formatMoney(
+                              project.fundingRequired
+                            )}
+                          </strong>
+
+                        </div>
+
+
+                        {/* Created */}
+
+                        <div>
+
+                          <span>
+                            Created
+                          </span>
+
+                          <strong>
+                            {project.createdAt
+                              ? new Date(
+                                  project.createdAt
+                                ).toLocaleDateString(
+                                  "en-IN"
+                                )
+                              : "N/A"}
+                          </strong>
+
+                        </div>
+
+
+                        {/* Views */}
+
+                        <div>
+
+                          <span>
+                            Views
+                          </span>
+
+                          <strong>
+                            👁️{" "}
+                            {project.views ??
+                              0}
+                          </strong>
+
+                        </div>
+
+
+                        {/* Likes */}
+
+                        <div>
+
+                          <span>
+                            Likes
+                          </span>
+
+                          <strong>
+                            ❤️{" "}
+                            {project.likes ??
+                              0}
+                          </strong>
+
+                        </div>
+
+                      </div>
+
+
+                      {/* View Project */}
+
+                      <button
+                        className="student-project-view-btn"
+                        onClick={() =>
+                          navigate(
+                            `/projects/${project.id}`
+                          )
+                        }
+                      >
+                        View Project
+                      </button>
+
+                    </div>
+
+                  )
+                )}
 
             </div>
 
@@ -597,7 +869,9 @@ function StudentDashboard() {
 
           <button
             onClick={() =>
-              navigate("/projects")
+              navigate(
+                "/projects"
+              )
             }
           >
             Explore Projects

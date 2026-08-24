@@ -46,6 +46,15 @@ function Orders() {
 
 
   // ========================================
+  // OPEN ORDER CHAT
+  // ========================================
+
+  const handleOpenChat = (orderId) => {
+    navigate(`/chat/${orderId}`);
+  };
+
+
+  // ========================================
   // CROP EMOJI
   // ========================================
 
@@ -423,6 +432,25 @@ function Orders() {
                       </p>
 
                     )}
+
+
+                    {/* =================================
+                        CHAT
+                    ================================= */}
+
+                    <div className="order-actions">
+
+                      <button
+                        type="button"
+                        className="order-chat-button"
+                        onClick={() =>
+                          handleOpenChat(order.id)
+                        }
+                      >
+                        💬 Chat with Farmer
+                      </button>
+
+                    </div>
 
                   </div>
 
