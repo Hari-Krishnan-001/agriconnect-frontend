@@ -1,45 +1,57 @@
-import Sidebar from "../components/sidebar/Sidebar";
-
 import DashboardCards from "../components/dashboard/DashboardCards";
 import RecentOrders from "../components/dashboard/RecentOrders";
 import CropOverview from "../components/dashboard/CropOverview";
 import HelpBanner from "../components/dashboard/HelpBanner";
+import Sidebar from "../components/sidebar/Sidebar";
+
+import "../styles/farmerDashboard.css";
 
 function FarmerDashboard() {
   return (
     <div
       style={{
         display: "flex",
+        minHeight: "100vh",
+        width: "100%",
+        background: "#f8fafc",
       }}
     >
+      {/* Sidebar */}
       <Sidebar />
 
-      <div
+      {/* Dashboard Content */}
+      <main
         style={{
-        flex: 1,
-        padding: "40px",
-        backgroundColor: "#f5f7f5",
-        minHeight: "100vh",
+          flex: 1,
+          minWidth: 0,
         }}
       >
-        <h1>Welcome back, Hari!</h1>
+        <div className="farmer-dashboard">
 
-        <DashboardCards />
+          {/* Header */}
+          <div className="farmer-dashboard-header">
+            <h1>Welcome back, Hari!</h1>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "20px",
-            marginTop: "30px",
-          }}
-        >
-          <RecentOrders />
+            <p>
+              Here's what's happening with your farm today.
+            </p>
+          </div>
 
-          <CropOverview />
+          {/* Dashboard Statistics */}
+          <DashboardCards />
+
+          {/* Recent Orders + Crop Overview */}
+          <div className="farmer-dashboard-middle">
+            <RecentOrders />
+
+            <CropOverview />
+          </div>
+
+          {/* Help Banner */}
+          <HelpBanner />
+
         </div>
-
-        <HelpBanner />
-      </div>
+      </main>
     </div>
   );
 }

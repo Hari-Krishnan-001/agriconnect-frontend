@@ -1,0 +1,1268 @@
+/* =========================================================
+   AGRICONNECT - PESTICIDES PAGE
+   Complete stylesheet
+========================================================= */
+
+
+/* =========================================================
+   PAGE ROOT
+========================================================= */
+
+.pesticides-page-layout {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f8fafc;
+
+  box-sizing: border-box;
+}
+
+.pesticides-page-layout *,
+.pesticides-page-layout *::before,
+.pesticides-page-layout *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.pesticides-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 42px 48px 70px;
+
+  background: #f8fafc;
+
+  color: #111827;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pesticides-header {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto 28px;
+}
+
+.pesticides-label {
+  margin: 0 0 8px;
+
+  color: #16a34a;
+
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pesticides-header h1 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 750;
+
+  letter-spacing: -0.02em;
+}
+
+.pesticides-subtitle {
+  max-width: 760px;
+
+  margin: 12px 0 0;
+
+  color: #64748b;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIBLE USE NOTICE
+========================================================= */
+
+.pesticides-notice {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto 26px;
+  padding: 19px 21px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  background: #fffbeb;
+
+  border: 1px solid #fde68a;
+  border-radius: 16px;
+
+  box-shadow:
+    0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.pesticides-notice-icon {
+  width: 44px;
+  height: 44px;
+
+  flex: 0 0 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #fef3c7;
+
+  color: #d97706;
+
+  font-size: 18px;
+}
+
+.pesticides-notice h2 {
+  margin: 1px 0 5px;
+
+  color: #92400e;
+
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.pesticides-notice p {
+  margin: 0;
+
+  color: #78350f;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SEARCH SECTION
+========================================================= */
+
+.pesticides-search-section {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto 18px;
+}
+
+.pesticides-search {
+  width: 100%;
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 17px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  box-shadow:
+    0 3px 12px rgba(15, 23, 42, 0.04);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pesticides-search:focus-within {
+  border-color: #86efac;
+
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.pesticides-search > svg {
+  flex: 0 0 auto;
+
+  color: #94a3b8;
+
+  font-size: 16px;
+}
+
+.pesticides-search input {
+  flex: 1;
+
+  width: 100%;
+  min-width: 0;
+
+  margin-left: 12px;
+
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #111827;
+
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pesticides-search input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   SEARCH CLEAR
+========================================================= */
+
+.pesticides-search-clear {
+  width: 32px;
+  height: 32px;
+
+  flex: 0 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 8px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #94a3b8;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.pesticides-search-clear:hover {
+  background: #f1f5f9;
+
+  color: #334155;
+}
+
+
+/* =========================================================
+   CATEGORY FILTERS
+========================================================= */
+
+.pesticides-categories {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto 34px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  overflow-x: auto;
+
+  padding: 2px 2px 6px;
+
+  scrollbar-width: thin;
+}
+
+.pesticides-categories::-webkit-scrollbar {
+  height: 4px;
+}
+
+.pesticides-categories::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pesticides-categories::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   CATEGORY BUTTON
+========================================================= */
+
+.pesticides-category-button {
+  flex: 0 0 auto;
+
+  padding: 9px 17px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+
+  background: #ffffff;
+
+  color: #475569;
+
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pesticides-category-button:hover {
+  background: #f0fdf4;
+
+  border-color: #bbf7d0;
+
+  color: #15803d;
+}
+
+.pesticides-category-button:active {
+  transform: scale(0.97);
+}
+
+.pesticides-category-button.active {
+  background: #16a34a;
+
+  border-color: #16a34a;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   RESULTS HEADER
+========================================================= */
+
+.pesticides-results-info {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.pesticides-results-info h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.pesticides-results-info span {
+  flex: 0 0 auto;
+
+  color: #64748b;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   CARDS GRID
+========================================================= */
+
+.pesticides-grid {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.pesticide-card {
+  min-width: 0;
+  min-height: 280px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 23px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.045);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pesticide-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #bbf7d0;
+
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.09);
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.pesticide-card-top {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.pesticide-card-icon {
+  width: 50px;
+  height: 50px;
+
+  flex: 0 0 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #f0fdf4;
+
+  color: #16a34a;
+
+  font-size: 21px;
+}
+
+
+/* =========================================================
+   CARD CATEGORY
+========================================================= */
+
+.pesticide-card-category {
+  max-width: 140px;
+
+  overflow: hidden;
+
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #f0fdf4;
+
+  color: #15803d;
+
+  font-size: 10px;
+  line-height: 1.3;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.pesticide-card-content {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.pesticide-card-content h3 {
+  margin: 0 0 10px;
+
+  color: #111827;
+
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.pesticide-card-content p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   LEARN MORE BUTTON
+========================================================= */
+
+.pesticide-learn-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 22px;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #15803d;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.pesticide-learn-button svg {
+  flex: 0 0 auto;
+
+  font-size: 10px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.pesticide-learn-button:hover {
+  color: #166534;
+}
+
+.pesticide-learn-button:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.pesticides-empty {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 55px auto;
+
+  padding: 45px 30px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.pesticides-empty-icon {
+  width: 60px;
+  height: 60px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f0fdf4;
+
+  font-size: 25px;
+}
+
+.pesticides-empty h2 {
+  margin: 0 0 8px;
+
+  color: #111827;
+
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.pesticides-empty p {
+  margin: 0 0 20px;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.pesticides-empty button {
+  padding: 10px 18px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: #16a34a;
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pesticides-empty button:hover {
+  background: #15803d;
+}
+
+.pesticides-empty button:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.pesticides-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 3000;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.48);
+
+  backdrop-filter: blur(3px);
+
+  animation: pesticidesOverlayIn 0.2s ease;
+}
+
+@keyframes pesticidesOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.pesticides-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 640px;
+  max-height: calc(100vh - 48px);
+
+  overflow-y: auto;
+
+  padding: 32px;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 70px rgba(15, 23, 42, 0.22);
+
+  animation: pesticidesModalIn 0.22s ease;
+}
+
+@keyframes pesticidesModalIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   MODAL SCROLLBAR
+========================================================= */
+
+.pesticides-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pesticides-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pesticides-modal::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   MODAL CLOSE BUTTON
+========================================================= */
+
+.pesticides-modal-close {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: #f1f5f9;
+
+  color: #64748b;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.pesticides-modal-close:hover {
+  background: #e2e8f0;
+
+  color: #111827;
+}
+
+
+/* =========================================================
+   MODAL ICON
+========================================================= */
+
+.pesticides-modal-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 16px;
+
+  background: #f0fdf4;
+
+  color: #16a34a;
+
+  font-size: 25px;
+}
+
+
+/* =========================================================
+   MODAL CATEGORY
+========================================================= */
+
+.pesticides-modal-category {
+  display: inline-block;
+
+  margin-bottom: 9px;
+
+  color: #16a34a;
+
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MODAL TITLE
+========================================================= */
+
+.pesticides-modal h2 {
+  margin: 0 45px 15px 0;
+
+  color: #111827;
+
+  font-size: 29px;
+  line-height: 1.25;
+  font-weight: 750;
+
+  letter-spacing: -0.015em;
+}
+
+
+/* =========================================================
+   MODAL DESCRIPTION
+========================================================= */
+
+.pesticides-modal-description {
+  margin: 0;
+
+  color: #475569;
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   GENERAL USES
+========================================================= */
+
+.pesticides-modal-section {
+  margin-top: 24px;
+
+  padding: 20px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.pesticides-modal-section h3 {
+  margin: 0 0 12px;
+
+  color: #111827;
+
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.pesticides-modal-section ul {
+  margin: 0;
+
+  padding: 0 0 0 20px;
+}
+
+.pesticides-modal-section li {
+  margin: 0 0 8px;
+
+  color: #475569;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.pesticides-modal-section li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   SAFETY BOX
+========================================================= */
+
+.pesticides-modal-safety {
+  width: 100%;
+
+  margin-top: 16px;
+  padding: 18px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  background: #fffbeb;
+
+  border: 1px solid #fde68a;
+  border-radius: 14px;
+}
+
+.pesticides-modal-safety-icon {
+  width: 35px;
+  height: 35px;
+
+  flex: 0 0 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #fef3c7;
+
+  color: #d97706;
+
+  font-size: 14px;
+}
+
+.pesticides-modal-safety h3 {
+  margin: 0 0 5px;
+
+  color: #92400e;
+
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.pesticides-modal-safety p {
+  margin: 0;
+
+  color: #78350f;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   MODAL CLOSE / DONE
+========================================================= */
+
+.pesticides-modal-done {
+  width: 100%;
+
+  margin-top: 22px;
+  padding: 12px 18px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: #16a34a;
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pesticides-modal-done:hover {
+  background: #15803d;
+}
+
+.pesticides-modal-done:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .pesticides-page {
+    padding: 36px 30px 60px;
+  }
+
+  .pesticides-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .pesticides-page {
+    padding: 32px 24px 50px;
+  }
+
+  .pesticides-header h1 {
+    font-size: 34px;
+  }
+
+  .pesticides-grid {
+    gap: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .pesticides-page {
+    padding: 26px 16px 42px;
+  }
+
+  .pesticides-header {
+    margin-bottom: 22px;
+  }
+
+  .pesticides-header h1 {
+    font-size: 30px;
+  }
+
+  .pesticides-subtitle {
+    margin-top: 10px;
+
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .pesticides-notice {
+    padding: 15px;
+
+    gap: 11px;
+
+    border-radius: 14px;
+  }
+
+  .pesticides-notice-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-basis: 38px;
+  }
+
+  .pesticides-notice h2 {
+    font-size: 14px;
+  }
+
+  .pesticides-notice p {
+    font-size: 12px;
+  }
+
+  .pesticides-search {
+    min-height: 50px;
+  }
+
+  .pesticides-categories {
+    margin-bottom: 26px;
+  }
+
+  .pesticides-category-button {
+    padding: 8px 14px;
+
+    font-size: 12px;
+  }
+
+  .pesticides-results-info {
+    align-items: flex-start;
+
+    margin-bottom: 15px;
+  }
+
+  .pesticides-results-info h2 {
+    font-size: 18px;
+  }
+
+  .pesticides-results-info span {
+    font-size: 12px;
+  }
+
+  .pesticides-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .pesticide-card {
+    min-height: 250px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+  }
+
+  .pesticide-card-content h3 {
+    font-size: 19px;
+  }
+
+  .pesticide-card-content p {
+    font-size: 13px;
+  }
+
+  .pesticides-modal-overlay {
+    padding: 14px;
+  }
+
+  .pesticides-modal {
+    max-height: calc(100vh - 28px);
+
+    padding: 25px 20px;
+
+    border-radius: 17px;
+  }
+
+  .pesticides-modal h2 {
+    font-size: 24px;
+  }
+
+  .pesticides-modal-description {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .pesticides-page {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .pesticides-header h1 {
+    font-size: 27px;
+  }
+
+  .pesticides-label {
+    font-size: 11px;
+  }
+
+  .pesticide-card {
+    padding: 18px;
+  }
+
+  .pesticide-card-content h3 {
+    font-size: 18px;
+  }
+
+  .pesticide-card-content p {
+    font-size: 13px;
+  }
+
+  .pesticides-modal {
+    padding: 22px 17px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.pesticides-page button:focus-visible,
+.pesticides-page input:focus-visible {
+  outline: 3px solid rgba(34, 197, 94, 0.25);
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .pesticide-card,
+  .pesticide-learn-button,
+  .pesticide-learn-button svg,
+  .pesticides-category-button,
+  .pesticides-modal,
+  .pesticides-modal-overlay {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+}

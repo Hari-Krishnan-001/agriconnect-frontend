@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import "../styles/crops.css";
+import Sidebar from "../components/sidebar/Sidebar";
 
 function Crops() {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ function Crops() {
 
       setError(
         err.response?.data?.message ||
-        "Failed to delete crop."
+          "Failed to delete crop."
       );
     }
   };
@@ -79,179 +80,224 @@ function Crops() {
 
       setError(
         err.response?.data?.message ||
-        "Failed to update crop availability."
+          "Failed to update crop availability."
       );
     }
   };
 
+  // LOADING
   if (loading) {
     return (
-      <div className="crops-page">
-        <h1>My Crops</h1>
-        <p>Loading crops...</p>
+      <div
+        style={{
+          display: "flex",
+          minHeight: "100vh",
+          width: "100%",
+          background: "#f8fafc",
+        }}
+      >
+        <Sidebar />
+
+        <main
+          style={{
+            flex: 1,
+            minWidth: 0,
+          }}
+        >
+          <div className="crops-page">
+            <h1>My Crops</h1>
+            <p>Loading crops...</p>
+          </div>
+        </main>
       </div>
     );
   }
 
   return (
-    <div className="crops-page">
+    <div
+      style={{
+        display: "flex",
+        minHeight: "100vh",
+        width: "100%",
+        background: "#f8fafc",
+      }}
+    >
+      {/* Sidebar */}
+      <Sidebar />
 
-      {/* Header */}
-      <div className="crops-header">
+      {/* Main Content */}
+      <main
+        style={{
+          flex: 1,
+          minWidth: 0,
+        }}
+      >
+        <div className="crops-page">
 
-        <div>
-          <h1>My Crops</h1>
-          <p>Manage the crops you have added.</p>
-        </div>
+          {/* Header */}
+          <div className="crops-header">
 
-        <button
-          className="add-crop-button"
-          onClick={() => navigate("/farmer/crops/add")}
-        >
-          + Add New Crop
-        </button>
-
-      </div>
-
-      {/* Error */}
-      {error && (
-        <div className="crops-error">
-          {error}
-        </div>
-      )}
-
-      {/* No Crops */}
-      {!error && crops.length === 0 && (
-        <div className="empty-crops">
-
-          <div className="empty-icon">
-            🌱
-          </div>
-
-          <h2>No Crops Added</h2>
-
-          <p>
-            You haven't added any crops yet.
-          </p>
-
-          <button
-            className="add-crop-button"
-            onClick={() => navigate("/farmer/crops/add")}
-          >
-            + Add Your First Crop
-          </button>
-
-        </div>
-      )}
-
-      {/* Crop Cards */}
-      <div className="crops-grid">
-
-        {crops.map((crop) => (
-
-          <div
-            className="crop-card"
-            key={crop.id}
-          >
-
-            <div className="crop-card-icon">
-              🌱
+            <div>
+              <h1>My Crops</h1>
+              <p>Manage the crops you have added.</p>
             </div>
 
-            <div className="crop-card-content">
+            <button
+              className="add-crop-button"
+              onClick={() =>
+                navigate("/farmer/crops/add")
+              }
+            >
+              + Add New Crop
+            </button>
 
-              <div className="crop-card-top">
+          </div>
 
-                <h2>
-                  {crop.cropName}
-                </h2>
+          {/* Error */}
+          {error && (
+            <div className="crops-error">
+              {error}
+            </div>
+          )}
 
-                <span
-                  className={
-                    crop.available
-                      ? "crop-status available"
-                      : "crop-status unavailable"
-                  }
-                >
-                  {crop.available
-                    ? "Available"
-                    : "Unavailable"}
-                </span>
+          {/* No Crops */}
+          {!error && crops.length === 0 && (
+            <div className="empty-crops">
 
+              <div className="empty-icon">
+                🌱
               </div>
 
-              <p className="crop-category">
-                {crop.category}
+              <h2>No Crops Added</h2>
+
+              <p>
+                You haven't added any crops yet.
               </p>
 
-              <div className="crop-info">
-
-                <div>
-                  <span>Quantity</span>
-
-                  <strong>
-                    {crop.quantity} {crop.unit}
-                  </strong>
-                </div>
-
-                <div>
-                  <span>Price</span>
-
-                  <strong>
-                    ₹{crop.pricePerUnit} / {crop.unit}
-                  </strong>
-                </div>
-
-              </div>
-
-              {crop.description && (
-                <p className="crop-description">
-                  {crop.description}
-                </p>
-              )}
-
-              {/* Actions */}
-              <div className="crop-actions">
-
-                <button
-                  className="edit-crop-button"
-                  onClick={() =>
-                    navigate(`/farmer/crops/edit/${crop.id}`)
-                  }
-                >
-                  Edit
-                </button>
-
-                <button
-                  className="availability-button"
-                  onClick={() =>
-                    handleToggleAvailability(crop)
-                  }
-                >
-                  {crop.available
-                    ? "Mark Unavailable"
-                    : "Mark Available"}
-                </button>
-
-                <button
-                  className="delete-crop-button"
-                  onClick={() =>
-                    handleDelete(crop.id)
-                  }
-                >
-                  Delete
-                </button>
-
-              </div>
+              <button
+                className="add-crop-button"
+                onClick={() =>
+                  navigate("/farmer/crops/add")
+                }
+              >
+                + Add Your First Crop
+              </button>
 
             </div>
+          )}
+
+          {/* Crop Cards */}
+          <div className="crops-grid">
+
+            {crops.map((crop) => (
+
+              <div
+                className="crop-card"
+                key={crop.id}
+              >
+
+                <div className="crop-card-icon">
+                  🌱
+                </div>
+
+                <div className="crop-card-content">
+
+                  <div className="crop-card-top">
+
+                    <h2>
+                      {crop.cropName}
+                    </h2>
+
+                    <span
+                      className={
+                        crop.available
+                          ? "crop-status available"
+                          : "crop-status unavailable"
+                      }
+                    >
+                      {crop.available
+                        ? "Available"
+                        : "Unavailable"}
+                    </span>
+
+                  </div>
+
+                  <p className="crop-category">
+                    {crop.category}
+                  </p>
+
+                  <div className="crop-info">
+
+                    <div>
+                      <span>Quantity</span>
+
+                      <strong>
+                        {crop.quantity} {crop.unit}
+                      </strong>
+                    </div>
+
+                    <div>
+                      <span>Price</span>
+
+                      <strong>
+                        ₹{crop.pricePerUnit} / {crop.unit}
+                      </strong>
+                    </div>
+
+                  </div>
+
+                  {crop.description && (
+                    <p className="crop-description">
+                      {crop.description}
+                    </p>
+                  )}
+
+                  {/* Actions */}
+                  <div className="crop-actions">
+
+                    <button
+                      className="edit-crop-button"
+                      onClick={() =>
+                        navigate(
+                          `/farmer/crops/edit/${crop.id}`
+                        )
+                      }
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      className="availability-button"
+                      onClick={() =>
+                        handleToggleAvailability(crop)
+                      }
+                    >
+                      {crop.available
+                        ? "Mark Unavailable"
+                        : "Mark Available"}
+                    </button>
+
+                    <button
+                      className="delete-crop-button"
+                      onClick={() =>
+                        handleDelete(crop.id)
+                      }
+                    >
+                      Delete
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            ))}
 
           </div>
 
-        ))}
-
-      </div>
-
+        </div>
+      </main>
     </div>
   );
 }

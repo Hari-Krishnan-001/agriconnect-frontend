@@ -11,6 +11,8 @@ function FarmerProfile() {
 
   const [profile, setProfile] = useState(null);
 
+  const [userProfile, setUserProfile] = useState(null);
+
   const [formData, setFormData] = useState({
     state: "",
     district: "",
@@ -24,8 +26,17 @@ function FarmerProfile() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
+  const [uploadingPicture, setUploadingPicture] =
+    useState(false);
+
+  const [deletingPicture, setDeletingPicture] =
+    useState(false);
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const [pictureError, setPictureError] =
+    useState("");
 
   const [editing, setEditing] = useState(false);
   const [creating, setCreating] = useState(false);
@@ -39,6 +50,40 @@ function FarmerProfile() {
     fetchProfile();
   }, []);
 
+
+  // ========================================
+  // LOAD COMMON USER PROFILE
+  // ========================================
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, []);
+
+
+  // ========================================
+  // GET COMMON USER PROFILE
+  // ========================================
+
+  const fetchUserProfile = async () => {
+    try {
+      const response = await api.get(
+        "/api/users/profile"
+      );
+
+      setUserProfile(response.data);
+
+    } catch (err) {
+      console.error(
+        "Failed to load user account:",
+        err
+      );
+    }
+  };
+
+
+  // ========================================
+  // GET FARMER PROFILE
+  // ========================================
 
   const fetchProfile = async () => {
     try {
@@ -57,13 +102,18 @@ function FarmerProfile() {
         district: response.data.district || "",
         village: response.data.village || "",
         address: response.data.address || "",
+
         farmSize:
           response.data.farmSize !== null &&
           response.data.farmSize !== undefined
             ? response.data.farmSize
             : "",
-        farmType: response.data.farmType || "",
-        about: response.data.about || "",
+
+        farmType:
+          response.data.farmType || "",
+
+        about:
+          response.data.about || "",
       });
 
       setCreating(false);
@@ -73,6 +123,7 @@ function FarmerProfile() {
         "Failed to load farmer profile:",
         err
       );
+
 
       // ====================================
       // PROFILE DOES NOT EXIST
@@ -156,7 +207,10 @@ function FarmerProfile() {
       formData.farmSize === "" ||
       Number(formData.farmSize) <= 0
     ) {
-      setError("Farm size must be greater than 0.");
+      setError(
+        "Farm size must be greater than 0."
+      );
+
       return false;
     }
 
@@ -209,13 +263,18 @@ function FarmerProfile() {
         district: response.data.district || "",
         village: response.data.village || "",
         address: response.data.address || "",
+
         farmSize:
           response.data.farmSize !== null &&
           response.data.farmSize !== undefined
             ? response.data.farmSize
             : "",
-        farmType: response.data.farmType || "",
-        about: response.data.about || "",
+
+        farmType:
+          response.data.farmType || "",
+
+        about:
+          response.data.about || "",
       });
 
       setCreating(false);
@@ -283,13 +342,18 @@ function FarmerProfile() {
         district: response.data.district || "",
         village: response.data.village || "",
         address: response.data.address || "",
+
         farmSize:
           response.data.farmSize !== null &&
           response.data.farmSize !== undefined
             ? response.data.farmSize
             : "",
-        farmType: response.data.farmType || "",
-        about: response.data.about || "",
+
+        farmType:
+          response.data.farmType || "",
+
+        about:
+          response.data.about || "",
       });
 
       setEditing(false);
@@ -331,13 +395,18 @@ function FarmerProfile() {
       district: profile.district || "",
       village: profile.village || "",
       address: profile.address || "",
+
       farmSize:
         profile.farmSize !== null &&
         profile.farmSize !== undefined
           ? profile.farmSize
           : "",
-      farmType: profile.farmType || "",
-      about: profile.about || "",
+
+      farmType:
+        profile.farmType || "",
+
+      about:
+        profile.about || "",
     });
 
     setError("");
@@ -404,6 +473,196 @@ function FarmerProfile() {
     } finally {
       setSaving(false);
     }
+  };
+
+
+  // ========================================
+  // UPLOAD PROFILE PICTURE
+  // ========================================
+
+  const handleProfilePictureChange = async (e) => {
+
+    const file = e.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    setPictureError("");
+
+
+    // ========================================
+    // VALIDATE TYPE
+    // ========================================
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+
+      setPictureError(
+        "Only JPG, PNG and WebP images are allowed."
+      );
+
+      e.target.value = "";
+
+      return;
+    }
+
+
+    // ========================================
+    // VALIDATE SIZE
+    // ========================================
+
+    if (file.size > 5 * 1024 * 1024) {
+
+      setPictureError(
+        "Profile picture must be 5 MB or smaller."
+      );
+
+      e.target.value = "";
+
+      return;
+    }
+
+
+    try {
+
+      setUploadingPicture(true);
+
+      const formData = new FormData();
+
+      formData.append(
+        "file",
+        file
+      );
+
+
+      const response = await api.post(
+        "/api/users/profile-picture",
+        formData,
+        {
+          headers: {
+            "Content-Type":
+              "multipart/form-data",
+          },
+        }
+      );
+
+
+      setUserProfile((previous) => ({
+        ...previous,
+        profilePicture:
+          response.data.profilePicture,
+      }));
+
+
+      setSuccess(
+        "Profile picture updated successfully."
+      );
+
+    } catch (err) {
+
+      console.error(
+        "Failed to upload profile picture:",
+        err
+      );
+
+      setPictureError(
+        err.response?.data?.message ||
+          "Failed to upload profile picture."
+      );
+
+    } finally {
+
+      setUploadingPicture(false);
+
+      e.target.value = "";
+    }
+  };
+
+
+  // ========================================
+  // REMOVE PROFILE PICTURE
+  // ========================================
+
+  const handleRemoveProfilePicture = async () => {
+
+    const confirmed = window.confirm(
+      "Are you sure you want to remove your profile picture?"
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    try {
+
+      setDeletingPicture(true);
+
+      setPictureError("");
+
+      await api.delete(
+        "/api/users/profile-picture"
+      );
+
+
+      setUserProfile((previous) => ({
+        ...previous,
+        profilePicture: null,
+      }));
+
+
+      setSuccess(
+        "Profile picture removed successfully."
+      );
+
+    } catch (err) {
+
+      console.error(
+        "Failed to remove profile picture:",
+        err
+      );
+
+      setPictureError(
+        err.response?.data?.message ||
+          "Failed to remove profile picture."
+      );
+
+    } finally {
+
+      setDeletingPicture(false);
+    }
+  };
+
+
+  // ========================================
+  // PROFILE PICTURE URL
+  // ========================================
+
+  const getProfilePictureUrl = () => {
+
+    if (!userProfile?.profilePicture) {
+      return "";
+    }
+
+
+    const picturePath =
+      userProfile.profilePicture;
+
+
+    if (
+      picturePath.startsWith("http://") ||
+      picturePath.startsWith("https://")
+    ) {
+      return picturePath;
+    }
+
+
+    return `http://localhost:8080${picturePath}`;
   };
 
 
@@ -741,7 +1000,9 @@ function FarmerProfile() {
 
           <>
 
-            {/* ACCOUNT INFORMATION */}
+            {/* ==================================
+                ACCOUNT INFORMATION
+            ================================== */}
 
             <section className="profile-card">
 
@@ -764,16 +1025,96 @@ function FarmerProfile() {
 
               <div className="profile-account">
 
-                <div className="profile-avatar">
+                {/* PROFILE PICTURE */}
 
-                  {profile.fullName
-                    ? profile.fullName
-                        .charAt(0)
-                        .toUpperCase()
-                    : "F"}
+                <div className="profile-avatar-wrapper">
+
+                  <div className="profile-avatar">
+
+                    {userProfile?.profilePicture ? (
+
+                      <img
+                        src={getProfilePictureUrl()}
+                        alt="Profile"
+                        className="profile-avatar-image"
+                      />
+
+                    ) : (
+
+                      profile.fullName
+                        ? profile.fullName
+                            .charAt(0)
+                            .toUpperCase()
+                        : "F"
+
+                    )}
+
+                  </div>
+
+
+                  <div className="profile-picture-actions">
+
+                    <label
+                      className="profile-picture-button"
+                    >
+
+                      {uploadingPicture
+                        ? "Uploading..."
+                        : "Change Photo"}
+
+                      <input
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                        onChange={
+                          handleProfilePictureChange
+                        }
+                        disabled={
+                          uploadingPicture ||
+                          deletingPicture
+                        }
+                        hidden
+                      />
+
+                    </label>
+
+
+                    {userProfile?.profilePicture && (
+
+                      <button
+                        type="button"
+                        className="profile-picture-remove-button"
+                        onClick={
+                          handleRemoveProfilePicture
+                        }
+                        disabled={
+                          uploadingPicture ||
+                          deletingPicture
+                        }
+                      >
+
+                        {deletingPicture
+                          ? "Removing..."
+                          : "Remove"}
+
+                      </button>
+
+                    )}
+
+                  </div>
+
+
+                  {pictureError && (
+
+                    <p className="profile-picture-error">
+                      {pictureError}
+                    </p>
+
+                  )}
 
                 </div>
 
+
+                {/* ACCOUNT DETAILS */}
 
                 <div className="profile-account-details">
 
@@ -783,11 +1124,13 @@ function FarmerProfile() {
 
                   <p>
                     {profile.email ||
+                      userProfile?.email ||
                       "Email not available"}
                   </p>
 
                   <span>
                     {profile.phone ||
+                      userProfile?.phone ||
                       "Phone not available"}
                   </span>
 
@@ -798,7 +1141,9 @@ function FarmerProfile() {
             </section>
 
 
-            {/* FARM INFORMATION */}
+            {/* ==================================
+                FARM INFORMATION
+            ================================== */}
 
             <section className="profile-card">
 
@@ -1097,7 +1442,9 @@ function FarmerProfile() {
             </section>
 
 
-            {/* DANGER ZONE */}
+            {/* ==================================
+                DANGER ZONE
+            ================================== */}
 
             {!editing && (
 

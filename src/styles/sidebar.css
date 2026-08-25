@@ -1,41 +1,405 @@
+/* ========================================
+   SIDEBAR
+======================================== */
+
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
   width: 250px;
+  height: 100vh;
 
-  min-height: 100vh;
+  padding: 30px 22px;
 
-  padding: 30px;
-
-  background: white;
-
+  background: #ffffff;
   border-right: 1px solid #e5e7eb;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  z-index: 1000;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* ========================================
+   SIDEBAR OPEN
+======================================== */
+
+.sidebar-open {
+  transform: translateX(0);
+
+  box-shadow:
+    4px 0 20px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ========================================
+   SIDEBAR CLOSED
+======================================== */
+
+.sidebar-closed {
+  transform: translateX(-100%);
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.sidebar-logo {
+  margin-bottom: 38px;
+}
+
+.sidebar-logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .sidebar h2 {
-  margin-bottom: 40px;
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  color: #111827;
 }
+
+
+/* ========================================
+   CLOSE BUTTON
+======================================== */
+
+.sidebar-close-button {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #6b7280;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.sidebar-close-button:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+
+/* ========================================
+   SIDEBAR MENU
+======================================== */
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  flex: 1;
+
+  overflow-y: auto;
+}
+
+
+/* ========================================
+   SIDEBAR ITEM
+======================================== */
 
 .sidebar-item {
   display: flex;
-
   align-items: center;
 
   gap: 15px;
 
-  padding: 15px;
+  min-height: 48px;
 
-  margin-bottom: 10px;
+  padding: 0 15px;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  color: #111827;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  box-sizing: border-box;
 }
 
 .sidebar-item:hover {
   background: #f0fdf4;
+  color: #15803d;
 }
 
-.sidebar-item svg {
+.sidebar-item.active {
+  background: #dcfce7;
+  color: #15803d;
+
+  font-weight: 600;
+}
+
+
+/* ========================================
+   ICON
+======================================== */
+
+.sidebar-icon {
+  width: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-size: 18px;
+
   color: #16a34a;
+}
+
+.sidebar-item.active .sidebar-icon {
+  color: #15803d;
+}
+
+
+/* ========================================
+   TEXT
+======================================== */
+
+.sidebar-text {
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+.logout-item {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.logout-item:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.logout-item .sidebar-icon {
+  color: #16a34a;
+}
+
+.logout-item:hover .sidebar-icon {
+  color: #dc2626;
+}
+
+
+/* ========================================
+   OPEN SIDEBAR BUTTON
+======================================== */
+
+/*
+   IMPORTANT:
+   Keep this button at the extreme top-left.
+
+   It is intentionally small so it does not
+   cover page headings or cards.
+*/
+
+.sidebar-toggle-button {
+  position: fixed;
+
+  top: 4px;
+  left: 8px;
+
+  width: 36px;
+  height: 36px;
+
+  padding: 0;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #15803d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 1100;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.08);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sidebar-toggle-button:hover {
+  background: #f0fdf4;
+  color: #15803d;
+
+  transform: scale(1.03);
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-toggle-button:active {
+  transform: scale(0.96);
+}
+
+
+/* ========================================
+   OVERLAY
+======================================== */
+
+.sidebar-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(15, 23, 42, 0.25);
+
+  z-index: 900;
+
+  animation:
+    sidebarOverlayFade 0.25s ease;
+}
+
+@keyframes sidebarOverlayFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+.sidebar-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    width: 260px;
+
+    box-shadow:
+      8px 0 30px rgba(0, 0, 0, 0.12);
+  }
+
+  /*
+     Do NOT move the menu button down.
+     Keep it in the same safe top-left position.
+  */
+
+  .sidebar-toggle-button {
+    top: 4px;
+    left: 8px;
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 17px;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .sidebar {
+    width: 275px;
+
+    padding: 24px 18px;
+  }
+
+  .sidebar h2 {
+    font-size: 24px;
+  }
+
+  .sidebar-item {
+    min-height: 50px;
+
+    font-size: 15px;
+  }
+
+  /*
+     Same position on mobile.
+     Never push the button into the page content.
+  */
+
+  .sidebar-toggle-button {
+    top: 4px;
+    left: 8px;
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 16px;
+
+    border-radius: 9px;
+  }
 }

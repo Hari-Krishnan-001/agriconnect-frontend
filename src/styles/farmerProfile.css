@@ -570,3 +570,72 @@
   }
 
 }
+/* ========================================
+   PROFILE PICTURE
+======================================== */
+
+.profile-avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.profile-picture-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-picture-button,
+.profile-picture-remove-button {
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.profile-picture-button {
+  background: #16a34a;
+  color: #ffffff;
+  border: 1px solid #16a34a;
+}
+
+.profile-picture-button:hover {
+  background: #15803d;
+}
+
+.profile-picture-remove-button {
+  background: #ffffff;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.profile-picture-remove-button:hover {
+  background: #fef2f2;
+}
+
+.profile-picture-button:has(input:disabled),
+.profile-picture-remove-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.profile-picture-error {
+  margin: 0;
+  color: #dc2626;
+  font-size: 12px;
+  text-align: center;
+}

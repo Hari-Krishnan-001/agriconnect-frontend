@@ -8,6 +8,8 @@ import {
   FaComments,
   FaCog,
   FaSignOutAlt,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 
 import {
@@ -15,9 +17,19 @@ import {
   useNavigate,
 } from "react-router-dom";
 
+import { useSidebar } from "./SidebarContext";
+
+
 function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const {
+    isSidebarOpen,
+    toggleSidebar,
+    closeSidebar,
+  } = useSidebar();
+
 
   // ========================================
   // GET LOGGED-IN USER
@@ -63,9 +75,7 @@ function Sidebar() {
 
 
   const ordersPath =
-    role === "BUSINESS"
-      ? "/orders"
-      : role === "FARMER"
+    role === "FARMER"
       ? "/farmer/orders"
       : "/orders";
 
@@ -94,7 +104,7 @@ function Sidebar() {
     },
 
 
-    // Farmer-specific crops
+    // Farmer Crops
 
     ...(role === "FARMER"
       ? [
@@ -116,12 +126,12 @@ function Sidebar() {
     },
 
 
-    // Farming Knowledge
+    // Farming Techniques
 
     {
       icon: <FaLeaf />,
       title: "Farming Techniques",
-      path: "/knowledge",
+      path: "/farming-techniques",
     },
 
 
@@ -130,7 +140,7 @@ function Sidebar() {
     {
       icon: <FaFlask />,
       title: "Pesticides",
-      path: "/knowledge",
+      path: "/pesticides",
     },
 
 
@@ -150,7 +160,32 @@ function Sidebar() {
       title: "Settings",
       path: "/settings",
     },
+
   ];
+
+
+  // ========================================
+  // NAVIGATION
+  // ========================================
+
+  const handleNavigation = (path) => {
+
+    // Navigate to selected page
+    navigate(path);
+
+    // Always close sidebar after selecting
+    // any menu item.
+    closeSidebar();
+  };
+
+
+  // ========================================
+  // ACTIVE ITEM
+  // ========================================
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
 
   // ========================================
@@ -159,10 +194,14 @@ function Sidebar() {
 
   const handleLogout = () => {
 
-    localStorage.removeItem("token");
+    // Close sidebar first
+    closeSidebar();
 
+    // Clear authentication data
+    localStorage.removeItem("token");
     localStorage.removeItem("user");
 
+    // Go to login
     navigate("/login");
   };
 
@@ -172,64 +211,152 @@ function Sidebar() {
   // ========================================
 
   return (
-    <div className="sidebar">
+    <>
 
-      <h2>
-        AgriConnect
-      </h2>
+      {/* ====================================
+          OPEN SIDEBAR BUTTON
+      ==================================== */}
+
+      {!isSidebarOpen && (
+
+        <button
+          type="button"
+          className="sidebar-toggle-button"
+          onClick={toggleSidebar}
+          aria-label="Open navigation menu"
+        >
+
+          <FaBars />
+
+        </button>
+
+      )}
 
 
-      <div className="sidebar-menu">
+      {/* ====================================
+          OVERLAY
+      ==================================== */}
 
-        {menuItems.map((item) => {
+      {isSidebarOpen && (
 
-          const isActive =
-            location.pathname === item.path;
+        <div
+          className="sidebar-overlay"
+          onClick={closeSidebar}
+        />
+
+      )}
 
 
-          return (
+      {/* ====================================
+          SIDEBAR
+      ==================================== */}
+
+      <aside
+        className={`sidebar ${
+          isSidebarOpen
+            ? "sidebar-open"
+            : "sidebar-closed"
+        }`}
+      >
+
+        {/* ==================================
+            LOGO
+        ================================== */}
+
+        <div className="sidebar-logo">
+
+          <div className="sidebar-logo-row">
+
+            <h2>
+              AgriConnect
+            </h2>
+
+
+            <button
+              type="button"
+              className="sidebar-close-button"
+              onClick={closeSidebar}
+              aria-label="Close navigation menu"
+            >
+
+              <FaTimes />
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        {/* ==================================
+            NAVIGATION
+        ================================== */}
+
+        <nav className="sidebar-menu">
+
+          {menuItems.map((item) => (
+
             <div
+              key={item.title}
               className={`sidebar-item ${
-                isActive
+                isActive(item.path)
                   ? "active"
                   : ""
               }`}
-              key={item.title}
               onClick={() =>
-                navigate(item.path)
+                handleNavigation(item.path)
               }
             >
 
-              {item.icon}
+              <span className="sidebar-icon">
 
-              <span>
+                {item.icon}
+
+              </span>
+
+
+              <span className="sidebar-text">
+
                 {item.title}
+
               </span>
 
             </div>
-          );
-        })}
 
-      </div>
+          ))}
+
+        </nav>
 
 
-      {/* Logout */}
+        {/* ==================================
+            LOGOUT
+        ================================== */}
 
-      <div
-        className="sidebar-item logout-item"
-        onClick={handleLogout}
-      >
+        <div
+          className="sidebar-item logout-item"
+          onClick={handleLogout}
+        >
 
-        <FaSignOutAlt />
+          <span className="sidebar-icon">
 
-        <span>
-          Logout
-        </span>
+            <FaSignOutAlt />
 
-      </div>
+          </span>
 
-    </div>
+
+          <span className="sidebar-text">
+
+            Logout
+
+          </span>
+
+        </div>
+
+      </aside>
+
+    </>
   );
 }
+
 
 export default Sidebar;

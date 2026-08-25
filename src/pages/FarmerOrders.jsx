@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import "../styles/farmerOrders.css";
+import Sidebar from "../components/sidebar/Sidebar";
 
 function FarmerOrders() {
   const navigate = useNavigate();
@@ -132,11 +133,29 @@ function FarmerOrders() {
   // ================================
   if (loading) {
     return (
-      <div className="farmer-orders-page">
-        <div className="farmer-orders-container">
-          <h1>Crop Orders</h1>
-          <p>Loading orders...</p>
-        </div>
+      <div
+        style={{
+          display: "flex",
+          minHeight: "100vh",
+          width: "100%",
+          background: "#f8fafc",
+        }}
+      >
+        <Sidebar />
+
+        <main
+          style={{
+            flex: 1,
+            minWidth: 0,
+          }}
+        >
+          <div className="farmer-orders-page">
+            <div className="farmer-orders-container">
+              <h1>Crop Orders</h1>
+              <p>Loading orders...</p>
+            </div>
+          </div>
+        </main>
       </div>
     );
   }
@@ -145,235 +164,255 @@ function FarmerOrders() {
   // PAGE
   // ================================
   return (
-    <div className="farmer-orders-page">
+    <div
+      style={{
+        display: "flex",
+        minHeight: "100vh",
+        width: "100%",
+        background: "#f8fafc",
+      }}
+    >
+      {/* Sidebar */}
+      <Sidebar />
 
-      <div className="farmer-orders-container">
+      {/* Main Content */}
+      <main
+        style={{
+          flex: 1,
+          minWidth: 0,
+        }}
+      >
+        <div className="farmer-orders-page">
 
-        {/* Header */}
+          <div className="farmer-orders-container">
 
-        <div className="farmer-orders-header">
+            {/* Header */}
 
-          <div>
-            <p className="farmer-orders-label">
-              Farmer Dashboard
-            </p>
+            <div className="farmer-orders-header">
 
-            <h1>
-              Crop Orders
-            </h1>
+              <div>
+                <p className="farmer-orders-label">
+                  Farmer Dashboard
+                </p>
 
-            <p>
-              Manage orders received for your crops.
-            </p>
+                <h1>
+                  Crop Orders
+                </h1>
+
+                <p>
+                  Manage orders received for your crops.
+                </p>
+              </div>
+
+            </div>
+
+
+            {/* Error */}
+
+            {error && (
+              <div className="farmer-orders-error">
+                {error}
+              </div>
+            )}
+
+
+            {/* Empty State */}
+
+            {!error && orders.length === 0 && (
+              <div className="empty-farmer-orders">
+
+                <div className="empty-farmer-orders-icon">
+                  📦
+                </div>
+
+                <h2>
+                  No Orders Yet
+                </h2>
+
+                <p>
+                  You haven't received any crop orders yet.
+                </p>
+
+              </div>
+            )}
+
+
+            {/* Orders List */}
+
+            {!error && orders.length > 0 && (
+              <div className="farmer-orders-list">
+
+                {orders.map((order) => (
+
+                  <div
+                    className="farmer-order-card"
+                    key={order.id}
+                  >
+
+                    <div className="farmer-order-main">
+
+                      {/* Icon */}
+
+                      <div className="farmer-order-icon">
+                        🌱
+                      </div>
+
+
+                      {/* Content */}
+
+                      <div className="farmer-order-content">
+
+                        {/* Title */}
+
+                        <div className="farmer-order-title-row">
+
+                          <div>
+
+                            <h2>
+                              {order.cropName}
+                            </h2>
+
+                            <p>
+                              Order #{order.id}
+                            </p>
+
+                          </div>
+
+                          <span
+                            className={getStatusClass(
+                              order.status
+                            )}
+                          >
+                            {order.status}
+                          </span>
+
+                        </div>
+
+
+                        {/* Order Information */}
+
+                        <div className="farmer-order-info">
+
+                          <div>
+                            <span>
+                              Business
+                            </span>
+
+                            <strong>
+                              {order.businessFirmName ||
+                                "Unknown Business"}
+                            </strong>
+                          </div>
+
+
+                          <div>
+                            <span>
+                              Quantity
+                            </span>
+
+                            <strong>
+                              {order.quantity}
+                            </strong>
+                          </div>
+
+
+                          <div>
+                            <span>
+                              Total Price
+                            </span>
+
+                            <strong>
+                              ₹{order.totalPrice}
+                            </strong>
+                          </div>
+
+
+                          <div>
+                            <span>
+                              Order Date
+                            </span>
+
+                            <strong>
+                              {order.orderDate
+                                ? new Date(
+                                    order.orderDate
+                                  ).toLocaleDateString()
+                                : "N/A"}
+                            </strong>
+                          </div>
+
+                        </div>
+
+
+                        {/* Actions */}
+
+                        <div className="farmer-order-actions">
+
+                          {/* Pending Actions */}
+
+                          {order.status === "PENDING" && (
+                            <>
+                              <button
+                                type="button"
+                                className="approve-order-button"
+                                disabled={
+                                  processingId === order.id
+                                }
+                                onClick={() =>
+                                  handleApprove(order.id)
+                                }
+                              >
+                                {processingId === order.id
+                                  ? "Processing..."
+                                  : "Approve Order"}
+                              </button>
+
+
+                              <button
+                                type="button"
+                                className="reject-order-button"
+                                disabled={
+                                  processingId === order.id
+                                }
+                                onClick={() =>
+                                  handleReject(order.id)
+                                }
+                              >
+                                Reject Order
+                              </button>
+                            </>
+                          )}
+
+
+                          {/* Chat */}
+
+                          <button
+                            type="button"
+                            className="chat-order-button"
+                            onClick={() =>
+                              handleOpenChat(order.id)
+                            }
+                          >
+                            💬 Chat
+                          </button>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                ))}
+
+              </div>
+            )}
+
           </div>
 
         </div>
-
-
-        {/* Error */}
-
-        {error && (
-          <div className="farmer-orders-error">
-            {error}
-          </div>
-        )}
-
-
-        {/* Empty State */}
-
-        {!error && orders.length === 0 && (
-          <div className="empty-farmer-orders">
-
-            <div className="empty-farmer-orders-icon">
-              📦
-            </div>
-
-            <h2>
-              No Orders Yet
-            </h2>
-
-            <p>
-              You haven't received any crop orders yet.
-            </p>
-
-          </div>
-        )}
-
-
-        {/* Orders List */}
-
-        {!error && orders.length > 0 && (
-          <div className="farmer-orders-list">
-
-            {orders.map((order) => (
-
-              <div
-                className="farmer-order-card"
-                key={order.id}
-              >
-
-                <div className="farmer-order-main">
-
-                  {/* Icon */}
-
-                  <div className="farmer-order-icon">
-                    🌱
-                  </div>
-
-
-                  {/* Content */}
-
-                  <div className="farmer-order-content">
-
-                    {/* Title */}
-
-                    <div className="farmer-order-title-row">
-
-                      <div>
-
-                        <h2>
-                          {order.cropName}
-                        </h2>
-
-                        <p>
-                          Order #{order.id}
-                        </p>
-
-                      </div>
-
-                      <span
-                        className={getStatusClass(
-                          order.status
-                        )}
-                      >
-                        {order.status}
-                      </span>
-
-                    </div>
-
-
-                    {/* Order Information */}
-
-                    <div className="farmer-order-info">
-
-                      <div>
-                        <span>
-                          Business
-                        </span>
-
-                        <strong>
-                          {order.businessFirmName ||
-                            "Unknown Business"}
-                        </strong>
-                      </div>
-
-
-                      <div>
-                        <span>
-                          Quantity
-                        </span>
-
-                        <strong>
-                          {order.quantity}
-                        </strong>
-                      </div>
-
-
-                      <div>
-                        <span>
-                          Total Price
-                        </span>
-
-                        <strong>
-                          ₹{order.totalPrice}
-                        </strong>
-                      </div>
-
-
-                      <div>
-                        <span>
-                          Order Date
-                        </span>
-
-                        <strong>
-                          {order.orderDate
-                            ? new Date(
-                                order.orderDate
-                              ).toLocaleDateString()
-                            : "N/A"}
-                        </strong>
-                      </div>
-
-                    </div>
-
-
-                    {/* Actions */}
-
-                    <div className="farmer-order-actions">
-
-                      {/* Pending Actions */}
-
-                      {order.status === "PENDING" && (
-                        <>
-                          <button
-                            type="button"
-                            className="approve-order-button"
-                            disabled={
-                              processingId === order.id
-                            }
-                            onClick={() =>
-                              handleApprove(order.id)
-                            }
-                          >
-                            {processingId === order.id
-                              ? "Processing..."
-                              : "Approve Order"}
-                          </button>
-
-
-                          <button
-                            type="button"
-                            className="reject-order-button"
-                            disabled={
-                              processingId === order.id
-                            }
-                            onClick={() =>
-                              handleReject(order.id)
-                            }
-                          >
-                            Reject Order
-                          </button>
-                        </>
-                      )}
-
-
-                      {/* Chat */}
-
-                      <button
-                        type="button"
-                        className="chat-order-button"
-                        onClick={() =>
-                          handleOpenChat(order.id)
-                        }
-                      >
-                        💬 Chat
-                      </button>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
-        )}
-
-      </div>
-
+      </main>
     </div>
   );
 }
