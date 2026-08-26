@@ -152,3 +152,110 @@
     font-size: 26px;
   }
 }
+/* ========================================
+   AGRICONNECT — REGISTER DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .register-page {
+  background: #0f1720;
+}
+
+body.agriconnect-dark-mode .register-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
+}
+
+/* ========================================
+   LOGO
+======================================== */
+
+body.agriconnect-dark-mode .register-logo {
+  background: #203d2d;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+body.agriconnect-dark-mode .register-card h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .register-subtitle {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   FORM
+======================================== */
+
+body.agriconnect-dark-mode .register-form-group label {
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .register-form-group input,
+body.agriconnect-dark-mode .register-form-group select {
+  background: #101a14;
+  border-color: #37463d;
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .register-form-group input::placeholder {
+  color: #6f7c74;
+}
+
+body.agriconnect-dark-mode .register-form-group input:focus,
+body.agriconnect-dark-mode .register-form-group select:focus {
+  border-color: #2fbd68;
+  box-shadow: 0 0 0 3px rgba(47, 189, 104, 0.12);
+}
+
+/* ========================================
+   REGISTER BUTTON
+======================================== */
+
+body.agriconnect-dark-mode .register-button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .register-button:hover {
+  background: #18883d;
+}
+
+/* ========================================
+   ERROR
+======================================== */
+
+body.agriconnect-dark-mode .register-error {
+  background: #321b1b;
+  border: 1px solid #633333;
+  color: #ffb4b4;
+}
+
+/* ========================================
+   SUCCESS
+======================================== */
+
+body.agriconnect-dark-mode .register-success {
+  background: #173d2a;
+  border: 1px solid #28543a;
+  color: #78dba0;
+}
+
+/* ========================================
+   LOGIN LINK
+======================================== */
+
+body.agriconnect-dark-mode .register-login {
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .register-login button {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .register-login button:hover {
+  color: #a7f3c0;
+}

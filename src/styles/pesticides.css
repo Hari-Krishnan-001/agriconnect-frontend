@@ -91,6 +91,254 @@
 
 
 /* =========================================================
+   SMART PESTICIDE FINDER
+========================================================= */
+
+.pesticides-scanner-hero {
+  position: relative;
+
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto 26px;
+  padding: 24px 26px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(34, 197, 94, 0.18),
+      transparent 36%
+    ),
+    linear-gradient(
+      135deg,
+      #052e16 0%,
+      #166534 48%,
+      #15803d 100%
+    );
+
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 30px rgba(22, 101, 52, 0.14);
+}
+
+.pesticides-scanner-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -55px;
+  bottom: -85px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pesticides-scanner-content {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   SCANNER ICON
+========================================================= */
+
+.pesticides-scanner-icon {
+  width: 66px;
+  height: 66px;
+
+  flex: 0 0 66px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.13);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pesticides-scanner-icon span {
+  font-size: 30px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   SCANNER TEXT
+========================================================= */
+
+.pesticides-scanner-text {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.pesticides-scanner-badge {
+  display: inline-block;
+
+  margin-bottom: 5px;
+
+  color: #bbf7d0;
+
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pesticides-scanner-text h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 750;
+
+  letter-spacing: -0.015em;
+}
+
+.pesticides-scanner-text p {
+  max-width: 700px;
+
+  margin: 5px 0 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SCANNER METHODS
+========================================================= */
+
+.pesticides-scanner-methods {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 10px;
+}
+
+.pesticides-scanner-methods span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.pesticides-scanner-methods svg {
+  flex: 0 0 auto;
+
+  color: #bbf7d0;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   SCANNER BUTTON
+========================================================= */
+
+.pesticides-scanner-button {
+  flex: 0 0 auto;
+
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 11px 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #166534;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.1);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.pesticides-scanner-button svg {
+  font-size: 10px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.pesticides-scanner-button:hover {
+  transform: translateY(-2px);
+
+  background: #f0fdf4;
+
+  color: #14532d;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.14);
+}
+
+.pesticides-scanner-button:hover svg {
+  transform: translateX(3px);
+}
+
+.pesticides-scanner-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
    RESPONSIBLE USE NOTICE
 ========================================================= */
 
@@ -1074,6 +1322,20 @@
     gap: 16px;
   }
 
+  .pesticides-scanner-content {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .pesticides-scanner-text {
+    flex: 1 1 calc(100% - 90px);
+  }
+
+  .pesticides-scanner-button {
+    width: 100%;
+  }
+
 }
 
 
@@ -1102,6 +1364,63 @@
     line-height: 1.65;
   }
 
+
+  /* Scanner */
+
+  .pesticides-scanner-hero {
+    padding: 20px;
+
+    border-radius: 17px;
+  }
+
+  .pesticides-scanner-content {
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .pesticides-scanner-icon {
+    width: 56px;
+    height: 56px;
+
+    flex-basis: 56px;
+
+    border-radius: 15px;
+  }
+
+  .pesticides-scanner-icon span {
+    font-size: 26px;
+  }
+
+  .pesticides-scanner-text {
+    width: 100%;
+  }
+
+  .pesticides-scanner-text h2 {
+    font-size: 21px;
+  }
+
+  .pesticides-scanner-text p {
+    font-size: 13px;
+  }
+
+  .pesticides-scanner-methods {
+    gap: 11px;
+
+    flex-wrap: wrap;
+  }
+
+  .pesticides-scanner-methods span {
+    font-size: 10px;
+  }
+
+  .pesticides-scanner-button {
+    width: 100%;
+  }
+
+
+  /* Notice */
+
   .pesticides-notice {
     padding: 15px;
 
@@ -1125,9 +1444,15 @@
     font-size: 12px;
   }
 
+
+  /* Search */
+
   .pesticides-search {
     min-height: 50px;
   }
+
+
+  /* Categories */
 
   .pesticides-categories {
     margin-bottom: 26px;
@@ -1138,6 +1463,9 @@
 
     font-size: 12px;
   }
+
+
+  /* Results */
 
   .pesticides-results-info {
     align-items: flex-start;
@@ -1152,6 +1480,9 @@
   .pesticides-results-info span {
     font-size: 12px;
   }
+
+
+  /* Cards */
 
   .pesticides-grid {
     grid-template-columns: 1fr;
@@ -1174,6 +1505,9 @@
   .pesticide-card-content p {
     font-size: 13px;
   }
+
+
+  /* Modal */
 
   .pesticides-modal-overlay {
     padding: 14px;
@@ -1258,11 +1592,705 @@
   .pesticide-learn-button,
   .pesticide-learn-button svg,
   .pesticides-category-button,
+  .pesticides-scanner-button,
   .pesticides-modal,
   .pesticides-modal-overlay {
     animation: none !important;
 
     transition: none !important;
+  }
+
+}
+/* =========================================================
+   DATABASE RESULTS
+========================================================= */
+
+.pesticides-database-section {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto 34px;
+}
+
+.pesticides-database-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pesticides-database-title svg {
+  color: #16a34a;
+  font-size: 16px;
+}
+
+.pesticides-database-title h2 {
+  margin: 0;
+}
+
+.pesticides-database-status,
+.pesticides-database-error,
+.pesticides-database-empty {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.pesticides-database-error {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #9a3412;
+}
+
+.pesticides-database-empty {
+  background: #f8fafc;
+}
+
+.pesticides-database-empty > svg {
+  color: #94a3b8;
+  font-size: 18px;
+}
+
+.pesticides-database-empty strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #334155;
+
+  font-size: 14px;
+}
+
+.pesticides-database-empty p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.pesticides-loading-spinner {
+  width: 18px;
+  height: 18px;
+
+  flex: 0 0 18px;
+
+  border: 2px solid #dcfce7;
+  border-top-color: #16a34a;
+
+  border-radius: 50%;
+
+  animation: pesticideDatabaseSpin 0.7s linear infinite;
+}
+
+@keyframes pesticideDatabaseSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pesticides-database-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+.pesticide-database-card {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 17px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe3ec;
+  border-radius: 15px;
+
+  box-shadow:
+    0 3px 12px rgba(15, 23, 42, 0.035);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pesticide-database-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #bbf7d0;
+
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+.pesticide-database-card-icon {
+  width: 48px;
+  height: 48px;
+
+  flex: 0 0 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #f0fdf4;
+
+  color: #16a34a;
+
+  font-size: 19px;
+}
+
+.pesticide-database-card-content {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.pesticide-database-card-content > span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #16a34a;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pesticide-database-card-content h3 {
+  margin: 0 0 5px;
+
+  color: #111827;
+
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.pesticide-database-card-content p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.pesticide-database-card-button {
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 8px 11px;
+
+  border: 1px solid #dcfce7;
+  border-radius: 9px;
+
+  background: #f0fdf4;
+
+  color: #15803d;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pesticide-database-card-button:hover {
+  background: #dcfce7;
+  border-color: #bbf7d0;
+}
+
+.pesticide-database-card-button svg {
+  font-size: 8px;
+}
+
+@media (max-width: 800px) {
+
+  .pesticides-database-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .pesticide-database-card {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .pesticide-database-card-content {
+    padding-top: 2px;
+  }
+
+  .pesticide-database-card-button {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}
+/* =========================================================
+   AGRICONNECT — PESTICIDES PAGE DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-page-layout {
+  background: #0f1720;
+}
+
+body.agriconnect-dark-mode .pesticides-page {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-label {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .pesticides-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .pesticides-subtitle {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   SMART PESTICIDE FINDER
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-scanner-hero {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+body.agriconnect-dark-mode .pesticides-scanner-badge {
+  color: #bbf7d0;
+}
+
+body.agriconnect-dark-mode .pesticides-scanner-text h2 {
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .pesticides-scanner-text p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body.agriconnect-dark-mode .pesticides-scanner-methods span {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+body.agriconnect-dark-mode .pesticides-scanner-button {
+  background: #17211b;
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .pesticides-scanner-button:hover {
+  background: #203d2d;
+  color: #a7f3c0;
+}
+
+/* =========================================================
+   RESPONSIBLE USE NOTICE
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-notice {
+  background: #302719;
+  border-color: #5a4720;
+}
+
+body.agriconnect-dark-mode .pesticides-notice-icon {
+  background: #443719;
+  color: #f5c451;
+}
+
+body.agriconnect-dark-mode .pesticides-notice h2 {
+  color: #f5d477;
+}
+
+body.agriconnect-dark-mode .pesticides-notice p {
+  color: #e5c98a;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-search {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .pesticides-search:focus-within {
+  border-color: #4ade80;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+body.agriconnect-dark-mode .pesticides-search > svg {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .pesticides-search input {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .pesticides-search input::placeholder {
+  color: #6f7c74;
+}
+
+body.agriconnect-dark-mode .pesticides-search-clear {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .pesticides-search-clear:hover {
+  background: #26332c;
+  color: #eef6f1;
+}
+
+/* =========================================================
+   CATEGORY FILTERS
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-categories::-webkit-scrollbar-thumb {
+  background: #3a4840;
+}
+
+body.agriconnect-dark-mode .pesticides-category-button {
+  background: #17211b;
+  border-color: #37463d;
+  color: #c1cec6;
+}
+
+body.agriconnect-dark-mode .pesticides-category-button:hover {
+  background: #203d2d;
+  border-color: #3d6a4b;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .pesticides-category-button.active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #ffffff;
+}
+
+/* =========================================================
+   RESULTS HEADER
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-results-info h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .pesticides-results-info span {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   PESTICIDE CARDS
+========================================================= */
+
+body.agriconnect-dark-mode .pesticide-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .pesticide-card:hover {
+  border-color: #3d6a4b;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32);
+}
+
+body.agriconnect-dark-mode .pesticide-card-icon {
+  background: #203d2d;
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .pesticide-card-category {
+  background: #203d2d;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .pesticide-card-content h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .pesticide-card-content p {
+  color: #aab8b0;
+}
+
+body.agriconnect-dark-mode .pesticide-learn-button {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .pesticide-learn-button:hover {
+  color: #a7f3c0;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-empty {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .pesticides-empty-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .pesticides-empty h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .pesticides-empty p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-modal-overlay {
+  background: rgba(3, 8, 5, 0.76);
+}
+
+body.agriconnect-dark-mode .pesticides-modal {
+  background: #17211b;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.48);
+}
+
+body.agriconnect-dark-mode .pesticides-modal::-webkit-scrollbar-thumb {
+  background: #3a4840;
+}
+
+/* =========================================================
+   MODAL CLOSE
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-modal-close {
+  background: #26332c;
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-close:hover {
+  background: #35423a;
+  color: #eef6f1;
+}
+
+/* =========================================================
+   MODAL CONTENT
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-modal-icon {
+  background: #203d2d;
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-category {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .pesticides-modal h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-description {
+  color: #c1cec6;
+}
+
+/* =========================================================
+   MODAL GENERAL USES
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-modal-section {
+  background: #101a14;
+  border-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-section h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-section li {
+  color: #c1cec6;
+}
+
+/* =========================================================
+   MODAL SAFETY
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-modal-safety {
+  background: #302719;
+  border-color: #5a4720;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-safety-icon {
+  background: #443719;
+  color: #f5c451;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-safety h3 {
+  color: #f5d477;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-safety p {
+  color: #e5c98a;
+}
+
+/* =========================================================
+   MODAL DONE
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-modal-done {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .pesticides-modal-done:hover {
+  background: #15803d;
+}
+
+/* =========================================================
+   DATABASE RESULTS
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-database-title svg {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .pesticides-database-status,
+body.agriconnect-dark-mode .pesticides-database-error,
+body.agriconnect-dark-mode .pesticides-database-empty {
+  background: #17211b;
+  border-color: #2a3830;
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .pesticides-database-error {
+  background: #302319;
+  border-color: #65401f;
+  color: #f0b27a;
+}
+
+body.agriconnect-dark-mode .pesticides-database-empty {
+  background: #101a14;
+}
+
+body.agriconnect-dark-mode .pesticides-database-empty > svg {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .pesticides-database-empty strong {
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .pesticides-database-empty p {
+  color: #89968f;
+}
+
+/* =========================================================
+   DATABASE LOADING
+========================================================= */
+
+body.agriconnect-dark-mode .pesticides-loading-spinner {
+  border-color: #173d2a;
+  border-top-color: #4ade80;
+}
+
+/* =========================================================
+   DATABASE CARDS
+========================================================= */
+
+body.agriconnect-dark-mode .pesticide-database-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .pesticide-database-card:hover {
+  border-color: #3d6a4b;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+body.agriconnect-dark-mode .pesticide-database-card-icon {
+  background: #203d2d;
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .pesticide-database-card-content > span {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .pesticide-database-card-content h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .pesticide-database-card-content p {
+  color: #9eaaa3;
+}
+
+/* DATABASE BUTTON */
+
+body.agriconnect-dark-mode .pesticide-database-card-button {
+  background: #173d2a;
+  border-color: #2fbd68;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .pesticide-database-card-button:hover {
+  background: #205233;
+  border-color: #4ade80;
+}
+
+/* =========================================================
+   DATABASE MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  body.agriconnect-dark-mode .pesticide-database-card {
+    background: #17211b;
   }
 
 }

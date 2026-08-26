@@ -944,3 +944,235 @@
   }
 
 }
+/* ========================================
+   AGRICONNECT — BUSINESS DASHBOARD DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .business-dashboard {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+body.agriconnect-dark-mode .business-content {
+  color: #e8f0eb;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+body.agriconnect-dark-mode .business-label {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .business-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .business-header p {
+  color: #aab8b0;
+}
+
+/* ========================================
+   STATISTICS
+======================================== */
+
+body.agriconnect-dark-mode .business-stat-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .business-stat-card > span {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .business-stat-card p {
+  color: #9eaaa5;
+}
+
+body.agriconnect-dark-mode .business-stat-card h2 {
+  color: #f0f7f2;
+}
+
+/* ========================================
+   SECTION HEADINGS
+======================================== */
+
+body.agriconnect-dark-mode .section-heading h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .section-heading p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   PROJECT CHATS
+======================================== */
+
+body.agriconnect-dark-mode .business-project-chat-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
+}
+
+body.agriconnect-dark-mode .business-project-chat-card:hover {
+  border-color: #3a6048;
+  box-shadow: 0 8px 23px rgba(0, 0, 0, 0.28);
+}
+
+body.agriconnect-dark-mode .business-project-chat-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .business-project-chat-header h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .business-project-chat-header p {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .business-project-chat-info span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .business-project-chat-info strong {
+  color: #dce8e0;
+}
+
+/* ========================================
+   EMPTY PROJECT CHATS
+======================================== */
+
+body.agriconnect-dark-mode .empty-business-project-chats {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+}
+
+body.agriconnect-dark-mode .business-empty-chat-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .empty-business-project-chats h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .empty-business-project-chats p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   PURCHASES
+======================================== */
+
+body.agriconnect-dark-mode .purchases-section {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .view-orders-btn {
+  background: #17211b;
+  color: #72d69b;
+  border-color: #2fbd68;
+}
+
+body.agriconnect-dark-mode .view-orders-btn:hover {
+  background: #203d2d;
+}
+
+/* ========================================
+   PURCHASE TABLE
+======================================== */
+
+body.agriconnect-dark-mode .purchase-table th {
+  background: #1d2a22;
+  color: #aab8b0;
+}
+
+body.agriconnect-dark-mode .purchase-table td {
+  color: #dce8e0;
+  border-bottom-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .purchase-table tbody tr:hover {
+  background: #203029;
+}
+
+/* ========================================
+   STATUS BADGES
+======================================== */
+
+body.agriconnect-dark-mode .status.approved {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .status.pending {
+  background: #40351b;
+  color: #f2ca63;
+}
+
+body.agriconnect-dark-mode .status.rejected {
+  background: #451f1f;
+  color: #ff9b9b;
+}
+
+/* ========================================
+   EMPTY ORDERS
+======================================== */
+
+body.agriconnect-dark-mode .business-empty-orders h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .business-empty-orders p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   QUICK ACTIONS
+======================================== */
+
+body.agriconnect-dark-mode .quick-actions h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .action-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .action-card h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .action-card p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+body.agriconnect-dark-mode .browse-crops-btn,
+body.agriconnect-dark-mode .business-project-chat-button,
+body.agriconnect-dark-mode .empty-business-project-chats button,
+body.agriconnect-dark-mode .business-empty-orders button,
+body.agriconnect-dark-mode .action-card button {
+  color: #ffffff;
+}
+
+/* ========================================
+   ERROR
+======================================== */
+
+body.agriconnect-dark-mode .business-dashboard-error {
+  background: #321b1b;
+  border-color: #633333;
+  color: #ffb4b4;
+}

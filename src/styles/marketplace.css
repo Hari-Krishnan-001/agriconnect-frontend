@@ -214,3 +214,113 @@
 .view-crop-btn:hover {
   background: #147331;
 }
+/* ========================================
+   AGRICONNECT — MARKETPLACE DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .marketplace-page {
+  background: #0f1720;
+}
+
+body.agriconnect-dark-mode .marketplace-content {
+  color: #e8f0eb;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+body.agriconnect-dark-mode .marketplace-label {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .marketplace-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .marketplace-header p {
+  color: #aab8b0;
+}
+
+/* ========================================
+   FILTERS
+======================================== */
+
+body.agriconnect-dark-mode .search-box {
+  background: #17211b;
+  border-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .search-box input {
+  background: transparent;
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .search-box input::placeholder {
+  color: #6f7c74;
+}
+
+body.agriconnect-dark-mode .marketplace-filters select {
+  background: #17211b;
+  border-color: #2a3830;
+  color: #dce8e0;
+}
+
+/* ========================================
+   CROP CARDS
+======================================== */
+
+body.agriconnect-dark-mode .market-crop-card {
+  background: #17211b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .market-crop-card:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
+}
+
+/* ========================================
+   CROP IMAGE
+======================================== */
+
+body.agriconnect-dark-mode .crop-image {
+  background: #203d2d;
+}
+
+/* ========================================
+   CROP CONTENT
+======================================== */
+
+body.agriconnect-dark-mode .crop-card-content {
+  color: #e8f0eb;
+}
+
+body.agriconnect-dark-mode .crop-title-row h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .fresh-badge {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .crop-price {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .crop-info {
+  color: #aab8b0;
+}
+
+/* ========================================
+   VIEW CROP BUTTON
+======================================== */
+
+body.agriconnect-dark-mode .view-crop-btn {
+  background: #1b8d3f;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .view-crop-btn:hover {
+  background: #147331;
+}

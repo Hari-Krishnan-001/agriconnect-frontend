@@ -986,3 +986,218 @@
   }
 
 }
+
+/* ========================================
+   DARK MODE
+   ======================================== */
+
+.agriconnect-dark-mode .student-dashboard {
+  background: #0f1720;
+}
+
+.agriconnect-dark-mode .student-content {
+  color: #e8f0eb;
+}
+
+.agriconnect-dark-mode .welcome-label {
+  color: #7dd3a7;
+}
+
+.agriconnect-dark-mode .student-header h1 {
+  color: #f1f7f3;
+}
+
+.agriconnect-dark-mode .student-header > div > p:last-child {
+  color: #aab8b0;
+}
+
+.agriconnect-dark-mode .student-dashboard-error {
+  background: #321b1b;
+  border-color: #633333;
+  color: #ffb4b4;
+}
+
+.agriconnect-dark-mode .student-loading-icon {
+  background: #173326;
+}
+
+.agriconnect-dark-mode .student-loading h2 {
+  color: #eef6f1;
+}
+
+.agriconnect-dark-mode .student-loading p {
+  color: #9eaaa3;
+}
+
+.agriconnect-dark-mode .student-stat-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+.agriconnect-dark-mode .student-stat-card > span {
+  background: #203d2d;
+}
+
+.agriconnect-dark-mode .student-stat-card p {
+  color: #9eaaa5;
+}
+
+.agriconnect-dark-mode .student-stat-card h2 {
+  color: #f0f7f2;
+}
+
+.agriconnect-dark-mode .section-heading h2 {
+  color: #eef6f1;
+}
+
+.agriconnect-dark-mode .section-heading p {
+  color: #9eaaa3;
+}
+
+.agriconnect-dark-mode .view-all-btn {
+  background: #17211b;
+  color: #72d69b;
+  border-color: #2fbd68;
+}
+
+.agriconnect-dark-mode .view-all-btn:hover {
+  background: #203d2d;
+}
+
+.agriconnect-dark-mode .student-project-chat-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+}
+
+.agriconnect-dark-mode .student-project-chat-card:hover {
+  border-color: #3a6048;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.agriconnect-dark-mode .student-project-chat-icon {
+  background: #203d2d;
+}
+
+.agriconnect-dark-mode .student-project-chat-header h3 {
+  color: #eef6f1;
+}
+
+.agriconnect-dark-mode .student-project-chat-header p {
+  color: #89968f;
+}
+
+.agriconnect-dark-mode .student-project-chat-info span {
+  color: #89968f;
+}
+
+.agriconnect-dark-mode .student-project-chat-info strong {
+  color: #dce8e0;
+}
+
+.agriconnect-dark-mode .empty-project-chats {
+  background: #17211b;
+  border-color: #2a3830;
+}
+
+.agriconnect-dark-mode .empty-chat-icon {
+  background: #203d2d;
+}
+
+.agriconnect-dark-mode .empty-project-chats h3 {
+  color: #eef6f1;
+}
+
+.agriconnect-dark-mode .empty-project-chats p {
+  color: #9eaaa3;
+}
+
+.agriconnect-dark-mode .student-project-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+.agriconnect-dark-mode .student-project-card-header h3 {
+  color: #eef6f1;
+}
+
+.agriconnect-dark-mode .student-project-card-header p {
+  color: #89968f;
+}
+
+.agriconnect-dark-mode .student-project-status.open {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+.agriconnect-dark-mode .student-project-status.closed {
+  background: #29312d;
+  color: #a1aaa5;
+}
+
+.agriconnect-dark-mode .student-project-status.funded {
+  background: #40351b;
+  color: #f2ca63;
+}
+
+.agriconnect-dark-mode .student-project-description {
+  color: #aab7b0;
+}
+
+.agriconnect-dark-mode .student-project-info {
+  border-top-color: #2a3830;
+  border-bottom-color: #2a3830;
+}
+
+.agriconnect-dark-mode .student-project-info span {
+  color: #89968f;
+}
+
+.agriconnect-dark-mode .student-project-info strong {
+  color: #dce8e0;
+}
+
+.agriconnect-dark-mode .student-project-view-btn {
+  background: #17211b;
+  color: #72d69b;
+  border-color: #2fbd68;
+}
+
+.agriconnect-dark-mode .student-project-view-btn:hover {
+  background: #203d2d;
+}
+
+.agriconnect-dark-mode .empty-project {
+  background: #17211b;
+  border-color: #2a3830;
+}
+
+.agriconnect-dark-mode .empty-project h3 {
+  color: #eef6f1;
+}
+
+.agriconnect-dark-mode .empty-project p {
+  color: #9eaaa3;
+}
+
+.agriconnect-dark-mode .explore-banner {
+  background: #173326;
+  border-color: #28543a;
+}
+
+.agriconnect-dark-mode .explore-banner h2 {
+  color: #e8f5ec;
+}
+
+.agriconnect-dark-mode .explore-banner p {
+  color: #a7b9ae;
+}
+
+.agriconnect-dark-mode .create-project-btn,
+.agriconnect-dark-mode .student-project-chat-button,
+.agriconnect-dark-mode .empty-project-chats button,
+.agriconnect-dark-mode .explore-banner button {
+  color: #ffffff;
+}

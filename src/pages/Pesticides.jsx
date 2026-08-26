@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import {
   FaSearch,
@@ -10,7 +10,12 @@ import {
   FaRecycle,
   FaTimes,
   FaChevronRight,
+  FaCamera,
+  FaCloudUploadAlt,
+  FaDatabase,
 } from "react-icons/fa";
+
+import { useNavigate } from "react-router-dom";
 
 import Sidebar from "../components/sidebar/Sidebar";
 
@@ -18,6 +23,9 @@ import "../styles/pesticides.css";
 
 
 function Pesticides() {
+
+  const navigate = useNavigate();
+
 
   // ========================================
   // STATE
@@ -31,6 +39,15 @@ function Pesticides() {
 
   const [selectedPesticide, setSelectedPesticide] =
     useState(null);
+
+  const [databaseResults, setDatabaseResults] =
+    useState([]);
+
+  const [isSearchingDatabase, setIsSearchingDatabase] =
+    useState(false);
+
+  const [databaseError, setDatabaseError] =
+    useState("");
 
 
   // ========================================
@@ -247,7 +264,7 @@ function Pesticides() {
 
 
   // ========================================
-  // FILTER
+  // LOCAL FILTER
   // ========================================
 
   const filteredPesticides = useMemo(() => {
@@ -255,14 +272,12 @@ function Pesticides() {
     const search =
       searchTerm.trim().toLowerCase();
 
-
     return pesticides.filter(
       (pesticide) => {
 
         const matchesCategory =
           activeCategory === "All" ||
-          pesticide.category ===
-            activeCategory;
+          pesticide.category === activeCategory;
 
 
         const matchesSearch =
@@ -295,7 +310,250 @@ function Pesticides() {
 
 
   // ========================================
-  // OPEN DETAILS
+  // DATABASE SEARCH
+  // ========================================
+
+  useEffect(() => {
+
+    const trimmedSearch =
+      searchTerm.trim();
+
+
+    if (!trimmedSearch) {
+
+      setDatabaseResults([]);
+
+      setDatabaseError("");
+
+      setIsSearchingDatabase(false);
+
+      return;
+    }
+
+
+    const controller =
+      new AbortController();
+
+
+    const searchDatabase =
+      async () => {
+
+        setIsSearchingDatabase(true);
+
+        setDatabaseError("");
+
+
+        try {
+
+          const response =
+            await fetch(
+              `http://localhost:8080/api/pesticides/search?name=${encodeURIComponent(
+                trimmedSearch
+              )}`,
+              {
+                method: "GET",
+
+                headers: {
+                  Accept:
+                    "application/json",
+                },
+
+                signal:
+                  controller.signal,
+              }
+            );
+
+
+          if (!response.ok) {
+
+            throw new Error(
+              `Database search failed (${response.status})`
+            );
+          }
+
+
+          const data =
+            await response.json();
+
+
+          setDatabaseResults(
+            Array.isArray(data)
+              ? data
+              : []
+          );
+
+        } catch (error) {
+
+          if (
+            error.name ===
+            "AbortError"
+          ) {
+
+            return;
+          }
+
+
+          console.error(
+            "Pesticide database search error:",
+            error
+          );
+
+
+          setDatabaseResults([]);
+
+          setDatabaseError(
+            "Unable to connect to the pesticide database."
+          );
+
+        } finally {
+
+          if (
+            !controller.signal.aborted
+          ) {
+
+            setIsSearchingDatabase(false);
+          }
+        }
+      };
+
+
+    const timer =
+      setTimeout(
+        searchDatabase,
+        350
+      );
+
+
+    return () => {
+
+      clearTimeout(timer);
+
+      controller.abort();
+
+    };
+
+  }, [searchTerm]);
+
+
+  // ========================================
+  // CONVERT DATABASE RECORD
+  // ========================================
+
+  const convertDatabasePesticide =
+    (pesticide) => {
+
+      let icon =
+        <FaFlask />;
+
+
+      const type =
+        (
+          pesticide.type ||
+          ""
+        ).toLowerCase();
+
+
+      if (
+        type.includes("insect")
+      ) {
+
+        icon =
+          <FaBug />;
+
+      } else if (
+        type.includes("fung")
+      ) {
+
+        icon =
+          <FaFlask />;
+
+      } else if (
+        type.includes("herb")
+      ) {
+
+        icon =
+          <FaLeaf />;
+
+      } else if (
+        type.includes("biological")
+      ) {
+
+        icon =
+          <FaSeedling />;
+
+      } else if (
+        type.includes("ipm")
+      ) {
+
+        icon =
+          <FaShieldAlt />;
+      }
+
+
+      return {
+
+        ...pesticide,
+
+        id:
+          `db-${pesticide.id}`,
+
+        title:
+          pesticide.name,
+
+        category:
+          pesticide.type ||
+          "Pesticide",
+
+        icon,
+
+        shortDescription:
+          pesticide.activeIngredient
+            ? `Active ingredient: ${pesticide.activeIngredient}`
+            : "Pesticide information from the AgriConnect database.",
+
+        description:
+          pesticide.description ||
+          "No additional description is currently available.",
+
+        uses:
+          pesticide.uses
+            ? pesticide.uses
+                .split(/[.;]/)
+                .map(
+                  (item) =>
+                    item.trim()
+                )
+                .filter(Boolean)
+            : [
+                "Refer to the registered product label.",
+              ],
+
+        safety:
+          pesticide.safetyMeasures ||
+          "Follow the registered product label and local agricultural guidance.",
+
+      };
+
+    };
+
+
+  // ========================================
+  // DATABASE RESULT HANDLER
+  // ========================================
+
+  const handleOpenDatabasePesticide =
+    (pesticide) => {
+
+      setSelectedPesticide(
+        convertDatabasePesticide(
+          pesticide
+        )
+      );
+    };
+
+
+  // ========================================
+  // OPEN KNOWLEDGE DETAILS
   // ========================================
 
   const handleOpenPesticide = (
@@ -314,7 +572,9 @@ function Pesticides() {
 
   const handleClosePesticide = () => {
 
-    setSelectedPesticide(null);
+    setSelectedPesticide(
+      null
+    );
   };
 
 
@@ -326,7 +586,25 @@ function Pesticides() {
 
     setSearchTerm("");
 
-    setActiveCategory("All");
+    setActiveCategory(
+      "All"
+    );
+
+    setDatabaseResults([]);
+
+    setDatabaseError("");
+  };
+
+
+  // ========================================
+  // OPEN SMART SCANNER
+  // ========================================
+
+  const handleOpenScanner = () => {
+
+    navigate(
+      "/pesticide-scanner"
+    );
   };
 
 
@@ -335,12 +613,14 @@ function Pesticides() {
   // ========================================
 
   return (
+
     <div className="pesticides-page-layout">
 
       <Sidebar />
 
 
       <main className="pesticides-page">
+
 
         {/* ==================================
             HEADER
@@ -370,14 +650,92 @@ function Pesticides() {
 
 
         {/* ==================================
-            RESPONSIBLE USE NOTICE
+            SMART PESTICIDE FINDER
+        ================================== */}
+
+        <section className="pesticides-scanner-hero">
+
+          <div className="pesticides-scanner-content">
+
+            <div className="pesticides-scanner-icon">
+
+              <span>
+                🧪
+              </span>
+
+            </div>
+
+
+            <div className="pesticides-scanner-text">
+
+              <span className="pesticides-scanner-badge">
+                SMART TOOL
+              </span>
+
+              <h2>
+                Smart Pesticide Finder
+              </h2>
+
+              <p>
+                Identify a pesticide by capturing
+                a photo, uploading the product label,
+                or searching by its name.
+              </p>
+
+
+              <div className="pesticides-scanner-methods">
+
+                <span>
+                  <FaCamera />
+                  Capture
+                </span>
+
+                <span>
+                  <FaCloudUploadAlt />
+                  Upload
+                </span>
+
+                <span>
+                  <FaSearch />
+                  Search name
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <button
+              type="button"
+              className="pesticides-scanner-button"
+              onClick={
+                handleOpenScanner
+              }
+            >
+
+              Open Scanner
+
+              <FaChevronRight />
+
+            </button>
+
+          </div>
+
+        </section>
+
+
+        {/* ==================================
+            RESPONSIBLE USE
         ================================== */}
 
         <section className="pesticides-notice">
 
           <div className="pesticides-notice-icon">
+
             <FaShieldAlt />
+
           </div>
+
 
           <div>
 
@@ -431,7 +789,9 @@ function Pesticides() {
                 }
                 aria-label="Clear search"
               >
+
                 <FaTimes />
+
               </button>
 
             )}
@@ -454,8 +814,7 @@ function Pesticides() {
                 key={category}
                 type="button"
                 className={`pesticides-category-button ${
-                  activeCategory ===
-                  category
+                  activeCategory === category
                     ? "active"
                     : ""
                 }`}
@@ -465,7 +824,9 @@ function Pesticides() {
                   )
                 }
               >
+
                 {category}
+
               </button>
 
             )
@@ -475,7 +836,184 @@ function Pesticides() {
 
 
         {/* ==================================
-            RESULTS
+            DATABASE RESULTS
+        ================================== */}
+
+        {searchTerm.trim() && (
+
+          <section className="pesticides-database-section">
+
+            <div className="pesticides-results-info">
+
+              <div className="pesticides-database-title">
+
+                <FaDatabase />
+
+                <h2>
+                  Database Results
+                </h2>
+
+              </div>
+
+
+              {!isSearchingDatabase &&
+                !databaseError && (
+
+                  <span>
+
+                    {databaseResults.length}{" "}
+
+                    {databaseResults.length === 1
+                      ? "match"
+                      : "matches"}
+
+                  </span>
+
+                )}
+
+            </div>
+
+
+            {isSearchingDatabase && (
+
+              <div className="pesticides-database-status">
+
+                <div className="pesticides-loading-spinner" />
+
+                <span>
+                  Searching AgriConnect pesticide database...
+                </span>
+
+              </div>
+
+            )}
+
+
+            {!isSearchingDatabase &&
+              databaseError && (
+
+                <div className="pesticides-database-error">
+
+                  <FaShieldAlt />
+
+                  <span>
+                    {databaseError}
+                  </span>
+
+                </div>
+
+            )}
+
+
+            {!isSearchingDatabase &&
+              !databaseError &&
+              databaseResults.length === 0 && (
+
+                <div className="pesticides-database-empty">
+
+                  <FaSearch />
+
+                  <div>
+
+                    <strong>
+                      No pesticide found
+                    </strong>
+
+                    <p>
+                      Try another product name or check
+                      the spelling.
+                    </p>
+
+                  </div>
+
+                </div>
+
+            )}
+
+
+            {!isSearchingDatabase &&
+              !databaseError &&
+              databaseResults.length > 0 && (
+
+                <div className="pesticides-database-grid">
+
+                  {databaseResults.map(
+                    (pesticide) => (
+
+                      <article
+                        key={
+                          pesticide.id
+                        }
+                        className="pesticide-database-card"
+                      >
+
+                        <div className="pesticide-database-card-icon">
+
+                          {convertDatabasePesticide(
+                            pesticide
+                          ).icon}
+
+                        </div>
+
+
+                        <div className="pesticide-database-card-content">
+
+                          <span>
+                            {pesticide.type ||
+                              "Pesticide"}
+                          </span>
+
+                          <h3>
+                            {pesticide.name}
+                          </h3>
+
+
+                          {pesticide.activeIngredient && (
+
+                            <p>
+                              <strong>
+                                Active ingredient:
+                              </strong>{" "}
+                              {pesticide.activeIngredient}
+                            </p>
+
+                          )}
+
+                        </div>
+
+
+                        <button
+                          type="button"
+                          className="pesticide-database-card-button"
+                          onClick={() =>
+                            handleOpenDatabasePesticide(
+                              pesticide
+                            )
+                          }
+                        >
+
+                          View Details
+
+                          <FaChevronRight />
+
+                        </button>
+
+                      </article>
+
+                    )
+                  )}
+
+                </div>
+
+            )}
+
+          </section>
+
+        )}
+
+
+        {/* ==================================
+            KNOWLEDGE RESULTS
         ================================== */}
 
         <div className="pesticides-results-info">
@@ -485,18 +1023,17 @@ function Pesticides() {
           </h2>
 
           <span>
+
             {filteredPesticides.length}{" "}
+
             {filteredPesticides.length === 1
               ? "topic"
               : "topics"}
+
           </span>
 
         </div>
 
-
-        {/* ==================================
-            CARDS
-        ================================== */}
 
         {filteredPesticides.length > 0 ? (
 
@@ -513,12 +1050,16 @@ function Pesticides() {
                   <div className="pesticide-card-top">
 
                     <div className="pesticide-card-icon">
+
                       {pesticide.icon}
+
                     </div>
 
 
                     <span className="pesticide-card-category">
+
                       {pesticide.category}
+
                     </span>
 
                   </div>
@@ -563,10 +1104,6 @@ function Pesticides() {
           </section>
 
         ) : (
-
-          /* ==================================
-             EMPTY STATE
-          ================================== */
 
           <section className="pesticides-empty">
 
@@ -625,17 +1162,23 @@ function Pesticides() {
                 }
                 aria-label="Close"
               >
+
                 <FaTimes />
+
               </button>
 
 
               <div className="pesticides-modal-icon">
+
                 {selectedPesticide.icon}
+
               </div>
 
 
               <span className="pesticides-modal-category">
+
                 {selectedPesticide.category}
+
               </span>
 
 
@@ -645,8 +1188,27 @@ function Pesticides() {
 
 
               <p className="pesticides-modal-description">
+
                 {selectedPesticide.description}
+
               </p>
+
+
+              {selectedPesticide.activeIngredient && (
+
+                <div className="pesticides-modal-section">
+
+                  <h3>
+                    Active Ingredient
+                  </h3>
+
+                  <p>
+                    {selectedPesticide.activeIngredient}
+                  </p>
+
+                </div>
+
+              )}
 
 
               <div className="pesticides-modal-section">
@@ -672,11 +1234,48 @@ function Pesticides() {
               </div>
 
 
+              {selectedPesticide.crops && (
+
+                <div className="pesticides-modal-section">
+
+                  <h3>
+                    Crops
+                  </h3>
+
+                  <p>
+                    {selectedPesticide.crops}
+                  </p>
+
+                </div>
+
+              )}
+
+
+              {selectedPesticide.targetPests && (
+
+                <div className="pesticides-modal-section">
+
+                  <h3>
+                    Target Pests / Diseases
+                  </h3>
+
+                  <p>
+                    {selectedPesticide.targetPests}
+                  </p>
+
+                </div>
+
+              )}
+
+
               <div className="pesticides-modal-safety">
 
                 <div className="pesticides-modal-safety-icon">
+
                   <FaShieldAlt />
+
                 </div>
+
 
                 <div>
 
@@ -691,6 +1290,34 @@ function Pesticides() {
                 </div>
 
               </div>
+
+
+              {selectedPesticide.warnings && (
+
+                <div className="pesticides-modal-safety">
+
+                  <div className="pesticides-modal-safety-icon">
+
+                    <FaShieldAlt />
+
+                  </div>
+
+
+                  <div>
+
+                    <h3>
+                      Important Warning
+                    </h3>
+
+                    <p>
+                      {selectedPesticide.warnings}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              )}
 
 
               <button

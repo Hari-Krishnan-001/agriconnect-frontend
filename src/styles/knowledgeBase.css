@@ -853,3 +853,232 @@
   }
 
 }
+/* ========================================
+   AGRICONNECT — KNOWLEDGE PAGE DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-page-layout {
+  background: #0f1720;
+}
+
+body.agriconnect-dark-mode .knowledge-page {
+  color: #e8f0eb;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-label {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .knowledge-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .knowledge-subtitle {
+  color: #aab8b0;
+}
+
+/* ========================================
+   SEARCH
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-search {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .knowledge-search:focus-within {
+  border-color: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12);
+}
+
+body.agriconnect-dark-mode .knowledge-search > svg {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .knowledge-search input {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .knowledge-search input::placeholder {
+  color: #6f7c74;
+}
+
+body.agriconnect-dark-mode .knowledge-search-clear {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .knowledge-search-clear:hover {
+  background: #26332c;
+  color: #eef6f1;
+}
+
+/* ========================================
+   CATEGORY FILTERS
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-category-button {
+  background: #17211b;
+  border-color: #37463d;
+  color: #c1cec6;
+}
+
+body.agriconnect-dark-mode .knowledge-category-button:hover {
+  background: #203d2d;
+  border-color: #3d6a4b;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .knowledge-category-button.active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #ffffff;
+}
+
+/* ========================================
+   RESULTS HEADER
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-results-info h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .knowledge-results-info span {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   TECHNIQUE CARDS
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .knowledge-card:hover {
+  border-color: #3d6a4b;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.30);
+}
+
+body.agriconnect-dark-mode .knowledge-card-icon {
+  background: #203d2d;
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .knowledge-card-category {
+  background: #203d2d;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .knowledge-card-content h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .knowledge-card-content p {
+  color: #aab8b0;
+}
+
+body.agriconnect-dark-mode .knowledge-learn-button {
+  color: #72d69b;
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-empty {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .knowledge-empty-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .knowledge-empty h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .knowledge-empty p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   MODAL OVERLAY
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-modal-overlay {
+  background: rgba(3, 8, 5, 0.72);
+}
+
+/* ========================================
+   MODAL
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-modal {
+  background: #17211b;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+body.agriconnect-dark-mode .knowledge-modal-close {
+  background: #26332c;
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .knowledge-modal-close:hover {
+  background: #35423a;
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .knowledge-modal-icon {
+  background: #203d2d;
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .knowledge-modal-category {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .knowledge-modal h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .knowledge-modal-description {
+  color: #c1cec6;
+}
+
+/* ========================================
+   MODAL BENEFITS
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-modal-benefits {
+  background: #101a14;
+}
+
+body.agriconnect-dark-mode .knowledge-modal-benefits h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .knowledge-modal-benefits li {
+  color: #c1cec6;
+}
+
+/* ========================================
+   MODAL DONE BUTTON
+======================================== */
+
+body.agriconnect-dark-mode .knowledge-modal-done {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .knowledge-modal-done:hover {
+  background: #15803d;
+}

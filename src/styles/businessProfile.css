@@ -921,3 +921,237 @@
     font-size: 17px;
   }
 }
+/* ========================================
+   AGRICONNECT — BUSINESS PROFILE DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-layout {
+  background: #0f1720;
+}
+
+body.agriconnect-dark-mode .business-profile-page {
+  color: #e8f0eb;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-label {
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .business-profile-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .business-profile-header p {
+  color: #aab8b0;
+}
+
+/* ========================================
+   PROFILE CARD
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .business-profile-card-header {
+  border-bottom-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .business-profile-card-header h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .business-profile-card-header p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   ACCOUNT INFORMATION
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-avatar {
+  background: #203d2d;
+  color: #72d69b;
+  border-color: #263a2e;
+}
+
+body.agriconnect-dark-mode .business-account h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .business-account p {
+  color: #c1cec6;
+}
+
+body.agriconnect-dark-mode .business-account span {
+  color: #89968f;
+}
+
+/* ========================================
+   PROFILE INFORMATION
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-information-grid span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .business-profile-information-grid strong {
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .business-profile-information-grid a {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .business-profile-information-grid a:hover {
+  color: #8be5ad;
+}
+
+/* ========================================
+   FORM
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-form-group label {
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .business-profile-form-group input,
+body.agriconnect-dark-mode .business-profile-form-group textarea,
+body.agriconnect-dark-mode .business-profile-form-group select {
+  background: #101a14;
+  border-color: #37463d;
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .business-profile-form-group input::placeholder,
+body.agriconnect-dark-mode .business-profile-form-group textarea::placeholder {
+  color: #6f7c74;
+}
+
+body.agriconnect-dark-mode .business-profile-form-group input:hover,
+body.agriconnect-dark-mode .business-profile-form-group textarea:hover,
+body.agriconnect-dark-mode .business-profile-form-group select:hover {
+  border-color: #4b5c51;
+}
+
+body.agriconnect-dark-mode .business-profile-form-group input:focus,
+body.agriconnect-dark-mode .business-profile-form-group textarea:focus,
+body.agriconnect-dark-mode .business-profile-form-group select:focus {
+  background: #101a14;
+  border-color: #2fbd68;
+  box-shadow: 0 0 0 3px rgba(47, 189, 104, 0.12);
+}
+
+/* ========================================
+   FORM ACTIONS
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-form-actions {
+  border-top-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .business-profile-cancel-button {
+  background: #29332e;
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .business-profile-cancel-button:hover {
+  background: #35423a;
+}
+
+body.agriconnect-dark-mode .business-profile-save-button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+/* ========================================
+   MESSAGES
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-error {
+  background: #321b1b;
+  border-color: #633333;
+  color: #ffb4b4;
+}
+
+body.agriconnect-dark-mode .business-profile-success {
+  background: #173326;
+  border-color: #28543a;
+  color: #78dba0;
+}
+
+/* ========================================
+   LOADING
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-loading-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .business-profile-loading h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .business-profile-loading p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   EMPTY PROFILE
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-empty {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .business-profile-empty-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .business-profile-empty h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .business-profile-empty p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   PROFILE STATUS
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-status {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .business-profile-status::before {
+  background: #2fbd68;
+}
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-divider {
+  background: #2a3830;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+body.agriconnect-dark-mode .business-profile-edit-button,
+body.agriconnect-dark-mode .business-profile-create-button,
+body.agriconnect-dark-mode .business-profile-save-button,
+body.agriconnect-dark-mode .business-profile-empty button {
+  color: #ffffff;
+}

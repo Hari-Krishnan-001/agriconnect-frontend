@@ -403,3 +403,90 @@
     border-radius: 9px;
   }
 }
+/* =========================================================
+   AGRICONNECT GLOBAL DARK MODE — SIDEBAR
+========================================================= */
+
+body.agriconnect-dark-mode .sidebar {
+  background: #111827;
+  border-right-color: #334155;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
+}
+
+body.agriconnect-dark-mode .sidebar h2 {
+  color: #f8fafc;
+}
+
+body.agriconnect-dark-mode .sidebar-close-button {
+  color: #94a3b8;
+}
+
+body.agriconnect-dark-mode .sidebar-close-button:hover {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+body.agriconnect-dark-mode .sidebar-item {
+  color: #e2e8f0;
+}
+
+body.agriconnect-dark-mode .sidebar-item:hover {
+  background: #172b22;
+  color: #86efac;
+}
+
+body.agriconnect-dark-mode .sidebar-item.active {
+  background: #14532d;
+  color: #bbf7d0;
+}
+
+body.agriconnect-dark-mode .sidebar-icon {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .sidebar-item.active .sidebar-icon {
+  color: #86efac;
+}
+
+body.agriconnect-dark-mode .logout-item:hover {
+  background: #3f1d1d;
+  color: #fca5a5;
+}
+
+body.agriconnect-dark-mode .logout-item .sidebar-icon {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .logout-item:hover .sidebar-icon {
+  color: #f87171;
+}
+
+body.agriconnect-dark-mode .sidebar-toggle-button {
+  background: #1e293b;
+  border-color: #475569;
+  color: #86efac;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+body.agriconnect-dark-mode .sidebar-toggle-button:hover {
+  background: #172b22;
+  color: #bbf7d0;
+}
+
+body.agriconnect-dark-mode .sidebar-menu::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+/* =========================================================
+   APPLICATION SHELL DARK MODE
+========================================================= */
+
+html.agriconnect-dark-mode,
+body.agriconnect-dark-mode {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+body.agriconnect-dark-mode .app-main {
+  background: #0f172a;
+  color: #e2e8f0;
+}

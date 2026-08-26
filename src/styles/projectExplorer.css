@@ -510,3 +510,204 @@
     width: 100%;
   }
 }
+/* =========================================================
+   AGRICONNECT — PROJECT EXPLORER DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .project-explorer-layout {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+body.agriconnect-dark-mode .project-explorer-label {
+  color: #7dd3a7;
+}
+
+body.agriconnect-dark-mode .project-explorer-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .project-explorer-header p:last-child {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   CREATE BUTTON
+========================================================= */
+
+body.agriconnect-dark-mode .create-project-button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .create-project-button:hover {
+  background: #18883d;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+body.agriconnect-dark-mode .project-explorer-error {
+  background: #351d1d;
+  color: #ffb4b4;
+}
+
+body.agriconnect-dark-mode .project-explorer-error button {
+  background: #b42318;
+  color: #ffffff;
+}
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+body.agriconnect-dark-mode .project-explorer-card {
+  background: #17211b;
+  border-color: #2d3d34;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .project-explorer-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32);
+}
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+body.agriconnect-dark-mode .project-card-icon {
+  background: #203d2d;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+body.agriconnect-dark-mode .project-status.open {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .project-status.closed {
+  background: #29312d;
+  color: #a9b2ad;
+}
+
+body.agriconnect-dark-mode .project-status.funded {
+  background: #40351b;
+  color: #f2ca63;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+body.agriconnect-dark-mode .project-explorer-card h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .project-number {
+  color: #89968f;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+body.agriconnect-dark-mode .project-card-description {
+  color: #aab7b0;
+}
+
+/* =========================================================
+   STUDENT
+========================================================= */
+
+body.agriconnect-dark-mode .project-student {
+  border-top-color: #2d3d34;
+}
+
+body.agriconnect-dark-mode .project-student span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .project-student strong {
+  color: #dce8e0;
+}
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+body.agriconnect-dark-mode .project-card-info {
+  border-top-color: #2d3d34;
+  border-bottom-color: #2d3d34;
+}
+
+body.agriconnect-dark-mode .project-card-info span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .project-card-info strong {
+  color: #dce8e0;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+body.agriconnect-dark-mode .project-card-footer > span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .project-card-footer button {
+  background: #17211b;
+  border-color: #2fbd68;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .project-card-footer button:hover {
+  background: #203d2d;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+body.agriconnect-dark-mode .project-explorer-empty {
+  background: #17211b;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .project-explorer-empty h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .project-explorer-empty p {
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .project-explorer-empty button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .project-explorer-empty button:hover {
+  background: #18883d;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+body.agriconnect-dark-mode .project-explorer-loading h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .project-explorer-loading p {
+  color: #9eaaa3;
+}

@@ -49,3 +49,85 @@
     font-size: 28px;
   }
 }
+
+/* =========================================================
+   AGRICONNECT — FARMER DASHBOARD DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .farmer-dashboard {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+body.agriconnect-dark-mode .farmer-dashboard-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .farmer-dashboard-header p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   RECENT ORDERS + CROP OVERVIEW
+   DARK MODE
+========================================================= */
+
+/* Main cards */
+body.agriconnect-dark-mode .farmer-dashboard-middle > * {
+  background: #17211b !important;
+  color: #e8f0eb;
+  border-color: #2a3830;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+/* Headings */
+body.agriconnect-dark-mode .farmer-dashboard-middle h1,
+body.agriconnect-dark-mode .farmer-dashboard-middle h2,
+body.agriconnect-dark-mode .farmer-dashboard-middle h3,
+body.agriconnect-dark-mode .farmer-dashboard-middle h4 {
+  color: #eef6f1 !important;
+}
+
+/* Normal text */
+body.agriconnect-dark-mode .farmer-dashboard-middle p,
+body.agriconnect-dark-mode .farmer-dashboard-middle span,
+body.agriconnect-dark-mode .farmer-dashboard-middle strong,
+body.agriconnect-dark-mode .farmer-dashboard-middle label {
+  color: #dce8e0 !important;
+}
+
+/* Table headings and cells */
+body.agriconnect-dark-mode .farmer-dashboard-middle th {
+  color: #aab8b0 !important;
+  border-color: #2a3830 !important;
+}
+
+body.agriconnect-dark-mode .farmer-dashboard-middle td {
+  color: #dce8e0 !important;
+  border-color: #2a3830 !important;
+}
+
+/* Table / list separators */
+body.agriconnect-dark-mode .farmer-dashboard-middle tr,
+body.agriconnect-dark-mode .farmer-dashboard-middle li {
+  border-color: #2a3830 !important;
+}
+
+/* Links */
+body.agriconnect-dark-mode .farmer-dashboard-middle a {
+  color: #72d69b !important;
+}
+
+/* Buttons inside the dashboard middle section */
+body.agriconnect-dark-mode .farmer-dashboard-middle button {
+  color: #ffffff;
+}
+
+/* =========================================================
+   KEEP EMOJI / ICONS VISIBLE
+========================================================= */
+
+body.agriconnect-dark-mode .farmer-dashboard-middle img,
+body.agriconnect-dark-mode .farmer-dashboard-middle svg {
+  opacity: 1;
+}

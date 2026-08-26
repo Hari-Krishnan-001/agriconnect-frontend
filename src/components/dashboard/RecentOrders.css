@@ -34,3 +34,34 @@
 .recent-orders tbody tr:hover {
   background: #f8faf8;
 }
+/* ========================================
+   AGRICONNECT — RECENT ORDERS DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .recent-orders {
+  background: #17211b;
+  color: #e8f0eb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .recent-orders h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .recent-orders th {
+  color: #aab8b0;
+  border-bottom-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .recent-orders td {
+  color: #dce8e0;
+  border-bottom-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .recent-orders tr:last-child td {
+  border-bottom-color: transparent;
+}
+
+body.agriconnect-dark-mode .recent-orders tbody tr:hover {
+  background: #203029;
+}

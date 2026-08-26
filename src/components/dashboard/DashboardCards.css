@@ -36,3 +36,19 @@
 .dashboard-card:hover {
   transform: translateY(-5px);
 }
+/* =========================================================
+   AGRICONNECT — DASHBOARD CARDS DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .dashboard-card {
+  background: #17211b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .dashboard-card h3 {
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .dashboard-card p {
+  color: #72d69b;
+}

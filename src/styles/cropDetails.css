@@ -157,3 +157,110 @@
   font-weight: 600;
   cursor: pointer;
 }
+/* =========================================================
+   AGRICONNECT — CROP DETAILS DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .crop-details-page {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+body.agriconnect-dark-mode .back-button {
+  color: #72d69b;
+}
+
+/* =========================================================
+   CROP DETAILS CARD
+========================================================= */
+
+body.agriconnect-dark-mode .crop-details-card {
+  background: #17211b;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .crop-details-image {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .crop-details-info h1 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .details-badge {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .details-description {
+  color: #aab8b0;
+}
+
+body.agriconnect-dark-mode .details-price {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .details-price span {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+body.agriconnect-dark-mode .details-information span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .details-information strong {
+  color: #dce8e0;
+}
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+body.agriconnect-dark-mode .place-order-card {
+  background: #17211b;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .place-order-card h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .place-order-card p {
+  color: #aab8b0;
+}
+
+body.agriconnect-dark-mode .order-form label {
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .order-form input {
+  background: #101a14;
+  border-color: #37463d;
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .order-form input::placeholder {
+  color: #6f7c74;
+}
+
+body.agriconnect-dark-mode .order-form input:focus {
+  border-color: #2fbd68;
+  box-shadow: 0 0 0 3px rgba(47, 189, 104, 0.12);
+}
+
+body.agriconnect-dark-mode .order-total {
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .order-total strong {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .place-order-button {
+  background: #1b8d3f;
+  color: #ffffff;
+}

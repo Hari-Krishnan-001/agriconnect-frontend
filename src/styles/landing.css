@@ -1,75 +1,1918 @@
-.hero {
-  min-height: 85vh;
+/* =========================================================
+   AGRICONNECT LANDING PAGE
+========================================================= */
+
+.landing-page {
+  width: 100%;
+  overflow: hidden;
+
+  background: #ffffff;
+  color: #101713;
+
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.landing-hero {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+
+  gap: 48px;
+
+  max-width: 1180px;
+  min-height: 470px;
+
+  margin: 0 auto;
+
+  padding: 48px 40px 78px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.landing-hero-content {
+  min-width: 0;
+}
+
+.landing-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-bottom: 15px;
+  padding: 7px 13px;
+
+  border-radius: 20px;
+
+  background: #eaf7ed;
+  color: #187a3d;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+.landing-eyebrow span {
+  color: #53a76f;
+}
+
+.landing-hero h1 {
+  margin: 0;
+
+  color: #0e1511;
+
+  font-size: clamp(50px, 4.8vw, 72px);
+  line-height: 1.06;
+
+  letter-spacing: -2.6px;
+
+  font-weight: 800;
+}
+
+.landing-hero h1 span {
+  color: #14823f;
+}
+
+.landing-hero-description {
+  max-width: 460px;
+
+  margin: 17px 0 0;
+
+  color: #5c6760;
+
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   ROLE CARDS
+========================================================= */
+
+.landing-role-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+
+  max-width: 620px;
+
+  margin-top: 32px;
+}
+
+.landing-role-card {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  min-height: 78px;
+
+  padding: 13px 17px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  text-align: left;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.landing-role-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(28, 80, 45, 0.1);
+}
+
+.landing-role-card.farmer {
+  background: #eaf7ed;
+  border-color: #d9efdf;
+}
+
+.landing-role-card.student {
+  background: #e8f3fb;
+  border-color: #d9eaf5;
+}
+
+.landing-role-card.business {
+  background: #f0eafa;
+  border-color: #e4d9f4;
+}
+
+.landing-role-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #20954a;
+
+  font-size: 26px;
+}
+
+.landing-role-card.student .landing-role-icon {
+  color: #2081b8;
+}
+
+.landing-role-card.business .landing-role-icon {
+  color: #8255c2;
+}
+
+.landing-role-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.landing-role-card strong {
+  display: block;
+
+  color: #1b251f;
+
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.landing-role-card small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #69766e;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MEMBER ROW
+========================================================= */
+
+.landing-member-row {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.landing-member-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.landing-member-avatars span {
+  width: 34px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: -6px;
+
+  border: 2px solid white;
+  border-radius: 50%;
+
+  background: #e7eee9;
+
+  font-size: 19px;
+}
+
+.landing-member-avatars span:first-child {
+  margin-left: 0;
+}
+
+.landing-member-row p {
+  margin: 0;
+
+  color: #606d65;
+
+  font-size: 12px;
+}
+
+.landing-member-row strong {
+  color: #13813d;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.landing-hero-visual {
+  position: relative;
+
+  min-width: 0;
+
+  align-self: start;
+
+  margin-top: 2px;
+}
+
+.landing-hero-visual > img {
+  display: block;
+
+  width: 100%;
+  height: 420px;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 14px 35px rgba(31, 61, 40, 0.11);
+}
+
+
+/* =========================================================
+   FLOATING STATS
+========================================================= */
+
+.landing-floating-stats {
+  position: absolute;
+
+  right: 6%;
+  bottom: -40px;
+
+  display: flex;
+  align-items: center;
+
+  width: 430px;
+
+  padding: 18px 22px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e1e9e3;
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  box-shadow:
+    0 11px 28px rgba(24, 56, 35, 0.13);
+}
+
+.landing-floating-stat {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+}
+
+.landing-floating-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-size: 19px;
+}
+
+.landing-floating-icon.farmer {
+  background: #e7f6eb;
+}
+
+.landing-floating-icon.student {
+  background: #e8f3fb;
+}
+
+.landing-floating-icon.business {
+  background: #eee7f8;
+}
+
+.landing-floating-stat strong {
+  display: block;
+
+  color: #18221c;
+
+  font-size: 26px;
+  line-height: 1;
+}
+
+.landing-floating-stat small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #7b867f;
+
+  font-size: 11px;
+}
+
+.landing-floating-divider {
+  width: 1px;
+  height: 42px;
+
+  background: #e3e9e5;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.landing-about-section {
+  position: relative;
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 96px 40px 82px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(42, 163, 76, 0.06),
+      transparent 30%
+    ),
+    #f8fbf8;
+
+  scroll-margin-top: 80px;
+}
+
+.landing-about-content {
+  display: grid;
+
+  grid-template-columns: 1.05fr 0.95fr;
+
+  align-items: center;
+
+  gap: 72px;
+}
+
+
+/* ABOUT TEXT */
+
+.landing-about-heading > span {
+  display: inline-block;
+
+  margin-bottom: 13px;
+
+  color: #27934c;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.landing-about-heading h2 {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #111813;
+
+  font-size: 42px;
+
+  line-height: 1.15;
+
+  letter-spacing: -1px;
+}
+
+.landing-about-heading p {
+  max-width: 590px;
+
+  margin: 17px 0 0;
+
+  color: #647169;
+
+  font-size: 19px;
+
+  line-height: 1.7;
+}
+
+
+/* ABOUT VISUAL */
+
+.landing-about-visual {
+  display: flex;
+
+  justify-content: center;
+}
+
+.landing-about-ecosystem {
+  width: 100%;
+
+  max-width: 560px;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dcebe0;
+
+  border-radius: 23px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(58, 194, 93, 0.12),
+      transparent 55%
+    ),
+    #ffffff;
+
+  box-shadow:
+    0 16px 42px rgba(31, 78, 45, 0.09);
+
+  text-align: center;
+}
+
+.landing-about-ecosystem-icon {
+  width: 78px;
+  height: 78px;
 
   display: flex;
 
   align-items: center;
+  justify-content: center;
 
-  padding: 80px;
+  margin: 0 auto 17px;
 
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.75),
-      rgba(255, 255, 255, 0.75)
-    ),
-    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854");
+  border: 1px solid #cfe7d5;
 
-  background-size: cover;
+  border-radius: 50%;
 
-  background-position: center;
+  background: #eaf7ed;
+
+  font-size: 36px;
 }
 
-.hero-content {
-  max-width: 700px;
+.landing-about-ecosystem h3 {
+  margin: 0;
+
+  color: #172019;
+
+  font-size: 26px;
 }
 
-.hero-content h1 {
-  font-size: 60px;
+.landing-about-ecosystem > p {
+  max-width: 350px;
 
-  line-height: 1.2;
+  margin: 9px auto 28px;
 
-  color: #111827;
+  color: #6c786f;
+
+  font-size: 13px;
+
+  line-height: 1.65;
 }
 
-.hero-content span {
-  color: #15803d;
-}
 
-.hero-content p {
-  margin-top: 25px;
+/* CONNECTIONS */
 
-  font-size: 22px;
-
-  color: #4b5563;
-}
-
-.hero-buttons {
+.landing-about-connections {
   display: flex;
 
-  gap: 20px;
+  align-items: center;
 
-  margin-top: 40px;
+  justify-content: center;
+
+  gap: 9px;
 }
 
-.hero-buttons button {
-  padding: 15px 25px;
+.landing-about-person {
+  flex: 1;
 
-  border: 1px solid #15803d;
+  min-width: 0;
 
-  border-radius: 10px;
+  padding: 15px 9px;
 
-  background: white;
+  border-radius: 14px;
 
-  color: #15803d;
+  text-align: center;
+}
+
+.landing-about-person span {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 9px;
+
+  border-radius: 11px;
+
+  font-size: 26px;
+}
+
+.landing-about-person strong {
+  display: block;
+
+  color: #1c2720;
+
+  font-size: 11px;
+}
+
+.landing-about-person small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #758178;
+
+  font-size: 10px;
+}
+
+.landing-about-person.farmer {
+  background: #eef9f0;
+}
+
+.landing-about-person.farmer span {
+  background: #dff2e3;
+}
+
+.landing-about-person.student {
+  background: #edf6fc;
+}
+
+.landing-about-person.student span {
+  background: #dfeef8;
+}
+
+.landing-about-person.business {
+  background: #f5effb;
+}
+
+.landing-about-person.business span {
+  background: #e9ddf4;
+}
+
+.landing-about-line {
+  flex: 0 0 25px;
+
+  height: 1px;
+
+  border-top: 1px dashed #9dceaa;
+}
+
+
+/* ABOUT PILLARS */
+
+.landing-about-pillars {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+
+  margin-top: 56px;
+}
+
+.landing-about-pillar {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 26px;
+
+  border: 1px solid #e1ebe4;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.landing-about-pillar:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(31, 78, 45, 0.08);
+}
+
+.landing-about-pillar-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  font-size: 26px;
+}
+
+.landing-about-pillar-icon.farmer {
+  background: #e5f5e9;
+}
+
+.landing-about-pillar-icon.student {
+  background: #e6f2fa;
+}
+
+.landing-about-pillar-icon.business {
+  background: #eee5f7;
+}
+
+.landing-about-pillar h3 {
+  margin: 1px 0 6px;
+
+  color: #18221c;
+
+  font-size: 19px;
+}
+
+.landing-about-pillar p {
+  margin: 0;
+
+  color: #6c786f;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* HIGHLIGHT */
+
+.landing-about-highlight {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-top: 27px;
+
+  padding: 25px 28px;
+
+  border: 1px solid #cfe5d5;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #eef9f1,
+      #f6fbf7
+    );
+}
+
+.landing-about-highlight-icon {
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #dff2e4;
+
+  font-size: 26px;
+}
+
+.landing-about-highlight strong {
+  display: block;
+
+  color: #176f38;
+
+  font-size: 19px;
+}
+
+.landing-about-highlight p {
+  margin: 5px 0 0;
+
+  color: #65736a;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.landing-features-section {
+  position: relative;
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 75px 34px 65px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  scroll-margin-top: 80px;
+}
+
+.landing-section-heading {
+  text-align: center;
+}
+
+.landing-section-heading > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #27934c;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.landing-section-heading h2 {
+  margin: 0;
+
+  color: #111813;
+
+  font-size: 36px;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.8px;
+}
+
+.landing-feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(6, 1fr);
+
+  gap: 28px;
+
+  margin-top: 46px;
+}
+
+.landing-feature-item {
+  text-align: center;
+}
+
+.landing-feature-icon {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 13px;
+
+  border: 1px solid #dfeee3;
+
+  border-radius: 14px;
+
+  background: #f0f9f2;
+
+  color: #198c43;
+
+  font-size: 30px;
+
+  box-shadow:
+    0 5px 14px rgba(30, 102, 50, 0.05);
+}
+
+.landing-feature-item h3 {
+  margin: 0;
+
+  color: #18211c;
+
+  font-size: 19px;
+}
+
+.landing-feature-item p {
+  max-width: 145px;
+
+  margin: 7px auto 0;
+
+  color: #69766e;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.landing-how-section {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 1.45fr 0.7fr;
+
+  gap: 0;
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 0 34px 0;
+
+  box-sizing: border-box;
+
+  scroll-margin-top: 80px;
+}
+
+.landing-how-process {
+  min-height: 300px;
+
+  padding: 34px 38px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dfe9e2;
+
+  border-radius: 21px 0 0 21px;
+
+  background: #f2faf4;
+}
+
+.landing-how-heading {
+  text-align: center;
+}
+
+.landing-how-heading > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #27934c;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.landing-how-heading h2 {
+  margin: 0;
+
+  color: #172019;
+
+  font-size: 26px;
+}
+
+
+/* PROCESS */
+
+.landing-process-row {
+  display: flex;
+
+  align-items: center;
+
+  margin-top: 38px;
+}
+
+.landing-process-step {
+  flex: 1;
+
+  text-align: center;
+}
+
+.landing-step-circle {
+  position: relative;
+
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+
+  border: 1px solid #d0e9d7;
+
+  border-radius: 50%;
+
+  background: #e4f4e8;
+
+  color: #198c43;
+}
+
+.landing-step-circle b {
+  position: absolute;
+
+  top: -8px;
+  left: 27px;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1a9647;
+
+  color: white;
+
+  font-size: 10px;
+}
+
+.landing-step-circle span {
+  font-size: 30px;
+}
+
+.landing-process-step h3 {
+  margin: 10px 0 0;
+
+  color: #18221c;
+
+  font-size: 19px;
+}
+
+.landing-process-step p {
+  max-width: 155px;
+
+  margin: 5px auto 0;
+
+  color: #6b776f;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.landing-process-connector {
+  flex: 0.45;
+
+  height: 1px;
+
+  border-top: 1px dashed #9bd3ab;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.landing-how-cta {
+  min-height: 300px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dfe9e2;
+
+  border-left: none;
+
+  border-radius: 0 21px 21px 0;
+
+  background:
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(42, 163, 76, 0.1),
+      transparent 45%
+    ),
+    #f1f9f3;
+
+  text-align: center;
+
+  scroll-margin-top: 80px;
+}
+
+.landing-cta-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 11px;
+
+  border: 1px solid #cce7d3;
+
+  border-radius: 50%;
+
+  background: #e3f4e7;
+
+  font-size: 30px;
+}
+
+.landing-how-cta h3 {
+  margin: 0;
+
+  color: #172019;
+
+  font-size: 17px;
+
+  line-height: 1.35;
+}
+
+.landing-how-cta button {
+  margin-top: 15px;
+
+  padding: 11px 22px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #128541;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 700;
 
   cursor: pointer;
 
-  font-size: 16px;
-
-  transition: 0.3s;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
-.hero-buttons button:hover {
-  background: #15803d;
+.landing-how-cta button:hover {
+  background: #0e6f35;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.landing-footer {
+  display: flex;
+
+  align-items: center;
+
+  min-height: 82px;
+
+  margin-top: 0;
+
+  padding: 0 40px;
+
+  box-sizing: border-box;
+
+  background: #06120b;
 
   color: white;
+}
+
+.landing-footer-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.landing-footer-logo span:first-child {
+  color: #4bdb71;
+}
+
+.landing-footer-logo span:last-child {
+  color: #51d978;
+}
+
+.landing-footer-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.landing-footer-links button {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #c1cbc4;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.landing-footer-links button:first-child {
+  color: #53dd78;
+}
+
+.landing-footer-links button:hover {
+  color: white;
+}
+
+.landing-footer-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.landing-footer-theme,
+.landing-footer-login,
+.landing-footer-start {
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.landing-footer-theme {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #102219;
+
+  color: #80dc99;
+}
+
+.landing-footer-login {
+  padding: 8px 16px;
+
+  border: 1px solid #4a7658;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: white;
+}
+
+.landing-footer-start {
+  padding: 9px 17px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #4ae56f;
+
+  color: #06220e;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .landing-page {
+  background: #06100b;
+  color: #edf6ef;
+}
+
+body.agriconnect-dark-mode .landing-hero {
+  background: #06100b;
+}
+
+body.agriconnect-dark-mode .landing-eyebrow {
+  background: #12301c;
+  color: #67dd8b;
+}
+
+body.agriconnect-dark-mode .landing-eyebrow span {
+  color: #3ca65d;
+}
+
+body.agriconnect-dark-mode .landing-hero h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .landing-hero h1 span {
+  color: #45db6c;
+}
+
+body.agriconnect-dark-mode .landing-hero-description {
+  color: #9eaea4;
+}
+
+
+/* ROLE CARDS */
+
+body.agriconnect-dark-mode .landing-role-card.farmer {
+  background: #102a19;
+  border-color: #1c4a2a;
+}
+
+body.agriconnect-dark-mode .landing-role-card.student {
+  background: #102331;
+  border-color: #1d4058;
+}
+
+body.agriconnect-dark-mode .landing-role-card.business {
+  background: #21192e;
+  border-color: #40325a;
+}
+
+body.agriconnect-dark-mode .landing-role-card strong {
+  color: #e8f2eb;
+}
+
+body.agriconnect-dark-mode .landing-role-card small {
+  color: #92a198;
+}
+
+body.agriconnect-dark-mode .landing-member-avatars span {
+  border-color: #06100b;
+  background: #1a3322;
+}
+
+body.agriconnect-dark-mode .landing-member-row p {
+  color: #899990;
+}
+
+body.agriconnect-dark-mode .landing-member-row strong {
+  color: #58db7a;
+}
+
+
+/* IMAGE */
+
+body.agriconnect-dark-mode .landing-hero-visual > img {
+  filter: brightness(0.67) saturate(0.9);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+
+/* FLOATING STATS */
+
+body.agriconnect-dark-mode .landing-floating-stats {
+  border-color: #304439;
+
+  background: rgba(13, 27, 18, 0.95);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.agriconnect-dark-mode .landing-floating-divider {
+  background: #2c3b32;
+}
+
+body.agriconnect-dark-mode .landing-floating-stat strong {
+  color: #e9f4ed;
+}
+
+body.agriconnect-dark-mode .landing-floating-stat small {
+  color: #899990;
+}
+
+body.agriconnect-dark-mode .landing-floating-icon.farmer {
+  background: #183d23;
+}
+
+body.agriconnect-dark-mode .landing-floating-icon.student {
+  background: #18334a;
+}
+
+body.agriconnect-dark-mode .landing-floating-icon.business {
+  background: #332746;
+}
+
+
+/* =========================================================
+   ABOUT DARK
+========================================================= */
+
+body.agriconnect-dark-mode .landing-about-section {
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(53, 211, 103, 0.08),
+      transparent 30%
+    ),
+    #07130c;
+}
+
+body.agriconnect-dark-mode .landing-about-heading > span {
+  color: #58dc7b;
+}
+
+body.agriconnect-dark-mode .landing-about-heading h2 {
+  color: #edf6ef;
+}
+
+body.agriconnect-dark-mode .landing-about-heading p {
+  color: #9aa9a0;
+}
+
+body.agriconnect-dark-mode .landing-about-ecosystem {
+  border-color: #284333;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(54, 207, 102, 0.1),
+      transparent 55%
+    ),
+    #0c1d12;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.28);
+}
+
+body.agriconnect-dark-mode .landing-about-ecosystem-icon {
+  border-color: #285638;
+  background: #12321d;
+}
+
+body.agriconnect-dark-mode .landing-about-ecosystem h3 {
+  color: #edf6ef;
+}
+
+body.agriconnect-dark-mode .landing-about-ecosystem > p {
+  color: #8e9d94;
+}
+
+body.agriconnect-dark-mode .landing-about-person.farmer {
+  background: #102a19;
+}
+
+body.agriconnect-dark-mode .landing-about-person.farmer span {
+  background: #183d23;
+}
+
+body.agriconnect-dark-mode .landing-about-person.student {
+  background: #102331;
+}
+
+body.agriconnect-dark-mode .landing-about-person.student span {
+  background: #18334a;
+}
+
+body.agriconnect-dark-mode .landing-about-person.business {
+  background: #21192e;
+}
+
+body.agriconnect-dark-mode .landing-about-person.business span {
+  background: #332746;
+}
+
+body.agriconnect-dark-mode .landing-about-person strong {
+  color: #e9f4ed;
+}
+
+body.agriconnect-dark-mode .landing-about-person small {
+  color: #8d9c93;
+}
+
+body.agriconnect-dark-mode .landing-about-line {
+  border-color: #30663f;
+}
+
+body.agriconnect-dark-mode .landing-about-pillar {
+  border-color: #263c2d;
+  background: #0b1c11;
+}
+
+body.agriconnect-dark-mode .landing-about-pillar h3 {
+  color: #edf6ef;
+}
+
+body.agriconnect-dark-mode .landing-about-pillar p {
+  color: #8d9c93;
+}
+
+body.agriconnect-dark-mode .landing-about-pillar-icon.farmer {
+  background: #183d23;
+}
+
+body.agriconnect-dark-mode .landing-about-pillar-icon.student {
+  background: #18334a;
+}
+
+body.agriconnect-dark-mode .landing-about-pillar-icon.business {
+  background: #332746;
+}
+
+body.agriconnect-dark-mode .landing-about-highlight {
+  border-color: #294635;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0d2415,
+      #0b1c11
+    );
+}
+
+body.agriconnect-dark-mode .landing-about-highlight-icon {
+  background: #163821;
+}
+
+body.agriconnect-dark-mode .landing-about-highlight strong {
+  color: #5de080;
+}
+
+body.agriconnect-dark-mode .landing-about-highlight p {
+  color: #8d9c93;
+}
+
+
+/* =========================================================
+   FEATURES DARK
+========================================================= */
+
+body.agriconnect-dark-mode .landing-features-section {
+  background: #06100b;
+}
+
+body.agriconnect-dark-mode .landing-section-heading h2 {
+  color: #eef7f1;
+}
+
+body.agriconnect-dark-mode .landing-feature-item h3 {
+  color: #eaf3ed;
+}
+
+body.agriconnect-dark-mode .landing-feature-item p {
+  color: #8d9c93;
+}
+
+body.agriconnect-dark-mode .landing-feature-icon {
+  border-color: #244732;
+  background: #102b19;
+}
+
+
+/* =========================================================
+   HOW IT WORKS DARK
+========================================================= */
+
+body.agriconnect-dark-mode .landing-how-section {
+  background: #06100b;
+}
+
+body.agriconnect-dark-mode .landing-how-process {
+  border-color: #263c2d;
+  background: #0b1c11;
+}
+
+body.agriconnect-dark-mode .landing-how-heading h2 {
+  color: #edf6ef;
+}
+
+body.agriconnect-dark-mode .landing-step-circle {
+  border-color: #285638;
+  background: #12321d;
+}
+
+body.agriconnect-dark-mode .landing-step-circle b {
+  background: #43d968;
+}
+
+body.agriconnect-dark-mode .landing-process-step h3 {
+  color: #edf6ef;
+}
+
+body.agriconnect-dark-mode .landing-process-step p {
+  color: #8d9c93;
+}
+
+body.agriconnect-dark-mode .landing-process-connector {
+  border-color: #30663f;
+}
+
+body.agriconnect-dark-mode .landing-how-cta {
+  border-color: #263c2d;
+  background: #0c1e13;
+}
+
+body.agriconnect-dark-mode .landing-cta-icon {
+  border-color: #285638;
+  background: #12321d;
+}
+
+body.agriconnect-dark-mode .landing-how-cta h3 {
+  color: #edf6ef;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .landing-hero {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 34px;
+
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .landing-hero h1 {
+    font-size: 52px;
+  }
+
+  .landing-floating-stats {
+    right: 4%;
+
+    width: 380px;
+  }
+
+  .landing-features-section,
+  .landing-how-section,
+  .landing-about-section {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .landing-about-content {
+    grid-template-columns: 1fr;
+
+    gap: 38px;
+  }
+
+  .landing-about-heading {
+    text-align: center;
+  }
+
+  .landing-about-heading h2,
+  .landing-about-heading p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .landing-about-pillars {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .landing-hero {
+    grid-template-columns: 1fr;
+
+    padding-top: 42px;
+    padding-bottom: 100px;
+  }
+
+  .landing-hero-content {
+    max-width: 720px;
+  }
+
+  .landing-hero h1 {
+    font-size: 54px;
+  }
+
+  .landing-hero-description {
+    max-width: 540px;
+  }
+
+  .landing-hero-visual {
+    width: 100%;
+
+    max-width: 650px;
+  }
+
+  .landing-hero-visual > img {
+    height: 410px;
+  }
+
+  .landing-feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+
+    row-gap: 30px;
+  }
+
+  .landing-how-section {
+    grid-template-columns: 1fr;
+
+    padding-bottom: 35px;
+  }
+
+  .landing-how-process {
+    border-radius: 21px 21px 0 0;
+  }
+
+  .landing-how-cta {
+    border-left: 1px solid #dfe9e2;
+
+    border-top: none;
+
+    border-radius: 0 0 21px 21px;
+  }
+
+  body.agriconnect-dark-mode .landing-how-cta {
+    border-left-color: #263c2d;
+  }
+
+  .landing-footer {
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    padding: 20px 25px;
+  }
+
+  .landing-footer-links {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .landing-hero {
+    padding: 32px 18px 90px;
+  }
+
+  .landing-hero h1 {
+    font-size: 42px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .landing-role-buttons {
+    grid-template-columns: 1fr;
+
+    max-width: 350px;
+  }
+
+  .landing-hero-visual > img {
+    height: 320px;
+
+    border-radius: 14px;
+  }
+
+  .landing-floating-stats {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    margin-top: -20px;
+
+    padding: 12px;
+  }
+
+
+  /* ABOUT */
+
+  .landing-about-section {
+    padding: 60px 18px 50px;
+  }
+
+  .landing-about-heading h2 {
+    font-size: 28px;
+  }
+
+  .landing-about-heading p {
+    font-size: 11px;
+  }
+
+  .landing-about-ecosystem {
+    padding: 23px 15px;
+  }
+
+  .landing-about-connections {
+    gap: 4px;
+  }
+
+  .landing-about-line {
+    flex-basis: 12px;
+  }
+
+  .landing-about-person {
+    padding: 11px 5px;
+  }
+
+
+  /* FEATURES */
+
+  .landing-features-section {
+    padding: 60px 18px 50px;
+  }
+
+  .landing-section-heading h2 {
+    font-size: 30px;
+  }
+
+  .landing-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* PROCESS */
+
+  .landing-how-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .landing-process-row {
+    flex-direction: column;
+
+    gap: 28px;
+  }
+
+  .landing-process-connector {
+    width: 1px;
+    height: 25px;
+
+    border-top: none;
+
+    border-left: 1px dashed #9bd3ab;
+  }
+
+  body.agriconnect-dark-mode .landing-process-connector {
+    border-left-color: #30663f;
+  }
+
+
+  /* FOOTER */
+
+  .landing-footer {
+    padding: 20px 18px;
+  }
+
+  .landing-footer-links {
+    gap: 15px;
+
+    flex-wrap: wrap;
+  }
+
+  .landing-footer-actions {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+
+  .landing-hero h1 {
+    font-size: 42px;
+  }
+
+  .landing-floating-icon {
+    display: none;
+  }
+
+  .landing-feature-grid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 22px 10px;
+  }
+
 }

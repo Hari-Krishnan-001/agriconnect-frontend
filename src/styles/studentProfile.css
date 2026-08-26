@@ -349,3 +349,373 @@
     width: 100%;
   }
 }
+/* =========================================================
+   AGRICONNECT — STUDENT PROFILE DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-page {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-header {
+  background: #17211b;
+  border-color: #2d3d34;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .student-profile-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .student-profile-header p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-card {
+  background: #17211b;
+  border-color: #2d3d34;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .student-profile-card h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .student-profile-card p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   PROFILE INFORMATION
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-info {
+  background: #17211b;
+  border-color: #2d3d34;
+}
+
+body.agriconnect-dark-mode .student-profile-info label {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .student-profile-info span {
+  color: #e0ebe4;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-form {
+  background: #17211b;
+  border-color: #2d3d34;
+}
+
+body.agriconnect-dark-mode .student-profile-form label {
+  color: #cbd8d0;
+}
+
+body.agriconnect-dark-mode .student-profile-form input,
+body.agriconnect-dark-mode .student-profile-form textarea,
+body.agriconnect-dark-mode .student-profile-form select {
+  background: #111a15;
+  border-color: #3a4a41;
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .student-profile-form input::placeholder,
+body.agriconnect-dark-mode .student-profile-form textarea::placeholder {
+  color: #68766e;
+}
+
+body.agriconnect-dark-mode .student-profile-form input:focus,
+body.agriconnect-dark-mode .student-profile-form textarea:focus,
+body.agriconnect-dark-mode .student-profile-form select:focus {
+  border-color: #2fbd68;
+  box-shadow: 0 0 0 3px rgba(47, 189, 104, 0.12);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-edit-button,
+body.agriconnect-dark-mode .student-profile-save-button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .student-profile-edit-button:hover,
+body.agriconnect-dark-mode .student-profile-save-button:hover {
+  background: #18883d;
+}
+
+body.agriconnect-dark-mode .student-profile-cancel-button {
+  background: #17211b;
+  border-color: #3a4a41;
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .student-profile-cancel-button:hover {
+  background: #20352a;
+}
+
+/* =========================================================
+   DIVIDERS
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-divider {
+  background: #2d3d34;
+  border-color: #2d3d34;
+}
+
+/* =========================================================
+   ERROR / SUCCESS
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-error {
+  background: #351d1d;
+  border-color: #633333;
+  color: #ffb4b4;
+}
+
+body.agriconnect-dark-mode .student-profile-success {
+  background: #173d2a;
+  border-color: #28543a;
+  color: #78dba0;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-loading {
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .student-profile-loading h2 {
+  color: #eef6f1;
+}
+/* =========================================================
+   AGRICONNECT — STUDENT PROFILE DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-layout {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+body.agriconnect-dark-mode .student-profile-page {
+  color: #e8f0eb;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-label {
+  color: #7dd3a7;
+}
+
+body.agriconnect-dark-mode .student-profile-header h1 {
+  color: #f4f8f5;
+}
+
+body.agriconnect-dark-mode .student-profile-header p:last-child {
+  color: #aab7b0;
+}
+
+/* =========================================================
+   PROFILE BUTTON
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-edit-button,
+body.agriconnect-dark-mode .student-profile-save-button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .student-profile-edit-button:hover,
+body.agriconnect-dark-mode .student-profile-save-button:hover {
+  background: #18883d;
+}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-inline-error {
+  background: #351d1d;
+  color: #ffb4b4;
+}
+
+body.agriconnect-dark-mode .student-profile-success {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+/* =========================================================
+   MAIN PROFILE CARD
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-card {
+  background: #17211b;
+  border-color: #2d3d34;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   PROFILE HERO
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-hero {
+  background: #1d3326;
+  border-bottom-color: #30473a;
+}
+
+body.agriconnect-dark-mode .student-profile-avatar {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .student-profile-hero h2 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .student-profile-hero p {
+  color: #aebbb4;
+}
+
+/* =========================================================
+   INFORMATION SECTION
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-information {
+  background: #17211b;
+}
+
+body.agriconnect-dark-mode .student-profile-info-item,
+body.agriconnect-dark-mode .student-profile-about {
+  border-bottom-color: #304038;
+}
+
+body.agriconnect-dark-mode .student-profile-info-item:nth-child(odd) {
+  border-right-color: #304038;
+}
+
+/* FIELD LABELS
+   College / Department / Year / Skills / Research Interests / About
+*/
+
+body.agriconnect-dark-mode .student-profile-info-item span,
+body.agriconnect-dark-mode .student-profile-about span {
+  color: #91a39a;
+}
+
+/* ACTUAL VALUES
+   This is the important fix for your screenshot.
+*/
+
+body.agriconnect-dark-mode .student-profile-info-item strong {
+  color: #f0f6f2;
+  font-weight: 600;
+}
+
+/* ABOUT TEXT */
+
+body.agriconnect-dark-mode .student-profile-about p {
+  color: #c5d1ca;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-form {
+  background: #17211b;
+}
+
+body.agriconnect-dark-mode .student-profile-field label {
+  color: #d7e2db;
+}
+
+body.agriconnect-dark-mode .student-profile-field input,
+body.agriconnect-dark-mode .student-profile-field textarea {
+  background: #101914;
+  border-color: #3a4a41;
+  color: #f0f6f2;
+}
+
+body.agriconnect-dark-mode .student-profile-field input::placeholder,
+body.agriconnect-dark-mode .student-profile-field textarea::placeholder {
+  color: #718078;
+}
+
+body.agriconnect-dark-mode .student-profile-field input:focus,
+body.agriconnect-dark-mode .student-profile-field textarea:focus {
+  border-color: #2fbd68;
+  box-shadow: 0 0 0 3px rgba(47, 189, 104, 0.14);
+}
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-form-actions {
+  border-top-color: #304038;
+}
+
+body.agriconnect-dark-mode .student-profile-cancel-button {
+  background: #26302b;
+  border-color: #3c4a43;
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .student-profile-cancel-button:hover {
+  background: #303b35;
+}
+
+body.agriconnect-dark-mode .student-profile-save-button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+/* =========================================================
+   BACK TO DASHBOARD
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-bottom-actions button {
+  color: #72d69b;
+}
+
+/* =========================================================
+   LOADING / ERROR
+========================================================= */
+
+body.agriconnect-dark-mode .student-profile-loading h2,
+body.agriconnect-dark-mode .student-profile-error-page h2 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .student-profile-loading p,
+body.agriconnect-dark-mode .student-profile-error-page p {
+  color: #aab7b0;
+}
+
+body.agriconnect-dark-mode .student-profile-error-page button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .student-profile-error-page button:hover {
+  background: #18883d;
+}

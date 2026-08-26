@@ -64,6 +64,8 @@ import EditProject from "../pages/EditProject";
 // ========================================
 
 import KnowledgeBase from "../pages/KnowledgeBase";
+import Pesticides from "../pages/Pesticides";
+import PesticideScanner from "../pages/PesticideScanner";
 
 // ========================================
 // AUTHENTICATION
@@ -80,7 +82,8 @@ import Chat from "../pages/Chat";
 import ProjectChat from "../pages/ProjectChat";
 import Messages from "../pages/Messages";
 
-import Pesticides from "../pages/Pesticides";
+import Settings from "../pages/Settings";
+
 
 function AppRoutes() {
   return (
@@ -108,6 +111,10 @@ function AppRoutes() {
 
       {/* ========================================
           AUTHENTICATED APPLICATION
+
+          All normal application pages use
+          AppLayout and therefore have access
+          to the sidebar.
       ======================================== */}
 
       <Route element={<AppLayout />}>
@@ -198,12 +205,27 @@ function AppRoutes() {
 
 
         {/* ======================================
-            FARMING TECHNIQUES
+            KNOWLEDGE
         ====================================== */}
+
+        <Route
+          path="/knowledge"
+          element={<KnowledgeBase />}
+        />
 
         <Route
           path="/farming-techniques"
           element={<KnowledgeBase />}
+        />
+
+        <Route
+          path="/pesticides"
+          element={<Pesticides />}
+        />
+
+        <Route
+          path="/pesticide-scanner"
+          element={<PesticideScanner />}
         />
 
       </Route>
@@ -211,11 +233,16 @@ function AppRoutes() {
 
       {/* ========================================
           FOCUSED / FULL-SCREEN PAGES
+
+          These also use AppLayout so the
+          sidebar remains available.
       ======================================== */}
 
       <Route element={<AppLayout />}>
 
-        {/* Farmer Crop Pages */}
+        {/* ======================================
+            FARMER CROP PAGES
+        ====================================== */}
 
         <Route
           path="/farmer/crops/add"
@@ -228,7 +255,9 @@ function AppRoutes() {
         />
 
 
-        {/* Crop Details */}
+        {/* ======================================
+            CROP DETAILS
+        ====================================== */}
 
         <Route
           path="/crops/:id"
@@ -236,7 +265,9 @@ function AppRoutes() {
         />
 
 
-        {/* Project Pages */}
+        {/* ======================================
+            PROJECT PAGES
+        ====================================== */}
 
         <Route
           path="/projects/create"
@@ -254,7 +285,9 @@ function AppRoutes() {
         />
 
 
-        {/* Chat */}
+        {/* ======================================
+            CHAT
+        ====================================== */}
 
         <Route
           path="/chat/:orderId"
@@ -272,8 +305,8 @@ function AppRoutes() {
         />
 
         <Route
-          path="/pesticides"
-          element={<Pesticides />}
+          path="/settings"
+          element={<Settings />}
         />
 
       </Route>

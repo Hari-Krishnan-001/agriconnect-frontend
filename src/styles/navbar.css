@@ -1,46 +1,463 @@
+/* =========================================================
+   AGRICONNECT — NAVBAR
+   LANDING PAGE REFERENCE
+========================================================= */
+
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: 72px;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
-  padding: 20px 50px;
+  padding: 0 52px;
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-bottom: 1px solid #e7ece9;
+
+  font-family: inherit;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #17251a;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+.navbar-logo-mark {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #2ca954;
+}
+
+.navbar-logo-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-logo-text {
+  font-size: 20px;
+  font-weight: 800;
+
+  letter-spacing: -0.6px;
+}
+
+.navbar-logo-text span {
+  color: #198c42;
+}
+
+/* =========================================================
+   CENTER NAVIGATION
+========================================================= */
+
+.navbar-center {
+  position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  height: 100%;
+}
+
+.navbar-link {
+  position: relative;
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #303a34;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.navbar-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 2px;
+
+  background: #1d9345;
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition: transform 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: #16813c;
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+  transform: scaleX(1);
+}
+
+.navbar-link.active {
+  color: #17251a;
+}
+
+/* =========================================================
+   RIGHT ACTIONS
+========================================================= */
+
+.navbar-actions {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
+
+.navbar-theme-button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #e1e8e3;
+  border-radius: 50%;
+
+  background: #f7faf8;
+
+  color: #405047;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.navbar-theme-button:hover {
+  background: #edf5ef;
+
+  border-color: #c9d9cf;
+
+  transform: rotate(10deg);
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.navbar-login-button {
+  min-width: 70px;
+
+  padding: 9px 17px;
+
+  border: 1px solid #b6d3bf;
+
+  border-radius: 9px;
 
   background: white;
 
-  border-bottom: 1px solid #e5e7eb;
-}
+  color: #25422f;
 
-.logo {
-  font-size: 24px;
+  font-family: inherit;
+
+  font-size: 13px;
   font-weight: 700;
 
-  color: #15803d;
-}
-
-.nav-links {
-  display: flex;
-
-  list-style: none;
-
-  gap: 35px;
-}
-
-.nav-links li {
   cursor: pointer;
 
-  font-weight: 500;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.register-btn {
-  padding: 12px 24px;
+.navbar-login-button:hover {
+  background: #f2f8f4;
+
+  border-color: #8fbd9e;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   GET STARTED
+========================================================= */
+
+.navbar-get-started {
+  padding: 10px 19px;
 
   border: none;
 
-  border-radius: 10px;
+  border-radius: 9px;
 
-  background: #15803d;
+  background: #168844;
 
   color: white;
 
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 700;
+
   cursor: pointer;
+
+  box-shadow:
+    0 5px 13px rgba(22, 136, 68, 0.17);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.navbar-get-started:hover {
+  background: #116d36;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 18px rgba(22, 136, 68, 0.22);
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .navbar {
+  background: rgba(8, 17, 12, 0.96);
+
+  border-bottom-color: #1d2b22;
+}
+
+body.agriconnect-dark-mode .navbar-logo {
+  color: #eef7f1;
+}
+
+body.agriconnect-dark-mode .navbar-logo-mark {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .navbar-logo-text span {
+  color: #6ee890;
+}
+
+body.agriconnect-dark-mode .navbar-link {
+  color: #aab8b0;
+}
+
+body.agriconnect-dark-mode .navbar-link:hover,
+body.agriconnect-dark-mode .navbar-link.active {
+  color: #f0f7f2;
+}
+
+body.agriconnect-dark-mode .navbar-link::after {
+  background: #4ade80;
+}
+
+body.agriconnect-dark-mode .navbar-theme-button {
+  border-color: #304136;
+
+  background: #142019;
+
+  color: #9ce8b3;
+}
+
+body.agriconnect-dark-mode .navbar-theme-button:hover {
+  background: #1b2d22;
+}
+
+body.agriconnect-dark-mode .navbar-login-button {
+  border-color: #41664e;
+
+  background: transparent;
+
+  color: #d8e8dd;
+}
+
+body.agriconnect-dark-mode .navbar-login-button:hover {
+  background: #17251b;
+}
+
+body.agriconnect-dark-mode .navbar-get-started {
+  background: #42d86d;
+
+  color: #092011;
+}
+
+body.agriconnect-dark-mode .navbar-get-started:hover {
+  background: #58e87f;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .navbar {
+    padding: 0 30px;
+  }
+
+  .navbar-center {
+    gap: 20px;
+  }
+
+  .navbar-link {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 22px;
+  }
+
+  .navbar-center {
+    display: none;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 66px;
+
+    padding: 0 18px;
+  }
+
+  .navbar-logo-mark {
+    width: 29px;
+    height: 29px;
+  }
+
+  .navbar-logo-text {
+    font-size: 18px;
+  }
+
+  .navbar-actions {
+    gap: 7px;
+  }
+
+  .navbar-theme-button {
+    width: 32px;
+    height: 32px;
+
+    font-size: 15px;
+  }
+
+  .navbar-login-button {
+    min-width: auto;
+
+    padding: 8px 13px;
+
+    font-size: 12px;
+  }
+
+  .navbar-get-started {
+    padding: 9px 13px;
+
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .navbar {
+    padding: 0 12px;
+  }
+
+  .navbar-logo-text {
+    font-size: 16px;
+  }
+
+  .navbar-logo-mark {
+    width: 26px;
+    height: 26px;
+  }
+
+  .navbar-actions {
+    gap: 5px;
+  }
+
+  .navbar-login-button {
+    display: none;
+  }
+
+  .navbar-get-started {
+    padding: 8px 12px;
+  }
 }

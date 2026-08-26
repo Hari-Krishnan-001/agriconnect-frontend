@@ -624,3 +624,187 @@
     font-size: 12px;
   }
 }
+/* ========================================
+   AGRICONNECT — BUSINESS ORDERS DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .orders-page {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+body.agriconnect-dark-mode .orders-label {
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .orders-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .orders-header p {
+  color: #aab8b0;
+}
+
+/* ========================================
+   BROWSE MARKETPLACE
+======================================== */
+
+body.agriconnect-dark-mode .browse-marketplace-button {
+  background: #1f8f45;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .browse-marketplace-button:hover {
+  background: #18763a;
+}
+
+/* ========================================
+   ERROR
+======================================== */
+
+body.agriconnect-dark-mode .orders-error {
+  background: #321b1b;
+  border-color: #633333;
+  color: #ffb4b4;
+}
+
+body.agriconnect-dark-mode .orders-error button {
+  color: #ffb4b4;
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+body.agriconnect-dark-mode .empty-orders {
+  background: #17211b;
+  border-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .empty-orders h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .empty-orders p {
+  color: #9eaaa3;
+}
+
+/* ========================================
+   ORDER CARD
+======================================== */
+
+body.agriconnect-dark-mode .order-card {
+  background: #17211b;
+  border-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .order-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.28);
+}
+
+/* ========================================
+   CROP ICON
+======================================== */
+
+body.agriconnect-dark-mode .order-crop-icon {
+  background: #203d2d;
+}
+
+/* ========================================
+   ORDER TITLE
+======================================== */
+
+body.agriconnect-dark-mode .order-title-row h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .order-title-row p {
+  color: #89968f;
+}
+
+/* ========================================
+   ORDER STATUS
+======================================== */
+
+body.agriconnect-dark-mode .order-status.pending {
+  background: #40351b;
+  color: #f2ca63;
+}
+
+body.agriconnect-dark-mode .order-status.approved {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .order-status.rejected {
+  background: #451f1f;
+  color: #ff9b9b;
+}
+
+/* ========================================
+   ORDER INFORMATION
+======================================== */
+
+body.agriconnect-dark-mode .order-info span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .order-info strong {
+  color: #dce8e0;
+}
+
+/* ========================================
+   STATUS MESSAGE
+======================================== */
+
+body.agriconnect-dark-mode .order-status-message {
+  background: #40351b;
+  color: #f2ca63;
+}
+
+body.agriconnect-dark-mode .approved-message {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .rejected-message {
+  background: #321b1b;
+  color: #ffb4b4;
+}
+
+/* ========================================
+   CHAT WITH FARMER
+======================================== */
+
+body.agriconnect-dark-mode .order-chat-button {
+  background: #173d2a;
+  border-color: #2fbd68;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .order-chat-button:hover {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+/* ========================================
+   LOADING
+======================================== */
+
+body.agriconnect-dark-mode .orders-loading {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .orders-loading h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .orders-loading p {
+  color: #9eaaa3;
+}

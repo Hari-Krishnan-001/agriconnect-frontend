@@ -946,3 +946,215 @@
     max-width: 180px;
   }
 }
+/* =========================================================
+   AGRICONNECT — ORDER CHAT DARK MODE
+========================================================= */
+
+/* PAGE */
+body.agriconnect-dark-mode .chat-page {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+/* BACK BUTTON */
+body.agriconnect-dark-mode .chat-back-button {
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .chat-back-button:hover {
+  color: #8be5ad;
+}
+
+/* =========================================================
+   CHAT HEADER
+========================================================= */
+
+body.agriconnect-dark-mode .chat-header-icon {
+  background: #203d2d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
+}
+
+body.agriconnect-dark-mode .chat-header-label {
+  color: #9eaaa3;
+}
+
+body.agriconnect-dark-mode .chat-header h1 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .chat-header-subtitle {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   CHAT CARD
+========================================================= */
+
+body.agriconnect-dark-mode .chat-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================================================
+   ORDER INFORMATION
+========================================================= */
+
+body.agriconnect-dark-mode .chat-order-info {
+  background: #1d2a22;
+  border-bottom-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .chat-order-item span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .chat-order-item strong {
+  color: #dce8e0;
+}
+
+/* =========================================================
+   INLINE ERROR
+========================================================= */
+
+body.agriconnect-dark-mode .chat-inline-error {
+  background: #321b1b;
+  border-color: #633333;
+  color: #ffb4b4;
+}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+body.agriconnect-dark-mode .chat-messages {
+  background: #17211b;
+}
+
+body.agriconnect-dark-mode .chat-messages::-webkit-scrollbar-thumb {
+  background: #3a4840;
+}
+
+body.agriconnect-dark-mode .chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #4b5c51;
+}
+
+/* MESSAGE AVATAR */
+
+body.agriconnect-dark-mode .chat-message-avatar {
+  background: #203d2d;
+  color: #72d69b;
+}
+
+/* MESSAGE HEADER */
+
+body.agriconnect-dark-mode .chat-message-top strong {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .chat-message-top span {
+  color: #89968f;
+}
+
+/* MESSAGE BUBBLE */
+
+body.agriconnect-dark-mode .chat-message-bubble {
+  background: #26332c;
+  color: #dce8e0;
+}
+
+/* =========================================================
+   EMPTY CHAT
+========================================================= */
+
+body.agriconnect-dark-mode .chat-empty-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .chat-empty h3 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .chat-empty p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   MESSAGE INPUT
+========================================================= */
+
+body.agriconnect-dark-mode .chat-input-area {
+  background: #17211b;
+  border-top-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .chat-input-area input {
+  background: #101a14;
+  border-color: #37463d;
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .chat-input-area input::placeholder {
+  color: #6f7c74;
+}
+
+body.agriconnect-dark-mode .chat-input-area input:focus {
+  border-color: #2fbd68;
+  box-shadow: 0 0 0 3px rgba(47, 189, 104, 0.12);
+}
+
+body.agriconnect-dark-mode .chat-input-area input:disabled {
+  background: #1b2520;
+  color: #7f8b84;
+}
+
+/* SEND BUTTON */
+
+body.agriconnect-dark-mode .chat-input-area button {
+  color: #ffffff;
+}
+
+/* INPUT FOOTER */
+
+body.agriconnect-dark-mode .chat-input-footer {
+  background: #17211b;
+  color: #89968f;
+}
+
+/* =========================================================
+   ERROR CARD
+========================================================= */
+
+body.agriconnect-dark-mode .chat-error-card {
+  background: #17211b;
+  border-color: #2a3830;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .chat-error-icon {
+  background: #321b1b;
+}
+
+body.agriconnect-dark-mode .chat-error-card h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .chat-error-card p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+body.agriconnect-dark-mode .chat-loading-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .chat-loading h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .chat-loading p {
+  color: #9eaaa3;
+}

@@ -792,3 +792,247 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+/* =========================================================
+   AGRICONNECT — PROJECT DETAILS DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-layout {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+body.agriconnect-dark-mode .project-details-back-button {
+  background: #17211b;
+  border-color: #33443a;
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .project-details-back-button:hover {
+  background: #20352a;
+}
+
+/* =========================================================
+   PROJECT HEADER
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-header {
+  background: #17211b;
+  border-color: #2d3d34;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .project-details-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .project-details-label {
+  color: #5fd18b;
+}
+
+body.agriconnect-dark-mode .project-details-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .project-details-id {
+  color: #94a39a;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-status.open {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .project-details-status.closed {
+  background: #29312d;
+  color: #a9b2ad;
+}
+
+body.agriconnect-dark-mode .project-details-status.funded {
+  background: #1e3154;
+  color: #8db5ff;
+}
+
+/* =========================================================
+   INFORMATION CARDS
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-card {
+  background: #17211b;
+  border-color: #2d3d34;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+}
+
+body.agriconnect-dark-mode .project-details-card h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .project-details-card p {
+  color: #aab7b0;
+}
+
+/* =========================================================
+   METADATA
+========================================================= */
+
+body.agriconnect-dark-mode .project-meta-card {
+  background: #17211b;
+  border-color: #2d3d34;
+}
+
+body.agriconnect-dark-mode .project-meta-card span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .project-meta-card strong {
+  color: #e3eee7;
+}
+
+body.agriconnect-dark-mode .project-meta-card small {
+  color: #89968f;
+}
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-secondary-button {
+  background: #17211b;
+  border-color: #3a4a41;
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .project-details-secondary-button:hover {
+  background: #20352a;
+}
+
+body.agriconnect-dark-mode .project-details-edit-button {
+  background: #17211b;
+  border-color: #2fbd68;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .project-details-edit-button:hover {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .project-details-primary-button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .project-details-primary-button:hover {
+  background: #18883d;
+}
+
+body.agriconnect-dark-mode .project-details-delete-button {
+  background: #3b2020;
+  color: #ff9b9b;
+}
+
+body.agriconnect-dark-mode .project-details-delete-button:hover {
+  background: #512525;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-inline-error {
+  background: #351d1d;
+  color: #ffb4b4;
+}
+
+/* =========================================================
+   LOADING / ERROR PAGE
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-loading h2,
+body.agriconnect-dark-mode .project-details-error-page h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .project-details-loading p,
+body.agriconnect-dark-mode .project-details-error-page p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   ERROR PAGE BUTTON
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-error-page button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .project-details-error-page button:hover {
+  background: #18883d;
+}
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+body.agriconnect-dark-mode .project-stat-card {
+  background: #17211b;
+  border-color: #2d3d34;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+}
+
+body.agriconnect-dark-mode .project-stat-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+body.agriconnect-dark-mode .project-stat-icon {
+  background: #203d2d;
+}
+
+body.agriconnect-dark-mode .project-stat-card span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .project-stat-card strong {
+  color: #eef6f1;
+}
+
+/* =========================================================
+   LIKE BUTTON
+========================================================= */
+
+body.agriconnect-dark-mode .project-like-button {
+  background: #17211b;
+  border-color: #2fbd68;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .project-like-button:hover {
+  background: #203d2d;
+  box-shadow: 0 6px 16px rgba(31, 157, 72, 0.18);
+}
+
+body.agriconnect-dark-mode .project-like-button.liked {
+  background: #1f9d48;
+  border-color: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .project-like-button.liked:hover {
+  background: #18883d;
+}
+
+/* =========================================================
+   PROJECT CHAT
+========================================================= */
+
+body.agriconnect-dark-mode .project-details-chat-button {
+  background: #203d2d;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .project-details-chat-button:hover:not(:disabled) {
+  background: #285039;
+}

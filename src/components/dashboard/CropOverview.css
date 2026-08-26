@@ -30,3 +30,29 @@
 .crop-overview li:hover {
   color: #1b8d3f;
 }
+/* ========================================
+   AGRICONNECT — CROP OVERVIEW DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .crop-overview {
+  background: #17211b;
+  color: #e8f0eb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .crop-overview h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .crop-overview li {
+  color: #dce8e0;
+  border-bottom-color: #2a3830;
+}
+
+body.agriconnect-dark-mode .crop-overview li:last-child {
+  border-bottom-color: transparent;
+}
+
+body.agriconnect-dark-mode .crop-overview li:hover {
+  color: #72d69b;
+}

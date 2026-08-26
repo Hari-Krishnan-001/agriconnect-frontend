@@ -43,3 +43,30 @@
 .help-banner button:hover {
   transform: translateY(-2px);
 }
+/* ========================================
+   AGRICONNECT — HELP BANNER DARK MODE
+======================================== */
+
+body.agriconnect-dark-mode .help-banner {
+  background: linear-gradient(90deg, #176b32, #21863f);
+  color: #ffffff;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+}
+
+body.agriconnect-dark-mode .help-banner h2 {
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .help-banner p {
+  color: #e8f5ec;
+}
+
+body.agriconnect-dark-mode .help-banner button {
+  background: #17211b;
+  color: #72d69b;
+}
+
+body.agriconnect-dark-mode .help-banner button:hover {
+  background: #203d2d;
+  transform: translateY(-2px);
+}

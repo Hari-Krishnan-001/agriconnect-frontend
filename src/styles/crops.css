@@ -238,3 +238,149 @@
 .delete-crop-button:hover {
   background: #fecaca;
 }
+/* =========================================================
+   AGRICONNECT — CROPS DARK MODE
+========================================================= */
+
+body.agriconnect-dark-mode .crops-page {
+  background: #0f1720;
+  color: #e8f0eb;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+body.agriconnect-dark-mode .crops-header h1 {
+  color: #f1f7f3;
+}
+
+body.agriconnect-dark-mode .crops-header p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   ADD CROP BUTTON
+========================================================= */
+
+body.agriconnect-dark-mode .add-crop-button {
+  background: #1f9d48;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .add-crop-button:hover {
+  background: #18883d;
+}
+
+/* =========================================================
+   CROP CARD
+========================================================= */
+
+body.agriconnect-dark-mode .crop-card {
+  background: #17211b;
+  border-color: #2d3d34;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .crop-card-icon {
+  background: #203d2d;
+}
+
+/* =========================================================
+   CROP TITLE
+========================================================= */
+
+body.agriconnect-dark-mode .crop-card-top h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .crop-category {
+  color: #89968f;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+body.agriconnect-dark-mode .crop-status.available {
+  background: #173d2a;
+  color: #78dba0;
+}
+
+body.agriconnect-dark-mode .crop-status.unavailable {
+  background: #3b2020;
+  color: #ff9b9b;
+}
+
+/* =========================================================
+   CROP INFORMATION
+========================================================= */
+
+body.agriconnect-dark-mode .crop-info span {
+  color: #89968f;
+}
+
+body.agriconnect-dark-mode .crop-info strong {
+  color: #dce8e0;
+}
+
+body.agriconnect-dark-mode .crop-description {
+  color: #aab7b0;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+body.agriconnect-dark-mode .empty-crops {
+  background: #17211b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+}
+
+body.agriconnect-dark-mode .empty-crops h2 {
+  color: #eef6f1;
+}
+
+body.agriconnect-dark-mode .empty-crops p {
+  color: #9eaaa3;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+body.agriconnect-dark-mode .crops-error {
+  background: #351d1d;
+  color: #ffb4b4;
+}
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+body.agriconnect-dark-mode .edit-crop-button {
+  background: #172d4d;
+  color: #8db5ff;
+}
+
+body.agriconnect-dark-mode .edit-crop-button:hover {
+  background: #203b63;
+}
+
+body.agriconnect-dark-mode .availability-button {
+  background: #40351b;
+  color: #f2ca63;
+}
+
+body.agriconnect-dark-mode .availability-button:hover {
+  background: #51431f;
+}
+
+body.agriconnect-dark-mode .delete-crop-button {
+  background: #3b2020;
+  color: #ff9b9b;
+}
+
+body.agriconnect-dark-mode .delete-crop-button:hover {
+  background: #512525;
+}

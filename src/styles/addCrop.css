@@ -172,3 +172,82 @@
     width: 100%;
   }
 }
+/* ================================
+   DARK MODE
+   ================================ */
+
+body.agriconnect-dark-mode .add-crop-page {
+  background: #111827;
+}
+
+body.agriconnect-dark-mode .back-button {
+  color: #4ade80;
+}
+
+body.agriconnect-dark-mode .add-crop-card {
+  background: #1f2937;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+body.agriconnect-dark-mode .add-crop-icon {
+  background: #064e3b;
+}
+
+body.agriconnect-dark-mode .add-crop-header h1 {
+  color: #f9fafb;
+}
+
+body.agriconnect-dark-mode .add-crop-header p {
+  color: #9ca3af;
+}
+
+body.agriconnect-dark-mode .form-group label {
+  color: #e5e7eb;
+}
+
+body.agriconnect-dark-mode .form-group input,
+body.agriconnect-dark-mode .form-group select,
+body.agriconnect-dark-mode .form-group textarea {
+  background: #111827;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+body.agriconnect-dark-mode .form-group input::placeholder,
+body.agriconnect-dark-mode .form-group textarea::placeholder {
+  color: #6b7280;
+}
+
+body.agriconnect-dark-mode .form-group input:focus,
+body.agriconnect-dark-mode .form-group select:focus,
+body.agriconnect-dark-mode .form-group textarea:focus {
+  border-color: #22c55e;
+}
+
+body.agriconnect-dark-mode .availability-option {
+  color: #e5e7eb;
+}
+
+body.agriconnect-dark-mode .cancel-button {
+  background: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+body.agriconnect-dark-mode .cancel-button:hover {
+  background: #374151;
+}
+
+body.agriconnect-dark-mode .save-crop-button {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+body.agriconnect-dark-mode .save-crop-button:hover {
+  background: #15803d;
+}
+
+body.agriconnect-dark-mode .add-crop-error {
+  background: #450a0a;
+  color: #fca5a5;
+}
