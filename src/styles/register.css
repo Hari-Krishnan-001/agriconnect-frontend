@@ -1,137 +1,769 @@
+/* =========================================================
+   AGRILINK — REGISTER PAGE
+   Glassmorphism Agricultural Theme
+========================================================= */
+
 .register-page {
+  position: relative;
+
+  width: 100%;
   min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+
   box-sizing: border-box;
-  background: #f5f7f5;
+
+  padding: 55px 40px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  /*
+    IMPORTANT:
+    Put agriculture-background.jpg inside:
+    public/agriculture-background.jpg
+  */
+
+  background-image: url("/agriculture-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  isolation: isolate;
 }
+
+
+/* =========================================================
+   BACKGROUND OVERLAY
+========================================================= */
+
+.register-background-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.22),
+      rgba(244, 250, 246, 0.12)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HOME BUTTON
+========================================================= */
+
+.register-home-button {
+  position: fixed;
+
+  top: 25px;
+  left: 27px;
+
+  z-index: 50;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.70);
+
+  color: #137b45;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(27, 75, 48, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.register-home-button:hover {
+  transform: translateY(-2px) scale(1.04);
+
+  background: rgba(255, 255, 255, 0.88);
+
+  box-shadow:
+    0 14px 35px rgba(27, 75, 48, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.register-home-button:active {
+  transform: scale(0.97);
+}
+
+.register-icon-svg {
+  width: 27px;
+  height: 27px;
+}
+
+
+/* =========================================================
+   LEFT BRANDING
+========================================================= */
+
+.register-branding {
+  position: absolute;
+
+  left: 7vw;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  color: #116c3d;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BRAND LOGO
+========================================================= */
+
+.register-brand-logo {
+  position: relative;
+
+  width: 78px;
+  height: 90px;
+
+  flex-shrink: 0;
+}
+
+.brand-leaf {
+  position: absolute;
+
+  width: 43px;
+  height: 25px;
+
+  background: #117944;
+
+  border-radius: 100% 0 100% 0;
+}
+
+.brand-leaf-left {
+  top: 8px;
+  left: 4px;
+
+  transform: rotate(-35deg);
+}
+
+.brand-leaf-right {
+  top: 1px;
+  left: 32px;
+
+  transform: rotate(35deg);
+}
+
+.brand-stem {
+  position: absolute;
+
+  left: 37px;
+  top: 25px;
+
+  width: 6px;
+  height: 52px;
+
+  background: #117944;
+
+  border-radius: 6px;
+}
+
+.brand-ground {
+  position: absolute;
+
+  left: 7px;
+  bottom: 7px;
+
+  width: 60px;
+  height: 6px;
+
+  background: #117944;
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.register-branding h2 {
+  margin: 0;
+
+  color: #137943;
+
+  font-size: clamp(42px, 4.2vw, 66px);
+
+  font-weight: 800;
+
+  letter-spacing: -2.5px;
+
+  line-height: 0.95;
+}
+
+.register-branding p {
+  margin: 24px 0 0;
+
+  color: #315f49;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 5px;
+
+  line-height: 2;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RIGHT SLOGAN
+========================================================= */
+
+.register-slogan {
+  position: absolute;
+
+  right: 6vw;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 5;
+
+  text-align: center;
+
+  color: #39735a;
+
+  pointer-events: none;
+}
+
+.slogan-text {
+  font-family:
+    "Segoe Print",
+    "Comic Sans MS",
+    cursive;
+
+  font-size: clamp(30px, 3vw, 50px);
+
+  line-height: 1.03;
+
+  font-weight: 500;
+
+  transform: rotate(-2deg);
+}
+
+.slogan-line {
+  width: 190px;
+  height: 3px;
+
+  margin: 12px auto 0;
+
+  background: rgba(52, 116, 85, 0.75);
+
+  border-radius: 50%;
+
+  transform: rotate(-7deg);
+}
+
+.slogan-leaf {
+  position: absolute;
+
+  right: -4px;
+  bottom: -28px;
+
+  font-size: 30px;
+
+  transform: rotate(-15deg);
+}
+
+
+/* =========================================================
+   REGISTER CARD
+========================================================= */
 
 .register-card {
-  width: 100%;
-  max-width: 480px;
-  padding: 35px;
+  position: relative;
+
+  z-index: 20;
+
+  width: min(530px, 92vw);
+
+  margin: 0 auto;
+
+  padding: 34px 48px 27px;
+
   box-sizing: border-box;
-  background: white;
-  border: 1px solid #e3e8e4;
-  border-radius: 18px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+
+  /*
+    Glassmorphism
+  */
+
+  background: rgba(255, 255, 255, 0.47);
+
+  border: 1px solid rgba(255, 255, 255, 0.78);
+
+  border-radius: 25px;
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  box-shadow:
+    0 30px 80px rgba(28, 72, 48, 0.23),
+    0 10px 30px rgba(28, 72, 48, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.90);
+
+  animation: registerCardAppear 0.5s ease-out;
 }
 
+@keyframes registerCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   REGISTER LOGO
+========================================================= */
+
 .register-logo {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 18px;
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 15px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  background: #eaf8ef;
-  font-size: 30px;
+
+  border-radius: 17px;
+
+  background: rgba(239, 250, 243, 0.82);
+
+  box-shadow:
+    0 8px 22px rgba(32, 120, 70, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+  font-size: 31px;
 }
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .register-card h1 {
   margin: 0;
+
   text-align: center;
-  color: #111827;
-  font-size: 30px;
+
+  color: #10261a;
+
+  font-size: 31px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
 }
 
 .register-subtitle {
-  margin: 8px 0 28px;
+  margin: 7px 0 25px;
+
   text-align: center;
-  color: #66736a;
+
+  color: #64776c;
+
   font-size: 14px;
+
+  line-height: 1.4;
 }
 
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
 .register-form-group {
-  margin-bottom: 17px;
+  margin-bottom: 14px;
 }
 
 .register-form-group label {
   display: block;
-  margin-bottom: 7px;
-  color: #17251a;
+
+  margin-bottom: 6px;
+
+  color: #16281d;
+
   font-size: 13px;
+
   font-weight: 700;
 }
 
-.register-form-group input,
-.register-form-group select {
+
+/* =========================================================
+   INPUT WRAPPER
+========================================================= */
+
+.register-input-wrapper {
+  position: relative;
+
   width: 100%;
-  padding: 12px 14px;
-  box-sizing: border-box;
-  border: 1px solid #dce3de;
-  border-radius: 9px;
-  background: white;
-  color: #17251a;
-  font-family: inherit;
-  font-size: 14px;
-  outline: none;
+
+  display: flex;
+  align-items: center;
 }
 
-.register-form-group input:focus,
-.register-form-group select:focus {
-  border-color: #1f9d48;
-  box-shadow: 0 0 0 3px rgba(31, 157, 72, 0.1);
+.register-field-icon {
+  position: absolute;
+
+  left: 16px;
+
+  width: 21px;
+  height: 21px;
+
+  z-index: 2;
+
+  color: #70857a;
+
+  pointer-events: none;
 }
+
+.register-input-wrapper input {
+  width: 100%;
+
+  min-height: 47px;
+
+  padding: 12px 45px 12px 45px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.80);
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.47);
+
+  color: #17231b;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  outline: none;
+
+  box-shadow:
+    inset 0 1px 2px rgba(45, 70, 54, 0.04),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.register-input-wrapper input::placeholder {
+  color: #718078;
+}
+
+.register-input-wrapper input:focus {
+  border-color: rgba(31, 143, 76, 0.75);
+
+  background: rgba(255, 255, 255, 0.66);
+
+  box-shadow:
+    0 0 0 3px rgba(31, 157, 72, 0.12),
+    inset 0 1px 2px rgba(45, 70, 54, 0.04);
+}
+
+
+/* =========================================================
+   PASSWORD EYE
+========================================================= */
+
+.register-eye-button {
+  position: absolute;
+
+  right: 10px;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #687c71;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.register-eye-button:hover {
+  color: #137943;
+
+  background: rgba(19, 121, 67, 0.08);
+}
+
+.register-eye-button:focus-visible {
+  outline: 2px solid rgba(31, 157, 72, 0.5);
+  outline-offset: 1px;
+}
+
+.register-eye-icon {
+  width: 21px;
+  height: 21px;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.register-select-wrapper {
+  position: relative;
+}
+
+.register-form-group select {
+  width: 100%;
+
+  min-height: 47px;
+
+  padding: 12px 40px 12px 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.80);
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.47);
+
+  color: #17231b;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  outline: none;
+
+  cursor: pointer;
+
+  appearance: auto;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.register-form-group select:focus {
+  border-color: rgba(31, 143, 76, 0.75);
+
+  background: rgba(255, 255, 255, 0.66);
+
+  box-shadow:
+    0 0 0 3px rgba(31, 157, 72, 0.12);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.register-error {
+  margin-bottom: 14px;
+
+  padding: 10px 13px;
+
+  border: 1px solid rgba(220, 70, 70, 0.18);
+
+  border-radius: 9px;
+
+  background: rgba(255, 239, 239, 0.72);
+
+  color: #a82020;
+
+  font-size: 13px;
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.register-success {
+  margin-bottom: 14px;
+
+  padding: 10px 13px;
+
+  border: 1px solid rgba(36, 145, 77, 0.18);
+
+  border-radius: 9px;
+
+  background: rgba(231, 249, 237, 0.72);
+
+  color: #13753d;
+
+  font-size: 13px;
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   CREATE ACCOUNT BUTTON
+========================================================= */
 
 .register-button {
   width: 100%;
+
   margin-top: 5px;
-  padding: 13px;
+
+  min-height: 49px;
+
+  padding: 13px 18px;
+
   border: none;
-  border-radius: 9px;
-  background: #1f9d48;
-  color: white;
-  font-size: 14px;
-  font-weight: 700;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #239650,
+      #168243
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.1px;
+
   cursor: pointer;
+
+  box-shadow:
+    0 9px 22px rgba(24, 139, 70, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
 .register-button:hover {
-  background: #18883d;
+  transform: translateY(-1px);
+
+  filter: brightness(1.03);
+
+  box-shadow:
+    0 12px 27px rgba(24, 139, 70, 0.28);
+}
+
+.register-button:active {
+  transform: translateY(0);
 }
 
 .register-button:disabled {
-  opacity: 0.6;
+  opacity: 0.62;
+
   cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
 }
 
-.register-error {
-  margin-bottom: 18px;
-  padding: 12px 14px;
-  border-radius: 9px;
-  background: #fff0f0;
-  color: #b42318;
-  font-size: 13px;
-}
 
-.register-success {
-  margin-bottom: 18px;
-  padding: 12px 14px;
-  border-radius: 9px;
-  background: #eaf8ef;
-  color: #138a3b;
-  font-size: 13px;
-}
+/* =========================================================
+   LOGIN LINK
+========================================================= */
 
 .register-login {
-  margin: 22px 0 0;
+  margin: 17px 0 0;
+
   text-align: center;
-  color: #66736a;
-  font-size: 14px;
+
+  color: #64776c;
+
+  font-size: 13px;
 }
 
 .register-login button {
-  margin-left: 6px;
+  margin-left: 5px;
+
   padding: 0;
+
   border: none;
+
   background: transparent;
-  color: #1f9d48;
-  font-size: 14px;
-  font-weight: 700;
+
+  color: #137943;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
   cursor: pointer;
 }
 
@@ -139,123 +771,287 @@
   text-decoration: underline;
 }
 
-@media (max-width: 500px) {
-  .register-page {
-    padding: 18px;
-  }
 
-  .register-card {
-    padding: 25px 20px;
-  }
+/* =========================================================
+   FOOTER
+========================================================= */
 
-  .register-card h1 {
-    font-size: 26px;
-  }
+.register-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 20px;
+  padding-top: 15px;
+
+  border-top: 1px solid rgba(89, 113, 99, 0.22);
+
+  color: #738279;
+
+  font-size: 11px;
+
+  white-space: nowrap;
 }
-/* ========================================
-   AGRICONNECT — REGISTER DARK MODE
-======================================== */
+
+.register-footer span:first-child {
+  color: #5e7869;
+}
+
+.footer-divider {
+  color: rgba(91, 110, 99, 0.45);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
 
 body.agriconnect-dark-mode .register-page {
-  background: #0f1720;
+  background-image:
+    linear-gradient(
+      rgba(5, 20, 12, 0.40),
+      rgba(5, 20, 12, 0.40)
+    ),
+    url("/agriculture-background.jpg");
+}
+
+body.agriconnect-dark-mode .register-background-overlay {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(6, 31, 18, 0.35),
+      rgba(5, 18, 11, 0.25)
+    );
 }
 
 body.agriconnect-dark-mode .register-card {
-  background: #17211b;
-  border-color: #2a3830;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
+  background: rgba(20, 32, 25, 0.55);
+
+  border-color: rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.42),
+    0 10px 30px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
 }
-
-/* ========================================
-   LOGO
-======================================== */
-
-body.agriconnect-dark-mode .register-logo {
-  background: #203d2d;
-}
-
-/* ========================================
-   HEADER
-======================================== */
 
 body.agriconnect-dark-mode .register-card h1 {
-  color: #f1f7f3;
+  color: #f1f8f3;
 }
 
 body.agriconnect-dark-mode .register-subtitle {
-  color: #9eaaa3;
+  color: #a8b8ae;
 }
-
-/* ========================================
-   FORM
-======================================== */
 
 body.agriconnect-dark-mode .register-form-group label {
-  color: #dce8e0;
+  color: #e0ebe4;
 }
 
-body.agriconnect-dark-mode .register-form-group input,
+body.agriconnect-dark-mode .register-input-wrapper input,
 body.agriconnect-dark-mode .register-form-group select {
-  background: #101a14;
-  border-color: #37463d;
-  color: #eef6f1;
+  background: rgba(12, 24, 17, 0.58);
+
+  border-color: rgba(255, 255, 255, 0.14);
+
+  color: #edf7f0;
 }
 
-body.agriconnect-dark-mode .register-form-group input::placeholder {
-  color: #6f7c74;
+body.agriconnect-dark-mode .register-input-wrapper input::placeholder {
+  color: #7d8d83;
 }
 
-body.agriconnect-dark-mode .register-form-group input:focus,
+body.agriconnect-dark-mode .register-input-wrapper input:focus,
 body.agriconnect-dark-mode .register-form-group select:focus {
-  border-color: #2fbd68;
-  box-shadow: 0 0 0 3px rgba(47, 189, 104, 0.12);
+  background: rgba(15, 30, 21, 0.72);
+
+  border-color: rgba(62, 190, 107, 0.70);
 }
 
-/* ========================================
-   REGISTER BUTTON
-======================================== */
-
-body.agriconnect-dark-mode .register-button {
-  background: #1f9d48;
-  color: #ffffff;
+body.agriconnect-dark-mode .register-field-icon,
+body.agriconnect-dark-mode .register-eye-button {
+  color: #9aac9f;
 }
 
-body.agriconnect-dark-mode .register-button:hover {
-  background: #18883d;
+body.agriconnect-dark-mode .register-eye-button:hover {
+  color: #72d69b;
+
+  background: rgba(75, 190, 112, 0.08);
 }
 
-/* ========================================
-   ERROR
-======================================== */
+body.agriconnect-dark-mode .register-home-button {
+  background: rgba(20, 35, 27, 0.70);
 
-body.agriconnect-dark-mode .register-error {
-  background: #321b1b;
-  border: 1px solid #633333;
-  color: #ffb4b4;
-}
+  border-color: rgba(255, 255, 255, 0.16);
 
-/* ========================================
-   SUCCESS
-======================================== */
-
-body.agriconnect-dark-mode .register-success {
-  background: #173d2a;
-  border: 1px solid #28543a;
-  color: #78dba0;
-}
-
-/* ========================================
-   LOGIN LINK
-======================================== */
-
-body.agriconnect-dark-mode .register-login {
-  color: #9eaaa3;
-}
-
-body.agriconnect-dark-mode .register-login button {
   color: #72d69b;
 }
 
-body.agriconnect-dark-mode .register-login button:hover {
-  color: #a7f3c0;
+body.agriconnect-dark-mode .register-branding,
+body.agriconnect-dark-mode .register-slogan {
+  color: #a9d5ba;
+}
+
+body.agriconnect-dark-mode .register-branding h2 {
+  color: #75d99c;
+}
+
+body.agriconnect-dark-mode .register-branding p {
+  color: #b3d4bf;
+}
+
+body.agriconnect-dark-mode .register-logo {
+  background: rgba(30, 66, 45, 0.75);
+}
+
+body.agriconnect-dark-mode .register-login {
+  color: #a6b6ac;
+}
+
+body.agriconnect-dark-mode .register-login button {
+  color: #75d99c;
+}
+
+body.agriconnect-dark-mode .register-footer {
+  border-top-color: rgba(255, 255, 255, 0.13);
+
+  color: #8fa198;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .register-branding {
+    left: 4vw;
+    transform: translateY(-50%) scale(0.82);
+    transform-origin: left center;
+  }
+
+  .register-slogan {
+    right: 3vw;
+    transform: translateY(-50%) scale(0.80);
+    transform-origin: right center;
+  }
+
+  .register-card {
+    width: min(510px, 56vw);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .register-page {
+    align-items: flex-start;
+
+    padding:
+      95px
+      20px
+      35px;
+  }
+
+  .register-branding,
+  .register-slogan {
+    display: none;
+  }
+
+  .register-home-button {
+    top: 20px;
+    left: 20px;
+
+    width: 52px;
+    height: 52px;
+  }
+
+  .register-card {
+    width: min(520px, 100%);
+
+    padding:
+      32px
+      28px
+      25px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .register-page {
+    padding:
+      85px
+      14px
+      25px;
+  }
+
+  .register-card {
+    padding:
+      27px
+      20px
+      22px;
+
+    border-radius: 21px;
+  }
+
+  .register-logo {
+    width: 56px;
+    height: 56px;
+
+    margin-bottom: 13px;
+
+    font-size: 28px;
+  }
+
+  .register-card h1 {
+    font-size: 27px;
+  }
+
+  .register-subtitle {
+    margin-bottom: 21px;
+  }
+
+  .register-form-group {
+    margin-bottom: 13px;
+  }
+
+  .register-input-wrapper input,
+  .register-form-group select {
+    min-height: 46px;
+  }
+
+  .register-footer {
+    gap: 6px;
+
+    font-size: 9.5px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .register-card {
+    animation: none;
+  }
+
+  .register-home-button,
+  .register-button {
+    transition: none;
+  }
 }

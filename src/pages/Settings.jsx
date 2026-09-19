@@ -189,7 +189,7 @@ function Settings() {
             </h1>
 
             <p>
-              Manage your AgriConnect preferences and
+              Manage your AgriLink preferences and
               account settings.
             </p>
 
@@ -315,7 +315,7 @@ function Settings() {
               </h2>
 
               <p>
-                Choose how AgriConnect keeps you informed.
+                Choose how AgriLink keeps you informed.
               </p>
 
             </div>
@@ -421,7 +421,7 @@ function Settings() {
               </h2>
 
               <p>
-                Customize how AgriConnect looks on
+                Customize how AgriLink looks on
                 your device.
               </p>
 
@@ -506,7 +506,7 @@ function Settings() {
 
                 <p>
                   Learn how your information is used
-                  within AgriConnect.
+                  within AgriLink.
                 </p>
 
               </div>
@@ -550,7 +550,7 @@ function Settings() {
               </h2>
 
               <p>
-                Actions that affect your AgriConnect account.
+                Actions that affect your AgriLink account.
               </p>
 
             </div>
@@ -569,7 +569,7 @@ function Settings() {
                 </h3>
 
                 <p>
-                  Sign out of your current AgriConnect
+                  Sign out of your current AgriLink
                   session.
                 </p>
 

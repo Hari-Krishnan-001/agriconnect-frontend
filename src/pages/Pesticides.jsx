@@ -631,7 +631,7 @@ function Pesticides() {
           <div>
 
             <p className="pesticides-label">
-              AgriConnect Knowledge
+              AgriLink Knowledge
             </p>
 
             <h1>

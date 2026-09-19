@@ -8,12 +8,61 @@ import api from "../services/api";
 function BusinessDashboard() {
   const navigate = useNavigate();
 
+  // ========================================
+  // LOGGED-IN USER
+  // ========================================
+
+  const [userName, setUserName] = useState("User");
+
+  // ========================================
+  // DASHBOARD STATE
+  // ========================================
+
   const [orders, setOrders] = useState([]);
   const [projectChats, setProjectChats] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [chatError, setChatError] = useState("");
+
+  // ========================================
+  // GET LOGGED-IN USER
+  // ========================================
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (!storedUser) {
+      return;
+    }
+
+    try {
+      const user = JSON.parse(storedUser);
+
+      /*
+       * Different parts of the existing application
+       * may use different property names.
+       *
+       * Check the available fields in a safe order.
+       */
+
+      const displayName =
+        user.fullName ||
+        user.full_name ||
+        user.name ||
+        user.businessName ||
+        user.business_name ||
+        user.email ||
+        "User";
+
+      setUserName(displayName);
+    } catch (error) {
+      console.error(
+        "Failed to read logged-in user:",
+        error
+      );
+    }
+  }, []);
 
   // ========================================
   // FETCH DASHBOARD DATA
@@ -113,7 +162,6 @@ function BusinessDashboard() {
     }
   };
 
-
   // ========================================
   // DASHBOARD STATISTICS
   // ========================================
@@ -150,7 +198,6 @@ function BusinessDashboard() {
 
   const recentOrders =
     orders.slice(0, 5);
-
 
   // ========================================
   // CROP EMOJI
@@ -205,7 +252,6 @@ function BusinessDashboard() {
     return "🌱";
   };
 
-
   // ========================================
   // STATUS TEXT
   // ========================================
@@ -225,7 +271,6 @@ function BusinessDashboard() {
         return status || "Unknown";
     }
   };
-
 
   // ========================================
   // STATUS CLASS
@@ -247,7 +292,6 @@ function BusinessDashboard() {
     }
   };
 
-
   // ========================================
   // CHAT DATE
   // ========================================
@@ -264,7 +308,6 @@ function BusinessDashboard() {
     );
   };
 
-
   // ========================================
   // OPEN PROJECT CHAT
   // ========================================
@@ -276,7 +319,6 @@ function BusinessDashboard() {
       `/project-chat/${projectId}`
     );
   };
-
 
   // ========================================
   // LOADING
@@ -317,7 +359,6 @@ function BusinessDashboard() {
     );
   }
 
-
   // ========================================
   // MAIN PAGE
   // ========================================
@@ -328,7 +369,6 @@ function BusinessDashboard() {
       <Sidebar />
 
       <main className="business-content">
-
 
         {/* =================================
             HEADER
@@ -343,7 +383,7 @@ function BusinessDashboard() {
             </p>
 
             <h1>
-              Welcome back, AgriTech Solutions!
+              Welcome back, {userName}!
             </h1>
 
             <p>
@@ -353,7 +393,6 @@ function BusinessDashboard() {
             </p>
 
           </div>
-
 
           <button
             className="browse-crops-btn"
@@ -365,7 +404,6 @@ function BusinessDashboard() {
           </button>
 
         </div>
-
 
         {/* =================================
             ERROR
@@ -389,13 +427,11 @@ function BusinessDashboard() {
           </div>
         )}
 
-
         {/* =================================
             STATISTICS
         ================================= */}
 
         <section className="business-stats">
-
 
           {/* Total Orders */}
 
@@ -419,7 +455,6 @@ function BusinessDashboard() {
 
           </div>
 
-
           {/* Approved Orders */}
 
           <div className="business-stat-card">
@@ -442,7 +477,6 @@ function BusinessDashboard() {
 
           </div>
 
-
           {/* Pending Orders */}
 
           <div className="business-stat-card">
@@ -464,7 +498,6 @@ function BusinessDashboard() {
             </div>
 
           </div>
-
 
           {/* Total Spending */}
 
@@ -493,7 +526,6 @@ function BusinessDashboard() {
 
         </section>
 
-
         {/* =================================
             PROJECT CHATS
         ================================= */}
@@ -517,7 +549,6 @@ function BusinessDashboard() {
 
           </div>
 
-
           {/* CHAT ERROR */}
 
           {chatError && (
@@ -537,7 +568,6 @@ function BusinessDashboard() {
 
             </div>
           )}
-
 
           {/* EMPTY CHAT */}
 
@@ -573,7 +603,6 @@ function BusinessDashboard() {
 
             )}
 
-
           {/* CHAT LIST */}
 
           {!chatError &&
@@ -594,7 +623,6 @@ function BusinessDashboard() {
                       <div className="business-project-chat-icon">
                         💬
                       </div>
-
 
                       {/* CHAT CONTENT */}
 
@@ -618,7 +646,6 @@ function BusinessDashboard() {
 
                         </div>
 
-
                         {/* CHAT INFORMATION */}
 
                         <div className="business-project-chat-info">
@@ -636,7 +663,6 @@ function BusinessDashboard() {
 
                           </div>
 
-
                           <div>
 
                             <span>
@@ -649,7 +675,6 @@ function BusinessDashboard() {
                             </strong>
 
                           </div>
-
 
                           <div>
 
@@ -666,7 +691,6 @@ function BusinessDashboard() {
                           </div>
 
                         </div>
-
 
                         {/* OPEN CHAT */}
 
@@ -695,7 +719,6 @@ function BusinessDashboard() {
 
         </section>
 
-
         {/* =================================
             RECENT PURCHASES
         ================================= */}
@@ -716,7 +739,6 @@ function BusinessDashboard() {
 
             </div>
 
-
             <button
               className="view-orders-btn"
               onClick={() =>
@@ -727,7 +749,6 @@ function BusinessDashboard() {
             </button>
 
           </div>
-
 
           <div className="purchase-table">
 
@@ -785,7 +806,6 @@ function BusinessDashboard() {
                   </tr>
 
                 </thead>
-
 
                 <tbody>
 
@@ -845,7 +865,6 @@ function BusinessDashboard() {
 
         </section>
 
-
         {/* =================================
             QUICK ACTIONS
         ================================= */}
@@ -856,9 +875,7 @@ function BusinessDashboard() {
             Quick Actions
           </h2>
 
-
           <div className="action-grid">
-
 
             {/* Browse Crops */}
 
@@ -887,7 +904,6 @@ function BusinessDashboard() {
 
             </div>
 
-
             {/* My Orders */}
 
             <div className="action-card">
@@ -913,7 +929,6 @@ function BusinessDashboard() {
               </button>
 
             </div>
-
 
             {/* Projects */}
 
@@ -941,7 +956,6 @@ function BusinessDashboard() {
               </button>
 
             </div>
-
 
             {/* Project Chats */}
 

@@ -281,7 +281,7 @@ function BusinessProfile() {
               </h1>
 
               <p>
-                Create your company profile to start using AgriConnect.
+                Create your company profile to start using AgriLink.
               </p>
 
             </div>
@@ -583,7 +583,7 @@ function BusinessProfile() {
             </h2>
 
             <p>
-              Your registered AgriConnect account details.
+              Your registered AgriLink account details.
             </p>
 
           </div>

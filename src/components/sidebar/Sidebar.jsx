@@ -1,5 +1,6 @@
 import {
   FaHome,
+  FaTachometerAlt,
   FaUser,
   FaSeedling,
   FaShoppingCart,
@@ -35,8 +36,7 @@ function Sidebar() {
   // GET LOGGED-IN USER
   // ========================================
 
-  const storedUser =
-    localStorage.getItem("user");
+  const storedUser = localStorage.getItem("user");
 
   let user = null;
 
@@ -86,16 +86,31 @@ function Sidebar() {
 
   const menuItems = [
 
-    // Dashboard
+    // ======================================
+    // HOME / LANDING PAGE
+    // ======================================
 
     {
       icon: <FaHome />,
+      title: "Home",
+      path: "/",
+    },
+
+
+    // ======================================
+    // DASHBOARD
+    // ======================================
+
+    {
+      icon: <FaTachometerAlt />,
       title: "Dashboard",
       path: dashboardPath,
     },
 
 
-    // Profile
+    // ======================================
+    // PROFILE
+    // ======================================
 
     {
       icon: <FaUser />,
@@ -104,7 +119,9 @@ function Sidebar() {
     },
 
 
-    // Farmer Crops
+    // ======================================
+    // FARMER CROPS
+    // ======================================
 
     ...(role === "FARMER"
       ? [
@@ -117,7 +134,9 @@ function Sidebar() {
       : []),
 
 
-    // Orders
+    // ======================================
+    // ORDERS
+    // ======================================
 
     {
       icon: <FaShoppingCart />,
@@ -126,7 +145,9 @@ function Sidebar() {
     },
 
 
-    // Farming Techniques
+    // ======================================
+    // FARMING TECHNIQUES
+    // ======================================
 
     {
       icon: <FaLeaf />,
@@ -135,7 +156,9 @@ function Sidebar() {
     },
 
 
-    // Pesticides
+    // ======================================
+    // PESTICIDES
+    // ======================================
 
     {
       icon: <FaFlask />,
@@ -144,7 +167,9 @@ function Sidebar() {
     },
 
 
-    // Messages
+    // ======================================
+    // MESSAGES
+    // ======================================
 
     {
       icon: <FaComments />,
@@ -153,7 +178,9 @@ function Sidebar() {
     },
 
 
-    // Settings
+    // ======================================
+    // SETTINGS
+    // ======================================
 
     {
       icon: <FaCog />,
@@ -170,11 +197,9 @@ function Sidebar() {
 
   const handleNavigation = (path) => {
 
-    // Navigate to selected page
     navigate(path);
 
-    // Always close sidebar after selecting
-    // any menu item.
+    // Close sidebar after navigation
     closeSidebar();
   };
 
@@ -184,6 +209,12 @@ function Sidebar() {
   // ========================================
 
   const isActive = (path) => {
+
+    // Home should only be active on exact "/"
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+
     return location.pathname === path;
   };
 
@@ -194,14 +225,11 @@ function Sidebar() {
 
   const handleLogout = () => {
 
-    // Close sidebar first
     closeSidebar();
 
-    // Clear authentication data
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
-    // Go to login
     navigate("/login");
   };
 
@@ -268,7 +296,7 @@ function Sidebar() {
           <div className="sidebar-logo-row">
 
             <h2>
-              AgriConnect
+              AgriLink
             </h2>
 
 

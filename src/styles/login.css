@@ -1,226 +1,923 @@
-/* ================================
-   LOGIN PAGE
-================================ */
+/* =========================================================
+   AGRILINK LOGIN PAGE
+   Glassmorphism + Agricultural Background
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 .login-page {
+  position: relative;
+
+  width: 100%;
   min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 30px;
-
-  background: #f7f8f5;
-}
-
-
-/* ================================
-   LOGIN CARD
-================================ */
-
-.login-card {
-  width: 100%;
-  max-width: 430px;
-
-  padding: 40px;
-
-  background: #ffffff;
-
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-
-  box-shadow: 0 10px 35px rgba(23, 37, 26, 0.08);
+  overflow: hidden;
 
   box-sizing: border-box;
+
+  /*
+    IMPORTANT:
+
+    Put your image here:
+
+    public/agriculture-background.jpg
+  */
+
+  background-image:
+    url("/agriculture-background.jpg");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 
-/* ================================
-   LOGO
-================================ */
+/* =========================================================
+   BACKGROUND OVERLAY
+========================================================= */
 
-.login-logo {
-  width: 60px;
-  height: 60px;
+.login-background-overlay {
+  position: absolute;
 
-  margin: 0 auto 20px;
+  inset: 0;
+
+  z-index: 0;
+
+  /*
+    40% white overlay.
+
+    This keeps the agricultural image visible
+    while making the UI readable.
+  */
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.34),
+      rgba(255, 255, 255, 0.18)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HOME BUTTON
+========================================================= */
+
+.login-home-button {
+  position: absolute;
+
+  top: 28px;
+  left: 28px;
+
+  width: 54px;
+  height: 54px;
+
+  z-index: 30;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
 
-  background: #eef7ef;
+  border-radius: 50%;
 
-  font-size: 32px;
+  background:
+    rgba(255, 255, 255, 0.78);
+
+  color: #1d7c48;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 28px rgba(27, 69, 43, 0.16);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-home-button svg {
+  width: 25px;
+  height: 25px;
+}
+
+.login-home-button:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  box-shadow:
+    0 13px 32px rgba(27, 69, 43, 0.22);
+}
+
+.login-home-button:active {
+  transform: translateY(0);
+}
+
+.login-home-button:focus-visible {
+  outline: 3px solid rgba(31, 122, 72, 0.25);
+
+  outline-offset: 3px;
 }
 
 
-/* ================================
-   HEADER
-================================ */
+/* =========================================================
+   LEFT BRANDING
+========================================================= */
 
-.login-card h1 {
+.login-branding {
+  position: absolute;
+
+  left: 6.5%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 5;
+
+  user-select: none;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.login-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  color: #126b3d;
+}
+
+
+/* =========================================================
+   BRAND ICON
+========================================================= */
+
+.login-brand-icon {
+  width: 74px;
+  height: 74px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #116c3d;
+}
+
+.login-brand-icon svg {
+  width: 74px;
+  height: 74px;
+}
+
+
+/* =========================================================
+   BRAND NAME
+========================================================= */
+
+.login-brand-name {
   margin: 0;
 
-  text-align: center;
+  font-size: clamp(42px, 4vw, 66px);
 
-  font-size: 30px;
-  font-weight: 700;
+  line-height: 1;
 
-  color: #17251a;
+  font-weight: 800;
+
+  letter-spacing: -2.8px;
+
+  color: #116d3e;
+
+  text-shadow:
+    0 2px 8px rgba(255, 255, 255, 0.35);
 }
 
-.login-subtitle {
-  margin: 8px 0 30px;
 
+/* =========================================================
+   BRAND DESCRIPTION
+========================================================= */
+
+.login-brand-description {
+  margin:
+
+    19px
+
+    0
+
+    0
+
+    87px;
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+  font-weight: 650;
+
+  letter-spacing: 4px;
+
+  color:
+    rgba(35, 83, 60, 0.82);
+
+  text-shadow:
+    0 1px 5px rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================================
+   RIGHT TAGLINE
+========================================================= */
+
+.login-tagline {
+  position: absolute;
+
+  right: 6.5%;
+
+  top: 17%;
+
+  z-index: 5;
+
+  transform: rotate(-3deg);
+
+  user-select: none;
+
+  color: rgba(48, 99, 73, 0.82);
+}
+
+
+/* =========================================================
+   TAGLINE TEXT
+========================================================= */
+
+.tagline-text {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.tagline-text span {
+  font-family:
+    "Segoe Print",
+    "Bradley Hand",
+    "Comic Sans MS",
+    cursive;
+
+  font-size: clamp(24px, 2.3vw, 38px);
+
+  line-height: 1.05;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.tagline-text span:nth-child(2) {
+  margin-left: 18px;
+}
+
+.tagline-text span:nth-child(3) {
+  margin-left: 39px;
+}
+
+
+/* =========================================================
+   TAGLINE DECORATION
+========================================================= */
+
+.tagline-decoration {
+  position: relative;
+
+  width: 190px;
+
+  height: 38px;
+
+  margin-left: 50px;
+
+  margin-top: -2px;
+}
+
+.tagline-line {
+  position: absolute;
+
+  left: 0;
+
+  top: 17px;
+
+  width: 150px;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(48, 99, 73, 0.62);
+
+  transform: rotate(-7deg);
+}
+
+.tagline-leaf {
+  position: absolute;
+
+  right: 2px;
+
+  top: 2px;
+
+  font-size: 27px;
+
+  transform: rotate(15deg);
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-card {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(510px, 90vw);
+
+  box-sizing: border-box;
+
+  padding:
+
+    48px
+
+    52px
+
+    31px;
+
+
+  /*
+    MAIN GLASS EFFECT
+
+    This is intentionally transparent so
+    the agricultural background remains visible.
+  */
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.70),
+      rgba(255, 255, 255, 0.52)
+    );
+
+  border:
+
+    1px solid
+
+    rgba(255, 255, 255, 0.80);
+
+  border-radius: 25px;
+
+
+  /*
+    Soft glass shadow
+  */
+
+  box-shadow:
+
+    0 30px 80px
+      rgba(26, 61, 41, 0.20),
+
+    0 8px 25px
+      rgba(26, 61, 41, 0.08),
+
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.82);
+
+
+  /*
+    Frosted glass
+  */
+
+  backdrop-filter: blur(20px);
+
+  -webkit-backdrop-filter: blur(20px);
+}
+
+
+/* =========================================================
+   LOGIN LOGO
+========================================================= */
+
+.login-logo {
+  width: 65px;
+  height: 65px;
+
+  margin:
+
+    0
+
+    auto
+
+    19px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 17px;
+
+  background:
+    rgba(239, 249, 241, 0.82);
+
+  box-shadow:
+
+    0 8px 22px
+      rgba(42, 108, 67, 0.10),
+
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.7);
+}
+
+.login-logo-emoji {
+  font-size: 34px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.login-header {
   text-align: center;
+}
+
+.login-header h1 {
+  margin: 0;
+
+  color: #17291d;
+
+  font-size: 33px;
+
+  line-height: 1.2;
+
+  font-weight: 760;
+
+  letter-spacing: -0.8px;
+}
+
+.login-header p {
+  margin:
+
+    8px
+
+    0
+
+    32px;
+
+  color: #65766b;
 
   font-size: 14px;
 
-  color: #6b7280;
+  line-height: 1.5;
 }
 
 
-/* ================================
+/* =========================================================
    ERROR
-================================ */
+========================================================= */
 
 .login-error {
   margin-bottom: 20px;
 
   padding: 12px 14px;
 
-  border-radius: 9px;
+  border-radius: 10px;
 
-  background: #fff0f0;
+  border:
+    1px solid
+    rgba(184, 62, 62, 0.22);
 
-  color: #b42318;
+  background:
+    rgba(255, 237, 237, 0.86);
+
+  color: #a72b2b;
 
   font-size: 13px;
 
-  border: 1px solid #ffd5d5;
+  line-height: 1.45;
 }
 
 
-/* ================================
+/* =========================================================
    FORM
-================================ */
+========================================================= */
 
-.form-group {
-  margin-bottom: 20px;
+.login-form {
+  width: 100%;
 }
 
-.form-group label {
-  display: block;
 
-  margin-bottom: 7px;
+/* =========================================================
+   FORM GROUP
+========================================================= */
 
-  font-size: 13px;
-  font-weight: 600;
-
-  color: #26352a;
-}
-
-.form-group input {
+.login-form-group {
   width: 100%;
 
-  padding: 13px 14px;
+  margin-bottom: 21px;
+}
+
+.login-form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #1d3023;
+
+  font-size: 13px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUT WRAPPER
+========================================================= */
+
+.login-input-wrapper {
+  position: relative;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   INPUT ICON
+========================================================= */
+
+.login-input-icon {
+  position: absolute;
+
+  left: 16px;
+
+  top: 50%;
+
+  z-index: 3;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  color: #74847b;
+
+  pointer-events: none;
+}
+
+.login-input-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.login-input-wrapper input {
+  width: 100%;
+
+  min-height: 52px;
 
   box-sizing: border-box;
 
-  border: 1px solid #d6d9d7;
+  padding:
 
-  border-radius: 9px;
+    13px
 
-  background: #ffffff;
+    15px
 
-  color: #17251a;
+    13px
+
+    47px;
+
+  border:
+
+    1px solid
+
+    rgba(91, 112, 99, 0.25);
+
+  border-radius: 11px;
+
+  background:
+    rgba(255, 255, 255, 0.70);
+
+  color: #15251b;
+
+  font-family: inherit;
 
   font-size: 14px;
 
   outline: none;
 
-  transition: 0.2s ease;
+  transition:
+
+    border-color 0.2s ease,
+
+    background 0.2s ease,
+
+    box-shadow 0.2s ease;
 }
 
-.form-group input::placeholder {
-  color: #9ca3af;
+.login-input-wrapper input::placeholder {
+  color: #8a9890;
 }
 
-.form-group input:focus {
-  border-color: #1f6f43;
+.login-input-wrapper input:hover {
+  background:
+    rgba(255, 255, 255, 0.82);
+}
 
-  box-shadow: 0 0 0 3px rgba(31, 111, 67, 0.1);
+.login-input-wrapper input:focus {
+  border-color:
+    #2b8a54;
+
+  background:
+    rgba(255, 255, 255, 0.91);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(43, 138, 84, 0.12);
 }
 
 
-/* ================================
-   LOGIN BUTTON
-================================ */
+/* =========================================================
+   PASSWORD INPUT
+========================================================= */
 
-.login-button {
-  width: 100%;
+.password-wrapper input {
+  padding-right: 52px;
+}
 
-  padding: 13px 18px;
 
-  margin-top: 5px;
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
+
+.password-toggle {
+  position: absolute;
+
+  right: 7px;
+
+  top: 50%;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
 
   border: none;
 
-  border-radius: 9px;
+  border-radius: 8px;
 
-  background: #1f6f43;
+  background: transparent;
 
-  color: #ffffff;
-
-  font-size: 14px;
-  font-weight: 600;
+  color: #718078;
 
   cursor: pointer;
 
-  transition: 0.2s ease;
+  transition:
+
+    color 0.2s ease,
+
+    background 0.2s ease;
 }
 
-.login-button:hover {
-  background: #195d38;
+.password-toggle svg {
+  width: 21px;
+  height: 21px;
 }
 
-.login-button:disabled {
-  opacity: 0.6;
+.password-toggle:hover {
+  color: #1e7748;
+
+  background:
+    rgba(31, 119, 72, 0.08);
+}
+
+.password-toggle:active {
+  background:
+    rgba(31, 119, 72, 0.14);
+}
+
+.password-toggle:focus-visible {
+  outline:
+    2px solid
+    rgba(31, 119, 72, 0.30);
+
+  outline-offset: 1px;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-submit {
+  width: 100%;
+
+  min-height: 52px;
+
+  margin-top: 3px;
+
+  padding: 13px 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #23874e,
+      #1c7945
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px
+    rgba(31, 119, 70, 0.20);
+
+  transition:
+
+    transform 0.2s ease,
+
+    box-shadow 0.2s ease,
+
+    background 0.2s ease;
+}
+
+.login-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #21804a,
+      #176c3d
+    );
+
+  box-shadow:
+    0 10px 25px
+    rgba(31, 119, 70, 0.28);
+}
+
+.login-submit:active:not(:disabled) {
+  transform: translateY(0);
+
+  box-shadow:
+    0 5px 14px
+    rgba(31, 119, 70, 0.20);
+}
+
+.login-submit:disabled {
+  opacity: 0.68;
 
   cursor: not-allowed;
+
+  box-shadow: none;
 }
 
 
-/* ================================
+/* =========================================================
+   LOADING
+========================================================= */
+
+.login-loading {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+}
+
+.login-spinner {
+  width: 15px;
+  height: 15px;
+
+  border:
+
+    2px solid
+
+    rgba(255, 255, 255, 0.35);
+
+  border-top-color: #ffffff;
+
+  border-radius: 50%;
+
+  animation:
+    login-spin 0.7s linear infinite;
+}
+
+@keyframes login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
    REGISTER
-================================ */
+========================================================= */
 
 .login-register {
-  margin: 25px 0 0;
+  margin-top: 25px;
 
-  text-align: center;
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  color: #68786e;
 
   font-size: 13px;
 
-  color: #6b7280;
+  line-height: 1.5;
 }
 
 .login-register button {
-  margin-left: 5px;
-
   padding: 0;
 
   border: none;
 
   background: transparent;
 
-  color: #1f6f43;
+  color: #187341;
+
+  font-family: inherit;
 
   font-size: 13px;
-  font-weight: 600;
+
+  font-weight: 750;
 
   cursor: pointer;
 }
@@ -230,113 +927,508 @@
 }
 
 
-/* ================================
-   RESPONSIVE
-================================ */
+/* =========================================================
+   FOOTER
+========================================================= */
 
-@media (max-width: 500px) {
+.login-footer {
+  margin-top: 27px;
 
-  .login-page {
-    padding: 20px;
-  }
+  padding-top: 17px;
 
-  .login-card {
-    padding: 30px 22px;
-  }
+  display: flex;
 
-  .login-card h1 {
-    font-size: 26px;
-  }
+  align-items: center;
 
+  justify-content: center;
+
+  gap: 9px;
+
+  border-top:
+
+    1px solid
+
+    rgba(72, 96, 81, 0.16);
+
+  color:
+    rgba(76, 94, 82, 0.76);
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  white-space: nowrap;
 }
-/* ================================
-   AGRICONNECT — LOGIN DARK MODE
-================================ */
+
+.footer-leaf {
+  margin-right: 4px;
+
+  font-size: 12px;
+}
+
+.footer-divider {
+  color:
+    rgba(76, 94, 82, 0.40);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
 
 body.agriconnect-dark-mode .login-page {
-  background: #0f1720;
+  background-image:
+    url("/agriculture-background.jpg");
 }
+
+body.agriconnect-dark-mode .login-background-overlay {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(5, 19, 11, 0.52),
+      rgba(7, 22, 13, 0.38)
+    );
+}
+
+
+/* =========================================================
+   DARK HOME
+========================================================= */
+
+body.agriconnect-dark-mode .login-home-button {
+  background:
+    rgba(17, 35, 25, 0.80);
+
+  border-color:
+    rgba(255, 255, 255, 0.15);
+
+  color: #75d49a;
+}
+
+body.agriconnect-dark-mode .login-home-button:hover {
+  background:
+    rgba(23, 46, 33, 0.94);
+}
+
+
+/* =========================================================
+   DARK BRANDING
+========================================================= */
+
+body.agriconnect-dark-mode .login-brand {
+  color: #76d29a;
+}
+
+body.agriconnect-dark-mode .login-brand-name {
+  color: #76d29a;
+}
+
+body.agriconnect-dark-mode .login-brand-description {
+  color:
+    rgba(203, 229, 211, 0.76);
+}
+
+body.agriconnect-dark-mode .login-tagline {
+  color:
+    rgba(194, 224, 204, 0.78);
+}
+
+body.agriconnect-dark-mode .tagline-line {
+  background:
+    rgba(194, 224, 204, 0.60);
+}
+
+
+/* =========================================================
+   DARK CARD
+========================================================= */
 
 body.agriconnect-dark-mode .login-card {
-  background: #17211b;
-  border-color: #2a3830;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
-}
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 38, 28, 0.80),
+      rgba(15, 30, 22, 0.68)
+    );
 
-/* ================================
-   LOGO
-================================ */
+  border-color:
+    rgba(255, 255, 255, 0.14);
+
+  box-shadow:
+
+    0 30px 80px
+      rgba(0, 0, 0, 0.40),
+
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.08);
+}
 
 body.agriconnect-dark-mode .login-logo {
-  background: #203d2d;
+  background:
+    rgba(34, 66, 47, 0.82);
 }
 
-/* ================================
-   HEADER
-================================ */
-
-body.agriconnect-dark-mode .login-card h1 {
-  color: #f1f7f3;
+body.agriconnect-dark-mode .login-header h1 {
+  color: #edf7f0;
 }
 
-body.agriconnect-dark-mode .login-subtitle {
-  color: #9eaaa3;
+body.agriconnect-dark-mode .login-header p {
+  color: #a6b7ac;
 }
 
-/* ================================
-   ERROR
-================================ */
 
-body.agriconnect-dark-mode .login-error {
-  background: #321b1b;
-  color: #ffb4b4;
-  border-color: #633333;
+/* =========================================================
+   DARK FORM
+========================================================= */
+
+body.agriconnect-dark-mode .login-form-group label {
+  color: #dce9df;
 }
 
-/* ================================
-   FORM
-================================ */
+body.agriconnect-dark-mode .login-input-wrapper input {
+  background:
+    rgba(8, 22, 14, 0.72);
 
-body.agriconnect-dark-mode .form-group label {
-  color: #dce8e0;
+  border-color:
+    rgba(183, 207, 191, 0.18);
+
+  color: #edf8f0;
 }
 
-body.agriconnect-dark-mode .form-group input {
-  background: #101a14;
-  border-color: #37463d;
-  color: #eef6f1;
+body.agriconnect-dark-mode
+.login-input-wrapper input:hover {
+  background:
+    rgba(10, 28, 18, 0.82);
 }
 
-body.agriconnect-dark-mode .form-group input::placeholder {
-  color: #6f7c74;
+body.agriconnect-dark-mode
+.login-input-wrapper input:focus {
+  background:
+    rgba(10, 29, 18, 0.90);
+
+  border-color:
+    #42b96e;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(66, 185, 110, 0.13);
 }
 
-body.agriconnect-dark-mode .form-group input:focus {
-  border-color: #2fbd68;
-  box-shadow: 0 0 0 3px rgba(47, 189, 104, 0.12);
+body.agriconnect-dark-mode
+.login-input-wrapper input::placeholder {
+  color: #74857b;
 }
 
-/* ================================
-   LOGIN BUTTON
-================================ */
-
-body.agriconnect-dark-mode .login-button {
-  background: #1f8f45;
-  color: #ffffff;
+body.agriconnect-dark-mode
+.login-input-icon {
+  color: #87998e;
 }
 
-body.agriconnect-dark-mode .login-button:hover {
-  background: #18763a;
+body.agriconnect-dark-mode
+.password-toggle {
+  color: #8da198;
 }
 
-/* ================================
-   REGISTER
-================================ */
+body.agriconnect-dark-mode
+.password-toggle:hover {
+  color: #73d69b;
+
+  background:
+    rgba(115, 214, 155, 0.08);
+}
+
+
+/* =========================================================
+   DARK REGISTER
+========================================================= */
 
 body.agriconnect-dark-mode .login-register {
-  color: #9eaaa3;
+  color: #9caea3;
 }
 
 body.agriconnect-dark-mode .login-register button {
-  color: #72d69b;
+  color: #73d69a;
+}
+
+
+/* =========================================================
+   DARK FOOTER
+========================================================= */
+
+body.agriconnect-dark-mode .login-footer {
+  border-top-color:
+    rgba(200, 220, 207, 0.12);
+
+  color:
+    rgba(182, 203, 189, 0.70);
+}
+
+body.agriconnect-dark-mode .footer-divider {
+  color:
+    rgba(182, 203, 189, 0.35);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .login-branding {
+    left: 3.5%;
+  }
+
+  .login-brand-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .login-brand-icon svg {
+    width: 58px;
+    height: 58px;
+  }
+
+  .login-brand-name {
+    font-size: 45px;
+  }
+
+  .login-brand-description {
+    margin-left: 70px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+  }
+
+  .login-tagline {
+    right: 3.5%;
+  }
+
+  .tagline-text span {
+    font-size: 27px;
+  }
+
+  .login-card {
+    width: min(480px, 45vw);
+
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .login-page {
+    min-height: 100svh;
+
+    padding:
+
+      100px
+
+      20px
+
+      30px;
+
+    overflow-y: auto;
+
+    background-attachment: scroll;
+  }
+
+
+  /* -----------------------------------------------
+     Branding moves to top
+  ------------------------------------------------ */
+
+  .login-branding {
+    position: absolute;
+
+    top: 27px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+
+    text-align: center;
+  }
+
+  .login-brand {
+    justify-content: center;
+  }
+
+  .login-brand-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .login-brand-icon svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .login-brand-name {
+    font-size: 34px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .login-brand-description {
+    display: none;
+  }
+
+
+  /* -----------------------------------------------
+     Hide side tagline
+  ------------------------------------------------ */
+
+  .login-tagline {
+    display: none;
+  }
+
+
+  /* -----------------------------------------------
+     Home
+  ------------------------------------------------ */
+
+  .login-home-button {
+    top: 18px;
+
+    left: 18px;
+
+    width: 44px;
+    height: 44px;
+  }
+
+  .login-home-button svg {
+    width: 21px;
+    height: 21px;
+  }
+
+
+  /* -----------------------------------------------
+     Card
+  ------------------------------------------------ */
+
+  .login-card {
+    width: min(500px, 100%);
+
+    padding:
+
+      38px
+
+      28px
+
+      28px;
+
+    border-radius: 21px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .login-page {
+    padding:
+
+      82px
+
+      13px
+
+      20px;
+  }
+
+  .login-card {
+    padding:
+
+      31px
+
+      20px
+
+      25px;
+
+    border-radius: 19px;
+  }
+
+  .login-logo {
+    width: 57px;
+    height: 57px;
+
+    margin-bottom: 17px;
+  }
+
+  .login-logo-emoji {
+    font-size: 30px;
+  }
+
+  .login-header h1 {
+    font-size: 27px;
+  }
+
+  .login-header p {
+    margin-bottom: 26px;
+
+    font-size: 13px;
+  }
+
+  .login-form-group {
+    margin-bottom: 18px;
+  }
+
+  .login-input-wrapper input {
+    min-height: 49px;
+  }
+
+  .login-submit {
+    min-height: 49px;
+  }
+
+  .login-register {
+    margin-top: 22px;
+  }
+
+  .login-footer {
+    flex-wrap: wrap;
+
+    white-space: normal;
+
+    text-align: center;
+
+    margin-top: 23px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 350px) {
+
+  .login-brand-name {
+    font-size: 30px;
+  }
+
+  .login-card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .login-header h1 {
+    font-size: 24px;
+  }
+
+  .login-footer {
+    font-size: 10px;
+  }
 }

@@ -1,33 +1,106 @@
-/* ========================================
-   MESSAGES PAGE
-======================================== */
+/* =========================================================
+   AGRILINK COMMUNITY MESSAGES
+   Modern agricultural glass UI
+========================================================= */
 
 .messages-page {
+  position: relative;
+
   min-height: 100vh;
 
-  padding: 40px;
-
-  background: #f8fafc;
+  padding: 34px 32px 30px;
 
   box-sizing: border-box;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(187, 247, 208, 0.55),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 20%,
+      rgba(220, 252, 231, 0.7),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #f7fbf8 0%,
+      #eef7f1 48%,
+      #f9fcfa 100%
+    );
+
+  color: #183326;
 }
 
 
-/* ========================================
+/* =========================================================
+   BACKGROUND DECORATIONS
+========================================================= */
+
+.messages-background-decoration {
+  position: absolute;
+
+  pointer-events: none;
+
+  border-radius: 50%;
+
+  filter: blur(2px);
+
+  opacity: 0.55;
+}
+
+.messages-decoration-one {
+  width: 300px;
+  height: 300px;
+
+  top: -140px;
+  right: -90px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(74, 222, 128, 0.25),
+      transparent 68%
+    );
+}
+
+.messages-decoration-two {
+  width: 260px;
+  height: 260px;
+
+  bottom: -130px;
+  left: -90px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(134, 239, 172, 0.22),
+      transparent 68%
+    );
+}
+
+
+/* =========================================================
    CONTAINER
-======================================== */
+========================================================= */
 
 .messages-container {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
-  max-width: 1200px;
+  max-width: 1180px;
 
   margin: 0 auto;
 }
 
 
-/* ========================================
+/* =========================================================
    HEADER
-======================================== */
+========================================================= */
 
 .messages-header {
   display: flex;
@@ -35,126 +108,222 @@
   align-items: center;
   justify-content: space-between;
 
-  gap: 30px;
+  gap: 24px;
 
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-.messages-label {
-  margin: 0 0 8px;
+.messages-header-left {
+  display: flex;
 
-  color: #16a34a;
+  align-items: center;
 
-  font-size: 14px;
-  font-weight: 700;
-
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  gap: 16px;
 }
 
-.messages-header h1 {
-  margin: 0;
-
-  color: #111827;
-
-  font-size: 34px;
-  font-weight: 700;
-}
-
-.messages-description {
-  max-width: 650px;
-
-  margin: 10px 0 0;
-
-  color: #6b7280;
-
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-
-/* ========================================
-   HEADER ICON
-======================================== */
-
-.messages-header-icon {
+.messages-brand-icon {
   width: 58px;
   height: 58px;
 
   flex-shrink: 0;
 
-  border-radius: 16px;
-
-  background: #dcfce7;
+  border-radius: 18px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  background:
+    linear-gradient(
+      145deg,
+      #e9fbea,
+      #d8f5df
+    );
+
+  border: 1px solid rgba(22, 163, 74, 0.12);
+
+  box-shadow:
+    0 8px 25px rgba(22, 101, 52, 0.1);
+
   font-size: 27px;
 }
 
+.messages-label {
+  margin: 0 0 5px;
 
-/* ========================================
-   ERROR
-======================================== */
+  color: #16803b;
 
-.messages-error {
-  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 800;
 
-  padding: 14px 18px;
+  letter-spacing: 0.13em;
 
-  border: 1px solid #fecaca;
-  border-radius: 12px;
+  text-transform: uppercase;
+}
 
-  background: #fef2f2;
+.messages-header h1 {
+  margin: 0;
 
-  color: #b91c1c;
+  color: #10291c;
+
+  font-size: 32px;
+
+  line-height: 1.15;
+
+  font-weight: 750;
+
+  letter-spacing: -0.025em;
+}
+
+.messages-description {
+  max-width: 650px;
+
+  margin: 7px 0 0;
+
+  color: #6a7d72;
 
   font-size: 14px;
+
+  line-height: 1.55;
+}
+
+.messages-header-badge {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(22, 163, 74, 0.13);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.62);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  color: #34714a;
+
+  font-size: 12px;
+
+  font-weight: 650;
+
+  box-shadow:
+    0 5px 20px rgba(15, 70, 35, 0.06);
+}
+
+.messages-online-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.12);
 }
 
 
-/* ========================================
+/* =========================================================
+   ERROR
+========================================================= */
+
+.messages-error {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+
+  padding: 12px 16px;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 13px;
+
+  background: rgba(254, 242, 242, 0.92);
+
+  color: #b91c1c;
+
+  font-size: 13px;
+
+  box-shadow:
+    0 5px 18px rgba(127, 29, 29, 0.05);
+}
+
+.messages-error-icon {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fee2e2;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
    CHAT CARD
-======================================== */
+========================================================= */
 
 .messages-card {
+  position: relative;
+
   width: 100%;
-
-  background: #ffffff;
-
-  border: 1px solid #e5e7eb;
-
-  border-radius: 22px;
 
   overflow: hidden;
 
+  border: 1px solid rgba(255, 255, 255, 0.86);
+
+  border-radius: 24px;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
   box-shadow:
-    0 8px 30px rgba(15, 23, 42, 0.05);
+    0 25px 70px rgba(30, 75, 48, 0.12),
+    0 5px 20px rgba(30, 75, 48, 0.06);
 
   display: flex;
   flex-direction: column;
 }
 
 
-/* ========================================
+/* =========================================================
    CHAT HEADER
-======================================== */
+========================================================= */
 
 .messages-card-header {
-  min-height: 78px;
+  min-height: 76px;
 
-  padding: 16px 24px;
-
-  border-bottom: 1px solid #e5e7eb;
-
-  display: flex;
-  align-items: center;
-
-  gap: 14px;
+  padding: 15px 20px;
 
   box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  border-bottom: 1px solid rgba(20, 80, 42, 0.08);
+
+  background:
+    rgba(255, 255, 255, 0.48);
 }
 
 .messages-community-avatar {
@@ -163,65 +332,173 @@
 
   flex-shrink: 0;
 
-  border-radius: 14px;
-
-  background: #dcfce7;
+  border-radius: 15px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  background:
+    linear-gradient(
+      145deg,
+      #e9faec,
+      #d4f5dc
+    );
+
+  border: 1px solid rgba(22, 163, 74, 0.1);
+
+  box-shadow:
+    0 5px 16px rgba(22, 101, 52, 0.08);
+
   font-size: 22px;
+}
+
+.messages-community-info {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.messages-community-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
 }
 
 .messages-card-header h2 {
   margin: 0;
 
-  color: #111827;
+  color: #183326;
 
-  font-size: 17px;
-  font-weight: 650;
+  font-size: 16px;
+
+  line-height: 1.2;
+
+  font-weight: 750;
 }
 
 .messages-card-header p {
   margin: 4px 0 0;
 
-  color: #9ca3af;
+  color: #84968c;
 
-  font-size: 13px;
+  font-size: 12px;
+}
+
+.messages-live-badge {
+  padding: 3px 7px;
+
+  border-radius: 999px;
+
+  background: #e7f8eb;
+
+  color: #16803b;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.messages-member-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(239, 250, 242, 0.85);
+
+  font-size: 17px;
+
+  opacity: 0.8;
 }
 
 
-/* ========================================
+/* =========================================================
    MESSAGE LIST
-======================================== */
+========================================================= */
 
 .messages-list {
-  height: 540px;
+  height: 520px;
 
-  padding: 28px 26px;
+  padding: 20px 25px;
 
   overflow-y: auto;
 
-  background: #f9fafb;
-
   box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(248, 252, 249, 0.72),
+      rgba(242, 249, 244, 0.54)
+    );
 }
 
 
-/* ========================================
+/* =========================================================
+   DATE DIVIDER
+========================================================= */
+
+.messages-date-divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 2px 0 22px;
+
+  color: #9aaa9f;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.09em;
+
+  font-weight: 700;
+}
+
+.messages-date-divider::before,
+.messages-date-divider::after {
+  content: "";
+
+  height: 1px;
+
+  flex: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(83, 120, 97, 0.14),
+      transparent
+    );
+}
+
+
+/* =========================================================
    MESSAGE ROW
-======================================== */
+========================================================= */
 
 .message-row {
   width: 100%;
 
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 
   display: flex;
+
   align-items: flex-end;
 
-  gap: 10px;
+  gap: 9px;
 }
 
 .message-row-own {
@@ -233,87 +510,121 @@
 }
 
 
-/* ========================================
-   MESSAGE AVATAR
-======================================== */
+/* =========================================================
+   AVATARS
+========================================================= */
+
+.message-avatar-wrapper {
+  flex-shrink: 0;
+}
 
 .message-avatar {
-  width: 38px;
-  height: 38px;
-
-  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
 
   border-radius: 50%;
-
-  background: #dcfce7;
-
-  color: #15803d;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 14px;
-  font-weight: 700;
+  background:
+    linear-gradient(
+      145deg,
+      #e4f8e9,
+      #c9f0d5
+    );
 
-  border: 2px solid #ffffff;
+  color: #16803b;
+
+  border: 2px solid rgba(255, 255, 255, 0.95);
 
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.06);
+    0 3px 12px rgba(30, 80, 48, 0.09);
+
+  font-size: 12px;
+
+  font-weight: 800;
 }
 
 .own-avatar {
-  background: #16a34a;
+  background:
+    linear-gradient(
+      145deg,
+      #22a455,
+      #16803b
+    );
 
-  color: #ffffff;
+  color: white;
+
+  box-shadow:
+    0 4px 14px rgba(22, 128, 59, 0.22);
 }
 
 
-/* ========================================
+/* =========================================================
    MESSAGE CONTENT
-======================================== */
+========================================================= */
 
 .message-content {
-  max-width: min(70%, 600px);
+  max-width: min(72%, 620px);
 
   display: flex;
+
   flex-direction: column;
 }
 
+.message-row-own .message-content {
+  align-items: flex-end;
+}
 
-/* ========================================
-   SENDER NAME
-======================================== */
+
+/* =========================================================
+   SENDER
+========================================================= */
 
 .message-sender {
   margin: 0 0 5px 4px;
 
-  color: #6b7280;
+  color: #668073;
 
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+
+  font-weight: 700;
 }
 
 
-/* ========================================
+/* =========================================================
    MESSAGE BUBBLE
-======================================== */
+========================================================= */
 
 .message-bubble {
   padding: 11px 15px;
 
-  border-radius: 16px;
+  border: 1px solid rgba(30, 70, 46, 0.08);
 
-  background: #ffffff;
+  border-radius: 17px;
 
-  border: 1px solid #e5e7eb;
+  background:
+    rgba(255, 255, 255, 0.86);
 
-  color: #1f2937;
+  color: #24382d;
 
   box-shadow:
-    0 2px 6px rgba(15, 23, 42, 0.03);
+    0 4px 14px rgba(30, 75, 48, 0.055);
 
   overflow-wrap: anywhere;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.message-bubble:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(30, 75, 48, 0.08);
 }
 
 .message-row-other .message-bubble {
@@ -321,71 +632,106 @@
 }
 
 .message-row-own .message-bubble {
-  background: #16a34a;
+  background:
+    linear-gradient(
+      135deg,
+      #21a455,
+      #16803b
+    );
 
-  border-color: #16a34a;
+  border-color: transparent;
 
   color: #ffffff;
 
   border-bottom-right-radius: 5px;
+
+  box-shadow:
+    0 6px 18px rgba(22, 128, 59, 0.18);
 }
 
 .message-bubble p {
   margin: 0;
 
-  font-size: 14px;
+  font-size: 13px;
+
   line-height: 1.55;
 
   white-space: pre-wrap;
 }
 
 
-/* ========================================
+/* =========================================================
    MESSAGE TIME
-======================================== */
+========================================================= */
 
 .message-time {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
   margin-top: 5px;
 
-  color: #9ca3af;
+  color: #99a9a0;
 
-  font-size: 11px;
+  font-size: 9px;
+
+  line-height: 1;
 }
 
 .message-row-own .message-time {
-  text-align: right;
+  justify-content: flex-end;
+}
+
+.message-time-dot {
+  opacity: 0.55;
 }
 
 
-/* ========================================
+/* =========================================================
    EMPTY STATE
-======================================== */
+========================================================= */
 
 .messages-empty {
   min-height: 100%;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
+
   justify-content: center;
 
   text-align: center;
+
+  padding: 30px;
+
+  box-sizing: border-box;
 }
 
 .messages-empty-icon {
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
 
-  margin-bottom: 14px;
-
-  border-radius: 18px;
-
-  background: #dcfce7;
+  margin-bottom: 15px;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border-radius: 21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e7f9eb,
+      #d3f3db
+    );
+
+  box-shadow:
+    0 9px 24px rgba(22, 128, 59, 0.1);
 
   font-size: 28px;
 }
@@ -393,66 +739,127 @@
 .messages-empty h3 {
   margin: 0;
 
-  color: #111827;
+  color: #183326;
 
-  font-size: 18px;
+  font-size: 19px;
+
+  font-weight: 750;
 }
 
 .messages-empty p {
-  max-width: 350px;
+  max-width: 390px;
 
-  margin: 7px 0 0;
+  margin: 8px 0 14px;
 
-  color: #9ca3af;
+  color: #899a91;
 
-  font-size: 14px;
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.messages-empty-hint {
+  padding: 8px 13px;
+
+  border-radius: 999px;
+
+  background: rgba(232, 248, 236, 0.8);
+
+  color: #528164;
+
+  font-size: 10px;
+
+  font-weight: 600;
 }
 
 
-/* ========================================
-   MESSAGE INPUT
-======================================== */
+/* =========================================================
+   COMPOSER
+========================================================= */
 
-.message-input-area {
-  min-height: 78px;
+.message-composer-wrapper {
+  padding: 14px 18px 11px;
 
-  padding: 16px 20px;
+  border-top: 1px solid rgba(20, 80, 42, 0.08);
 
-  border-top: 1px solid #e5e7eb;
-
-  background: #ffffff;
-
-  display: flex;
-  align-items: center;
-
-  gap: 12px;
+  background:
+    rgba(255, 255, 255, 0.62);
 
   box-sizing: border-box;
 }
 
+.message-input-area {
+  min-height: 48px;
 
-/* ========================================
-   TEXTAREA
-======================================== */
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 5px;
+
+  border: 1px solid rgba(30, 80, 48, 0.13);
+
+  border-radius: 15px;
+
+  background:
+    rgba(248, 252, 249, 0.92);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.message-input-area:focus-within {
+  border-color: rgba(34, 197, 94, 0.55);
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.08);
+}
+
+.message-input-icon {
+  width: 35px;
+  height: 35px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #e7f8eb;
+
+  font-size: 16px;
+}
 
 .message-input-area textarea {
   flex: 1;
 
-  min-height: 46px;
-  max-height: 120px;
+  min-height: 36px;
+  max-height: 110px;
 
-  padding: 13px 16px;
+  padding: 9px 3px;
 
-  border: 1px solid #d1d5db;
-  border-radius: 14px;
+  border: none;
 
-  background: #f9fafb;
+  background: transparent;
 
-  color: #111827;
+  color: #20362a;
 
   font-family: inherit;
 
-  font-size: 14px;
+  font-size: 13px;
 
   line-height: 1.4;
 
@@ -461,61 +868,69 @@
   resize: none;
 
   box-sizing: border-box;
-
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
 .message-input-area textarea::placeholder {
-  color: #9ca3af;
+  color: #9aaa9f;
 }
 
-.message-input-area textarea:focus {
-  background: #ffffff;
-
-  border-color: #22c55e;
-
-  box-shadow:
-    0 0 0 3px rgba(34, 197, 94, 0.1);
+.message-input-area textarea:disabled {
+  opacity: 0.65;
 }
 
 
-/* ========================================
+/* =========================================================
    SEND BUTTON
-======================================== */
+========================================================= */
 
 .message-input-area button {
-  min-width: 88px;
-  height: 46px;
+  min-width: 82px;
+  height: 38px;
 
-  padding: 0 18px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0 14px;
 
   border: none;
-  border-radius: 13px;
 
-  background: #16a34a;
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #22a455,
+      #16803b
+    );
 
   color: #ffffff;
 
   font-family: inherit;
 
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 12px;
+
+  font-weight: 750;
 
   cursor: pointer;
 
+  box-shadow:
+    0 5px 14px rgba(22, 128, 59, 0.2);
+
   transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    opacity 0.2s ease;
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
 }
 
 .message-input-area button:hover:not(:disabled) {
-  background: #15803d;
-
   transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 18px rgba(22, 128, 59, 0.25);
 }
 
 .message-input-area button:active:not(:disabled) {
@@ -523,42 +938,141 @@
 }
 
 .message-input-area button:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
 
   cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+.send-arrow {
+  font-size: 15px;
+
+  line-height: 1;
 }
 
 
-/* ========================================
-   CHARACTER COUNT
-======================================== */
+/* =========================================================
+   SEND LOADING
+========================================================= */
+
+.send-loading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 3px;
+}
+
+.send-loading span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  animation:
+    messageLoadingDot 1s infinite ease-in-out;
+}
+
+.send-loading span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.send-loading span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes messageLoadingDot {
+  0%,
+  70%,
+  100% {
+    transform: translateY(0);
+
+    opacity: 0.5;
+  }
+
+  35% {
+    transform: translateY(-3px);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   COMPOSER FOOTER
+========================================================= */
+
+.message-composer-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 6px 4px 0;
+
+  color: #9aaa9f;
+
+  font-size: 9px;
+}
+
+.message-composer-footer strong {
+  color: #698276;
+
+  font-weight: 700;
+}
 
 .message-character-count {
-  padding: 0 22px 12px;
+  color: #98a79f;
 
-  background: #ffffff;
-
-  color: #9ca3af;
-
-  font-size: 11px;
-
-  text-align: right;
+  font-size: 9px;
 }
 
 
-/* ========================================
+/* =========================================================
+   PAGE FOOTER
+========================================================= */
+
+.messages-page-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 16px;
+
+  color: #80958a;
+
+  font-size: 10px;
+
+  letter-spacing: 0.03em;
+}
+
+
+/* =========================================================
    LOADING
-======================================== */
+========================================================= */
 
 .messages-loading {
-  min-height: 500px;
+  min-height: 540px;
 
-  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
 
-  border: 1px solid #e5e7eb;
-  border-radius: 22px;
+  border-radius: 24px;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
@@ -567,30 +1081,44 @@
   text-align: center;
 
   box-shadow:
-    0 8px 30px rgba(15, 23, 42, 0.05);
+    0 25px 70px rgba(30, 75, 48, 0.1);
 }
 
 .messages-loading-icon {
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
 
   margin-bottom: 16px;
-
-  border-radius: 18px;
-
-  background: #dcfce7;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 28px;
+  border-radius: 20px;
+
+  background: #e6f8ea;
+
+  font-size: 29px;
+
+  animation:
+    loadingPlant 1.7s infinite ease-in-out;
+}
+
+@keyframes loadingPlant {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
 }
 
 .messages-loading h2 {
   margin: 0;
 
-  color: #111827;
+  color: #183326;
 
   font-size: 20px;
 }
@@ -598,18 +1126,18 @@
 .messages-loading p {
   margin: 8px 0 0;
 
-  color: #9ca3af;
+  color: #899a91;
 
-  font-size: 14px;
+  font-size: 13px;
 }
 
 
-/* ========================================
+/* =========================================================
    SCROLLBAR
-======================================== */
+========================================================= */
 
 .messages-list::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
 }
 
 .messages-list::-webkit-scrollbar-track {
@@ -617,359 +1145,507 @@
 }
 
 .messages-list::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: rgba(92, 125, 104, 0.24);
 
   border-radius: 20px;
 }
 
 .messages-list::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: rgba(92, 125, 104, 0.38);
 }
 
 
-/* ========================================
+/* =========================================================
    TABLET
-======================================== */
+========================================================= */
 
 @media (max-width: 900px) {
 
   .messages-page {
-    padding: 30px 24px;
+    padding: 28px 22px;
   }
 
   .messages-header h1 {
-    font-size: 30px;
+    font-size: 29px;
   }
 
   .messages-list {
     height: 500px;
 
-    padding: 24px 20px;
+    padding: 18px 20px;
   }
 
   .message-content {
-    max-width: 75%;
+    max-width: 78%;
   }
 }
 
 
-/* ========================================
+/* =========================================================
    MOBILE
-======================================== */
+========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
   .messages-page {
-    padding: 24px 14px;
+    padding: 20px 12px 22px;
   }
 
   .messages-header {
-    margin-bottom: 20px;
+    align-items: flex-start;
+
+    margin-bottom: 17px;
   }
 
-  .messages-header-icon {
-    display: none;
+  .messages-header-left {
+    align-items: flex-start;
+
+    gap: 11px;
+  }
+
+  .messages-brand-icon {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 14px;
+
+    font-size: 21px;
+  }
+
+  .messages-label {
+    font-size: 9px;
   }
 
   .messages-header h1 {
-    font-size: 27px;
+    font-size: 24px;
   }
 
   .messages-description {
-    font-size: 14px;
+    font-size: 12px;
+
+    line-height: 1.45;
+  }
+
+  .messages-header-badge {
+    display: none;
   }
 
   .messages-card {
-    border-radius: 17px;
+    border-radius: 19px;
   }
 
   .messages-card-header {
-    padding: 14px 16px;
+    min-height: 68px;
+
+    padding: 12px 14px;
   }
 
   .messages-community-avatar {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
 
-    border-radius: 12px;
+    border-radius: 13px;
   }
 
   .messages-card-header h2 {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .messages-card-header p {
+    font-size: 10px;
+  }
+
+  .messages-live-badge {
+    display: none;
+  }
+
+  .messages-member-icon {
+    display: none;
   }
 
   .messages-list {
     height: 500px;
 
-    padding: 20px 12px;
+    padding: 17px 11px;
+  }
+
+  .messages-date-divider {
+    margin-bottom: 18px;
+
+    font-size: 8px;
   }
 
   .message-row {
-    gap: 7px;
+    gap: 6px;
 
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   .message-avatar {
-    width: 32px;
-    height: 32px;
+    width: 29px;
+    height: 29px;
 
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .message-content {
-    max-width: 80%;
+    max-width: 82%;
+  }
+
+  .message-sender {
+    font-size: 9px;
   }
 
   .message-bubble {
-    padding: 10px 12px;
+    padding: 9px 11px;
 
     border-radius: 14px;
   }
 
   .message-bubble p {
-    font-size: 13px;
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+  .message-time {
+    font-size: 8px;
+  }
+
+  .message-composer-wrapper {
+    padding: 10px;
   }
 
   .message-input-area {
-    padding: 12px;
+    gap: 6px;
 
-    gap: 8px;
+    padding: 4px;
+  }
+
+  .message-input-icon {
+    display: none;
   }
 
   .message-input-area textarea {
-    min-height: 44px;
+    min-height: 35px;
 
-    padding: 12px;
+    font-size: 12px;
   }
 
   .message-input-area button {
-    min-width: 70px;
+    min-width: 65px;
 
-    height: 44px;
+    height: 36px;
 
-    padding: 0 12px;
+    padding: 0 10px;
+
+    font-size: 11px;
   }
 
-  .message-character-count {
-    padding: 0 14px 10px;
+  .send-arrow {
+    display: none;
+  }
+
+  .message-composer-footer {
+    font-size: 8px;
+  }
+
+  .messages-page-footer {
+    font-size: 8px;
+
+    margin-top: 12px;
+  }
+
+  .messages-empty {
+    padding: 20px;
+  }
+
+  .messages-empty-icon {
+    width: 58px;
+    height: 58px;
+
+    font-size: 24px;
+  }
+
+  .messages-empty h3 {
+    font-size: 17px;
+  }
+
+  .messages-empty p {
+    font-size: 12px;
   }
 }
-/* ========================================
-   AGRICONNECT — MESSAGES DARK MODE
-======================================== */
 
-/* PAGE */
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
 body.agriconnect-dark-mode .messages-page {
-  background: #0f1720;
-  color: #e8f0eb;
+  background:
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(22, 101, 52, 0.2),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 20%,
+      rgba(21, 128, 61, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #0b1510,
+      #101c15 50%,
+      #0d1711
+    );
+
+  color: #e8f2eb;
 }
 
-/* ========================================
-   HEADER
-======================================== */
+body.agriconnect-dark-mode .messages-brand-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #183d28,
+      #143320
+    );
+
+  border-color: rgba(74, 222, 128, 0.12);
+}
 
 body.agriconnect-dark-mode .messages-label {
   color: #4ade80;
 }
 
 body.agriconnect-dark-mode .messages-header h1 {
-  color: #f1f7f3;
+  color: #eff8f2;
 }
 
 body.agriconnect-dark-mode .messages-description {
-  color: #aab8b0;
+  color: #91a59a;
 }
 
-body.agriconnect-dark-mode .messages-header-icon {
-  background: #203d2d;
+body.agriconnect-dark-mode .messages-header-badge {
+  background: rgba(23, 43, 30, 0.72);
+
+  border-color: rgba(74, 222, 128, 0.1);
+
+  color: #9bd4aa;
 }
-
-/* ========================================
-   ERROR
-======================================== */
-
-body.agriconnect-dark-mode .messages-error {
-  background: #321b1b;
-  border-color: #633333;
-  color: #ffb4b4;
-}
-
-/* ========================================
-   MAIN CHAT CARD
-======================================== */
 
 body.agriconnect-dark-mode .messages-card {
-  background: #17211b;
-  border-color: #2a3830;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  background:
+    rgba(19, 31, 24, 0.76);
+
+  border-color: rgba(255, 255, 255, 0.07);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.28);
 }
 
-/* ========================================
-   CHAT HEADER
-======================================== */
-
 body.agriconnect-dark-mode .messages-card-header {
-  border-bottom-color: #2a3830;
+  background:
+    rgba(25, 40, 30, 0.65);
+
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 body.agriconnect-dark-mode .messages-community-avatar {
-  background: #203d2d;
+  background:
+    linear-gradient(
+      145deg,
+      #1d432b,
+      #173723
+    );
 }
 
 body.agriconnect-dark-mode .messages-card-header h2 {
-  color: #eef6f1;
+  color: #edf7f0;
 }
 
 body.agriconnect-dark-mode .messages-card-header p {
-  color: #89968f;
+  color: #7f9587;
 }
 
-/* ========================================
-   MESSAGE LIST
-======================================== */
+body.agriconnect-dark-mode .messages-live-badge {
+  background: #173b25;
+
+  color: #62d888;
+}
+
+body.agriconnect-dark-mode .messages-member-icon {
+  background: #172b1e;
+}
 
 body.agriconnect-dark-mode .messages-list {
-  background: #101814;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13, 25, 17, 0.86),
+      rgba(10, 21, 14, 0.78)
+    );
 }
 
-/* ========================================
-   MESSAGE AVATAR
-======================================== */
+body.agriconnect-dark-mode .messages-date-divider {
+  color: #617368;
+}
 
 body.agriconnect-dark-mode .message-avatar {
-  background: #203d2d;
-  color: #72d69b;
-  border-color: #17211b;
+  background:
+    linear-gradient(
+      145deg,
+      #1d432b,
+      #173723
+    );
+
+  color: #7ee49c;
+
+  border-color: #14241a;
 }
 
 body.agriconnect-dark-mode .own-avatar {
-  background: #16a34a;
+  background:
+    linear-gradient(
+      145deg,
+      #22a455,
+      #16803b
+    );
+
   color: #ffffff;
 }
 
-/* ========================================
-   SENDER NAME
-======================================== */
-
 body.agriconnect-dark-mode .message-sender {
-  color: #9eaaa3;
+  color: #8da196;
 }
 
-/* ========================================
-   MESSAGE BUBBLES
-======================================== */
-
 body.agriconnect-dark-mode .message-bubble {
-  background: #26332c;
-  border-color: #37463d;
-  color: #dce8e0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  background:
+    rgba(34, 49, 40, 0.92);
+
+  border-color: rgba(255, 255, 255, 0.06);
+
+  color: #dce9e1;
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.16);
 }
 
 body.agriconnect-dark-mode .message-row-own .message-bubble {
-  background: #16a34a;
-  border-color: #16a34a;
+  background:
+    linear-gradient(
+      135deg,
+      #21a455,
+      #16803b
+    );
+
+  border-color: transparent;
+
   color: #ffffff;
 }
 
-/* ========================================
-   MESSAGE TIME
-======================================== */
-
 body.agriconnect-dark-mode .message-time {
-  color: #7f8b84;
+  color: #687a6f;
 }
 
-/* ========================================
-   EMPTY STATE
-======================================== */
+body.agriconnect-dark-mode .messages-composer-wrapper,
+body.agriconnect-dark-mode .message-composer-wrapper {
+  background:
+    rgba(19, 31, 24, 0.75);
 
-body.agriconnect-dark-mode .messages-empty-icon {
-  background: #203d2d;
+  border-top-color: rgba(255, 255, 255, 0.06);
 }
-
-body.agriconnect-dark-mode .messages-empty h3 {
-  color: #eef6f1;
-}
-
-body.agriconnect-dark-mode .messages-empty p {
-  color: #9eaaa3;
-}
-
-/* ========================================
-   MESSAGE INPUT
-======================================== */
 
 body.agriconnect-dark-mode .message-input-area {
-  background: #17211b;
-  border-top-color: #2a3830;
+  background:
+    rgba(13, 25, 17, 0.9);
+
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+body.agriconnect-dark-mode .message-input-area:focus-within {
+  background:
+    rgba(16, 31, 21, 0.96);
+
+  border-color: rgba(74, 222, 128, 0.4);
+
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.08);
+}
+
+body.agriconnect-dark-mode .message-input-icon {
+  background: #193923;
 }
 
 body.agriconnect-dark-mode .message-input-area textarea {
-  background: #101a14;
-  border-color: #37463d;
-  color: #eef6f1;
+  color: #e8f2eb;
 }
 
 body.agriconnect-dark-mode .message-input-area textarea::placeholder {
-  color: #6f7c74;
+  color: #667a6d;
 }
 
-body.agriconnect-dark-mode .message-input-area textarea:focus {
-  background: #101a14;
-  border-color: #22c55e;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+body.agriconnect-dark-mode .message-composer-footer {
+  color: #64766b;
 }
 
-/* SEND BUTTON */
-
-body.agriconnect-dark-mode .message-input-area button {
-  background: #16a34a;
-  color: #ffffff;
+body.agriconnect-dark-mode .message-composer-footer strong {
+  color: #8ba193;
 }
 
-body.agriconnect-dark-mode .message-input-area button:hover:not(:disabled) {
-  background: #15803d;
+body.agriconnect-dark-mode .messages-empty-icon {
+  background:
+    linear-gradient(
+      145deg,
+      #193923,
+      #15301e
+    );
 }
 
-/* CHARACTER COUNT */
-
-body.agriconnect-dark-mode .message-character-count {
-  background: #17211b;
-  color: #89968f;
+body.agriconnect-dark-mode .messages-empty h3 {
+  color: #edf7f0;
 }
 
-/* ========================================
-   LOADING
-======================================== */
+body.agriconnect-dark-mode .messages-empty p {
+  color: #7f9387;
+}
+
+body.agriconnect-dark-mode .messages-empty-hint {
+  background: #193923;
+
+  color: #8fc39d;
+}
+
+body.agriconnect-dark-mode .messages-page-footer {
+  color: #687c70;
+}
 
 body.agriconnect-dark-mode .messages-loading {
-  background: #17211b;
-  border-color: #2a3830;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  background:
+    rgba(19, 31, 24, 0.76);
+
+  border-color: rgba(255, 255, 255, 0.07);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.28);
 }
 
 body.agriconnect-dark-mode .messages-loading-icon {
-  background: #203d2d;
+  background: #193923;
 }
 
 body.agriconnect-dark-mode .messages-loading h2 {
-  color: #eef6f1;
+  color: #edf7f0;
 }
 
 body.agriconnect-dark-mode .messages-loading p {
-  color: #9eaaa3;
+  color: #7f9387;
 }
 
-/* ========================================
-   SCROLLBAR
-======================================== */
-
 body.agriconnect-dark-mode .messages-list::-webkit-scrollbar-thumb {
-  background: #3a4840;
+  background: #31443a;
 }
 
 body.agriconnect-dark-mode .messages-list::-webkit-scrollbar-thumb:hover {
-  background: #4b5c51;
+  background: #40564a;
 }

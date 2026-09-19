@@ -7,6 +7,15 @@ import Sidebar from "../components/sidebar/Sidebar";
 import "../styles/farmerDashboard.css";
 
 function FarmerDashboard() {
+  const storedUser = localStorage.getItem("user");
+
+  let user = null;
+
+  try {
+    user = storedUser ? JSON.parse(storedUser) : null;
+  } catch (error) {
+    console.error("Failed to read stored user:", error);
+  }
   return (
     <div
       style={{
@@ -30,7 +39,7 @@ function FarmerDashboard() {
 
           {/* Header */}
           <div className="farmer-dashboard-header">
-            <h1>Welcome back, Hari!</h1>
+            <h1>Welcome back, {user?.fullName || user?.full_name || "User"}!</h1>
 
             <p>
               Here's what's happening with your farm today.

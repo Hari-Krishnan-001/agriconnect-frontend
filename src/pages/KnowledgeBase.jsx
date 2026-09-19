@@ -563,7 +563,7 @@ function KnowledgeBase() {
           <div>
 
             <p className="knowledge-label">
-              AgriConnect Knowledge
+              AgriLink Knowledge
             </p>
 
             <h1>

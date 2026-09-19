@@ -80,7 +80,7 @@ function LandingPage() {
           onClick={() => goTo("/")}
         >
           <span>🍃</span>
-          Agri<span>Connect</span>
+          Agri<span>Link</span>
         </button>
 
         <div className="landing-footer-links">
@@ -391,7 +391,7 @@ function LandingPage() {
           <div className="landing-about-heading">
 
             <span>
-              ABOUT AGRICONNECT
+              ABOUT AGRILINK
             </span>
 
             <h2>
@@ -562,7 +562,7 @@ function LandingPage() {
           <div>
 
             <strong>
-              Why AgriConnect matters today
+              Why AgriLink matters today
             </strong>
 
             <p>
@@ -835,7 +835,7 @@ function LandingPage() {
           <button
             onClick={() => goTo("/register")}
           >
-            Join AgriConnect Today!
+            Join AgriLink Today!
           </button>
 
         </div>
